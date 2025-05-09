@@ -237,16 +237,16 @@ shape = SubResource("RectangleShape2D_0t5g4")
 position = Vector2(-1213, -357)
 shape = SubResource("RectangleShape2D_a2xgc")
 
-[node name="Door-area" type="Area2D" parent="."]
+[node name="ShopDoor" type="Area2D" parent="."]
 script = ExtResource("13_3c7gq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door-area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopDoor"]
 z_index = 2
 position = Vector2(158.5, -36.5)
 shape = SubResource("RectangleShape2D_6e07w")
 
-[node name="Sprite2D" type="Sprite2D" parent="Door-area"]
+[node name="Sprite2D" type="Sprite2D" parent="ShopDoor"]
 z_index = 1
 texture = ExtResource("14_bivvy")
 
-[connection signal="body_entered" from="Door-area" to="Door-area" method="_on_body_entered"]
+[connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]

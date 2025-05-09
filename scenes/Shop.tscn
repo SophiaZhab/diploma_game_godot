@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bw5xo4p1lvaia"]
+[gd_scene load_steps=22 format=3 uid="uid://bw5xo4p1lvaia"]
 
 [ext_resource type="Texture2D" uid="uid://bt6e0ysi3bxh2" path="res://backgrounds/bgd.png" id="1_ec5oe"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="1_rgcs7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj61imb3tqd" path="res://Shop_objects/frame.png" id="4_fpbbi"]
 [ext_resource type="Texture2D" uid="uid://c38iahoownen" path="res://Shop_objects/refrigerators.png" id="5_m0qts"]
 [ext_resource type="Texture2D" uid="uid://085vr4d6n4ur" path="res://Shop_objects/boxes.png" id="6_fpbbi"]
+[ext_resource type="Script" uid="uid://b70xb4mx1b4q4" path="res://scenes/doors.gd" id="7_m0qts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht580"]
 size = Vector2(50.5, 311.5)
@@ -32,13 +33,22 @@ size = Vector2(47, 197)
 size = Vector2(107.5, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plhqw"]
-size = Vector2(244, 20)
+size = Vector2(274, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bvj0"]
+size = Vector2(810, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfmin"]
+size = Vector2(34, 132.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6yfk"]
 size = Vector2(239.5, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0qts"]
 size = Vector2(331, 102.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj4q6"]
+size = Vector2(199, 29)
 
 [node name="Shop" type="Node2D"]
 y_sort_enabled = true
@@ -47,7 +57,7 @@ y_sort_enabled = true
 position = Vector2(1, 0)
 texture = ExtResource("1_ec5oe")
 
-[node name="Player" parent="." instance=ExtResource("1_rgcs7")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_rgcs7")]
 position = Vector2(252, 109)
 
 [node name="side-refrigerators" type="StaticBody2D" parent="."]
@@ -101,8 +111,18 @@ position = Vector2(400.25, 272)
 shape = SubResource("RectangleShape2D_jccym")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="frame"]
-position = Vector2(255, 299)
+position = Vector2(255, 312.5)
 shape = SubResource("RectangleShape2D_plhqw")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="frame"]
+z_index = 1
+position = Vector2(51, -157)
+shape = SubResource("RectangleShape2D_5bvj0")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="frame"]
+z_index = 1
+position = Vector2(370, -22.75)
+shape = SubResource("RectangleShape2D_pfmin")
 
 [node name="refrigerators" type="StaticBody2D" parent="."]
 y_sort_enabled = true
@@ -134,3 +154,14 @@ shape = SubResource("RectangleShape2D_m0qts")
 position = Vector2(0, 11.5804)
 scale = Vector2(1, 1.08929)
 polygon = PackedVector2Array(22, 9.41367, 124, -24, 353, -24, 352, 11)
+
+[node name="Doors" type="Area2D" parent="."]
+script = ExtResource("7_m0qts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors"]
+position = Vector2(248.5, 288.5)
+shape = SubResource("RectangleShape2D_xj4q6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors"]
+
+[connection signal="body_entered" from="Doors" to="Doors" method="_on_body_entered"]

@@ -6,28 +6,29 @@ const SPEED = 400.0
 func _ready():
 	add_to_group("player")
 	print("Player initialized, checking for spawn position")
-	
 	await get_tree().process_frame
+	_set_spawn_position()
 	
-	if Global.last_door_name != "":
-		print("Last door name: ", Global.last_door_name)
-		var doors = get_tree().get_nodes_in_group("doors")
-		print("Found doors: ", doors.size())
-		
-		for door in doors:
-			print("Checking door: ", door.name)
-			if door.name == Global.last_door_name:
-				print("Door found! Setting position near: ", door.name)
-				position = door.global_position + Vector2(150, 5)
-				print("New player position: ", position)
-				break
-		
-		Global.last_door_name = ""
-	else:
+func _set_spawn_position():
+	if Global.last_door_name == "":
 		print("No door name saved")
+		return
+
+	var doors = get_tree().get_nodes_in_group("doors")
+	print("Found doors: ", doors.size())
+
+	for door in doors:
+		print("Checking door: ", door.name)
+		if door.name == Global.last_door_name:
+			print("Match! Spawning at door: ", door.name)
+			position = door.global_position + Vector2(0, 20)
+			break
+
+	Global.last_door_name = ""
+
 
 func _physics_process(_delta):
-	z_index = int(position.y)
+	#z_index = int(position.y)
 	var direction = Vector2.ZERO
 	
 	if Input.is_action_pressed("ui_right"):

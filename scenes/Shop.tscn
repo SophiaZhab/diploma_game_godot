@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=3 uid="uid://bw5xo4p1lvaia"]
 
-[ext_resource type="Texture2D" uid="uid://bt6e0ysi3bxh2" path="res://backgrounds/bgd.png" id="1_ec5oe"]
+[ext_resource type="Texture2D" uid="uid://bt6e0ysi3bxh2" path="res://assets/backgrounds/bgd.png" id="1_ec5oe"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="1_rgcs7"]
-[ext_resource type="Texture2D" uid="uid://bx3oo36xip1b5" path="res://Shop_objects/side-refrigerators.png" id="3_yltc6"]
-[ext_resource type="Texture2D" uid="uid://cxj61imb3tqd" path="res://Shop_objects/frame.png" id="4_fpbbi"]
-[ext_resource type="Texture2D" uid="uid://c38iahoownen" path="res://Shop_objects/refrigerators.png" id="5_m0qts"]
-[ext_resource type="Texture2D" uid="uid://085vr4d6n4ur" path="res://Shop_objects/boxes.png" id="6_fpbbi"]
-[ext_resource type="Script" uid="uid://b70xb4mx1b4q4" path="res://scenes/doors.gd" id="7_m0qts"]
+[ext_resource type="Texture2D" uid="uid://bx3oo36xip1b5" path="res://assets/Shop_objects/side-refrigerators.png" id="3_yltc6"]
+[ext_resource type="Texture2D" uid="uid://cxj61imb3tqd" path="res://assets/Shop_objects/frame.png" id="4_fpbbi"]
+[ext_resource type="Texture2D" uid="uid://c38iahoownen" path="res://assets/Shop_objects/refrigerators.png" id="5_m0qts"]
+[ext_resource type="Texture2D" uid="uid://085vr4d6n4ur" path="res://assets/Shop_objects/boxes.png" id="6_fpbbi"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="7_m0qts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht580"]
 size = Vector2(50.5, 311.5)
@@ -36,7 +36,7 @@ size = Vector2(107.5, 72)
 size = Vector2(274, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bvj0"]
-size = Vector2(810, 178)
+size = Vector2(810, 164)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfmin"]
 size = Vector2(34, 132.5)
@@ -58,6 +58,7 @@ position = Vector2(1, 0)
 texture = ExtResource("1_ec5oe")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_rgcs7")]
+z_index = 2
 position = Vector2(252, 109)
 
 [node name="side-refrigerators" type="StaticBody2D" parent="."]
@@ -116,7 +117,7 @@ shape = SubResource("RectangleShape2D_plhqw")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="frame"]
 z_index = 1
-position = Vector2(51, -157)
+position = Vector2(51, -164)
 shape = SubResource("RectangleShape2D_5bvj0")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="frame"]
@@ -135,28 +136,35 @@ position = Vector2(-111.75, -105)
 shape = SubResource("RectangleShape2D_a6yfk")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="refrigerators"]
+position = Vector2(-7.62939e-06, -2.08807)
+scale = Vector2(1, 1.19886)
 polygon = PackedVector2Array(-82, -6, 7, -49, 7, -61, -82, -59)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="refrigerators"]
+position = Vector2(0, 4.91428)
+scale = Vector2(1, 1.19196)
 polygon = PackedVector2Array(-134, -34, -135, -61, -232, -62, -231, -49)
 
 [node name="boxes" type="StaticBody2D" parent="."]
+z_index = 2
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="boxes"]
+position = Vector2(-1, 20)
 texture = ExtResource("6_fpbbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boxes"]
-position = Vector2(186.5, 72.25)
+position = Vector2(185, 90)
 shape = SubResource("RectangleShape2D_m0qts")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="boxes"]
-position = Vector2(0, 11.5804)
-scale = Vector2(1, 1.08929)
+position = Vector2(1, 30)
 polygon = PackedVector2Array(22, 9.41367, 124, -24, 353, -24, 352, 11)
 
 [node name="Doors" type="Area2D" parent="."]
 script = ExtResource("7_m0qts")
+target_scene = "res://scenes/main_street.tscn"
+target_door_name = "ShopDoor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors"]
 position = Vector2(248.5, 288.5)

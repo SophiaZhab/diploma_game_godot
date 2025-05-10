@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://u4a37jt3shfx"]
+
+[ext_resource type="Texture2D" uid="uid://dsla3g2y0cpxy" path="res://assets/backgrounds/bgdl.png" id="1_dr2oc"]
+[ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="3_6frsu"]
+[ext_resource type="Texture2D" uid="uid://b6fgf7yvpko6a" path="res://assets/library-objects/frame.png" id="3_qyo4v"]
+[ext_resource type="Texture2D" uid="uid://bw7d6upfrs60i" path="res://assets/library-objects/center-shelves.png" id="4_h01uo"]
+[ext_resource type="Texture2D" uid="uid://12witfk2p57j" path="res://assets/library-objects/left-shelves.png" id="5_wyy3a"]
+[ext_resource type="Texture2D" uid="uid://dlxogq278obmk" path="res://assets/library-objects/front-shelves.png" id="6_q3d3p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bqx5"]
+size = Vector2(683, 222)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aotgj"]
+size = Vector2(1620, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idaw7"]
+size = Vector2(243, 816)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m1la"]
+size = Vector2(195, 917.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gopiv"]
+size = Vector2(391.5, 236.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvcvi"]
+size = Vector2(617, 111.75)
+
+[node name="Library" type="Node2D"]
+z_index = 2
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-2, -2)
+scale = Vector2(0.684274, 0.684274)
+texture = ExtResource("1_dr2oc")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_6frsu")]
+z_index = 2
+position = Vector2(199, 4)
+
+[node name="frame" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="frame"]
+z_index = 3
+y_sort_enabled = true
+position = Vector2(-60.8548, 48.166)
+scale = Vector2(0.688417, 0.688417)
+texture = ExtResource("3_qyo4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frame"]
+z_index = 3
+position = Vector2(264, 547)
+shape = SubResource("RectangleShape2D_7bqx5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="frame"]
+position = Vector2(-217, -330)
+shape = SubResource("RectangleShape2D_aotgj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="frame"]
+position = Vector2(-624.5, 44)
+shape = SubResource("RectangleShape2D_idaw7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="frame"]
+position = Vector2(591, 85)
+shape = SubResource("RectangleShape2D_6m1la")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="frame"]
+z_index = 3
+position = Vector2(-527, 534.125)
+shape = SubResource("RectangleShape2D_gopiv")
+
+[node name="center-shelves" type="StaticBody2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="center-shelves"]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-331, 135)
+scale = Vector2(0.683562, 0.683562)
+texture = ExtResource("4_h01uo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="center-shelves"]
+z_index = 2
+y_sort_enabled = true
+polygon = PackedVector2Array(-240, 338, -164, 338, -164, 156, -515, 156, -515, 222, -238, 222)
+
+[node name="left-shelves" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="left-shelves"]
+y_sort_enabled = true
+position = Vector2(-283, -148)
+scale = Vector2(0.692894, 0.690865)
+texture = ExtResource("5_wyy3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left-shelves"]
+position = Vector2(-286.5, -80.125)
+shape = SubResource("RectangleShape2D_nvcvi")
+
+[node name="front-shelves" type="StaticBody2D" parent="."]
+z_index = 3
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="front-shelves"]
+position = Vector2(-447, 209)
+scale = Vector2(0.684673, 0.684673)
+texture = ExtResource("6_q3d3p")

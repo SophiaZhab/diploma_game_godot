@@ -83,17 +83,20 @@ y_sort_enabled = true
 script = ExtResource("1_ebec5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 2
 y_sort_enabled = true
-position = Vector2(1, 1.42109e-14)
 scale = Vector2(0.155562, 0.155562)
 sprite_frames = SubResource("SpriteFrames_6loc5")
 animation = &"run_right"
+offset = Vector2(0, -500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 2
 y_sort_enabled = true
-position = Vector2(-2, 91)
+position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_laxlr")
+
+[node name="FeetPosition" type="Marker2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1, 0)
+gizmo_extents = 20.4
 
 [node name="Camera2D" type="Camera2D" parent="."]

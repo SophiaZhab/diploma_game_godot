@@ -1,0 +1,190 @@
+[gd_scene load_steps=21 format=3 uid="uid://b4h7ahtdfuf42"]
+
+[ext_resource type="Texture2D" uid="uid://dhq0cjv07mwcn" path="res://assets/backgrounds/bgd-nl.png" id="2_4pdbx"]
+[ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="3_43dku"]
+[ext_resource type="Texture2D" uid="uid://bhqo1038cuepc" path="res://assets/near-library-objects/roof.png" id="4_5al6p"]
+[ext_resource type="Texture2D" uid="uid://gdegil5ea1as" path="res://assets/near-library-objects/grey-house.png" id="5_bsa4r"]
+[ext_resource type="Texture2D" uid="uid://cdmdj8fcsk82r" path="res://assets/near-library-objects/pink-house.png" id="6_bcxob"]
+[ext_resource type="Texture2D" uid="uid://drvai51trrpne" path="res://assets/near-library-objects/trees.png" id="7_s7u5w"]
+[ext_resource type="Texture2D" uid="uid://q2gvnfgdfofm" path="res://assets/near-library-objects/car-rightside.png" id="8_w38u1"]
+[ext_resource type="Texture2D" uid="uid://dxu5668h2fakv" path="res://assets/near-library-objects/library-building.png" id="9_vsso6"]
+[ext_resource type="Texture2D" uid="uid://nwwnkegsojb4" path="res://assets/near-library-objects/car-leftside.png" id="10_8ugnb"]
+[ext_resource type="Texture2D" uid="uid://6lxofvaodgqw" path="res://assets/near-library-objects/cars.png" id="11_2fdif"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="12_4pdbx"]
+[ext_resource type="Texture2D" uid="uid://d3wh50nrxn0yx" path="res://assets/near-library-objects/LibraryDoors.png" id="12_43dku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tmwq"]
+size = Vector2(1512, 444)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmexh"]
+size = Vector2(612.5, 472.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg33y"]
+size = Vector2(274, 296.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t128"]
+size = Vector2(826.5, 759)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4mll"]
+size = Vector2(142.5, 1682)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kolov"]
+size = Vector2(242, 1356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5xry"]
+size = Vector2(628, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83wtd"]
+size = Vector2(79, 533.75)
+
+[node name="Near-library" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4pdbx")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_43dku")]
+z_index = 1
+
+[node name="roof" type="StaticBody2D" parent="."]
+z_index = 3
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="roof"]
+position = Vector2(-559, 873)
+texture = ExtResource("4_5al6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="roof"]
+position = Vector2(-572, 907)
+shape = SubResource("RectangleShape2D_5tmwq")
+
+[node name="gray-house" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="gray-house"]
+y_sort_enabled = true
+position = Vector2(-1192, -473.406)
+scale = Vector2(0.850267, 0.850267)
+texture = ExtResource("5_bsa4r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gray-house"]
+position = Vector2(-1207.25, -238)
+shape = SubResource("RectangleShape2D_cmexh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="gray-house"]
+position = Vector2(-788, -187.75)
+shape = SubResource("RectangleShape2D_hg33y")
+
+[node name="pink-house" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="pink-house"]
+position = Vector2(-334, -565.493)
+scale = Vector2(0.897485, 0.897485)
+texture = ExtResource("6_bcxob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pink-house"]
+position = Vector2(-348.25, -377.5)
+shape = SubResource("RectangleShape2D_5t128")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="pink-house"]
+polygon = PackedVector2Array(48, -507, 381, -550, 919, -621, 1016, -378, 1170, -353, 1233, -566, 1554, -494, 1609, -1088, 89, -1094)
+
+[node name="trees" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="trees"]
+z_index = 3
+y_sort_enabled = true
+position = Vector2(819, 794)
+texture = ExtResource("7_s7u5w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="trees"]
+z_index = 3
+y_sort_enabled = true
+polygon = PackedVector2Array(234, 846, 635, 1000, 1178, 988, 1496, 854, 1609, 854, 1617, 1100, 151, 1105, 159, 829)
+
+[node name="car1" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="car1"]
+position = Vector2(137, 491)
+texture = ExtResource("8_w38u1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car1"]
+z_index = 1
+y_sort_enabled = true
+polygon = PackedVector2Array(327, 483, 65, 471, -113, 498, -110, 593, 266, 585, 327, 563)
+
+[node name="library" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(6, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="library"]
+position = Vector2(777, -622)
+texture = ExtResource("9_vsso6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="library"]
+polygon = PackedVector2Array(320, -324, 321, -663, 1231, -663, 1231, -317, 786, -321, 784, -296, 740, -299, 739, -318, 711, -321, 711, -399, 545, -400, 544, -321, 526, -321, 525, -299, 478, -302, 475.166, -321.922)
+
+[node name="car2" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="car2"]
+position = Vector2(1291, -169)
+texture = ExtResource("10_8ugnb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car2"]
+position = Vector2(28, -3)
+polygon = PackedVector2Array(1040, -72, 1017, -112, 1017, -195, 1123, -218, 1437, -209, 1448, -164, 1443, -95, 1383, -69)
+
+[node name="cars-group" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="cars-group"]
+position = Vector2(1115, 545)
+texture = ExtResource("11_2fdif")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cars-group"]
+z_index = 1
+y_sort_enabled = true
+polygon = PackedVector2Array(825, 769, 807, 725, 812, 541, 864, 517, 1043, 523, 1061, 569, 1115, 580, 1118, 476, 1167, 455, 1377, 460, 1385, 536, 1359, 733, 1162, 738, 1110, 644, 1053, 644, 1066, 730, 1030, 785)
+
+[node name="borders" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders"]
+position = Vector2(1568.75, 95)
+shape = SubResource("RectangleShape2D_j4mll")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="borders"]
+position = Vector2(-1622, 497)
+shape = SubResource("RectangleShape2D_kolov")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="borders"]
+position = Vector2(-1300, 1141)
+shape = SubResource("RectangleShape2D_s5xry")
+
+[node name="main-street-enter" type="Area2D" parent="."]
+position = Vector2(-1395, 259)
+script = ExtResource("12_4pdbx")
+target_scene = "res://scenes/main_street.tscn"
+target_door_name = "library-street-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main-street-enter"]
+position = Vector2(-74.5, -6.125)
+shape = SubResource("RectangleShape2D_83wtd")
+
+[node name="Sprite2D" type="Sprite2D" parent="main-street-enter"]
+
+[node name="LibraryDoor" type="Area2D" parent="."]
+priority = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LibraryDoor"]
+z_index = 1
+position = Vector2(638, -462)
+texture = ExtResource("12_43dku")
+
+[connection signal="body_entered" from="main-street-enter" to="main-street-enter" method="_on_body_entered"]

@@ -1,19 +1,19 @@
-[gd_scene load_steps=37 format=3 uid="uid://34olrx86jbjf"]
+[gd_scene load_steps=38 format=3 uid="uid://34olrx86jbjf"]
 
-[ext_resource type="Texture2D" uid="uid://cbttgi0epj26d" path="res://backgrounds/main_street.png" id="1_eif53"]
+[ext_resource type="Texture2D" uid="uid://cbttgi0epj26d" path="res://assets/backgrounds/main_street.png" id="1_eif53"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_h1lmc"]
-[ext_resource type="Texture2D" uid="uid://dd65dxjr6v2b8" path="res://main_street_objects/main_street_left_roof.png" id="3_3c7gq"]
-[ext_resource type="Texture2D" uid="uid://ce5xht61jurfs" path="res://main_street_objects/main_street_right_roof.png" id="4_bivvy"]
-[ext_resource type="Texture2D" uid="uid://di3exrpak7x7o" path="res://main_street_objects/main_street_pink_house.png" id="5_6e07w"]
-[ext_resource type="Texture2D" uid="uid://cx6pluixje7e0" path="res://main_street_objects/main_street_shop.png" id="6_drii4"]
-[ext_resource type="Texture2D" uid="uid://ca2h2mvb6vjbi" path="res://main_street_objects/main_street_trash_cans.png" id="7_le1d0"]
-[ext_resource type="Texture2D" uid="uid://817viul2vd1q" path="res://main_street_objects/main_street_trees.png" id="8_6c23v"]
-[ext_resource type="Texture2D" uid="uid://cq1on8yyjygqa" path="res://main_street_objects/main_street_door_fence.png" id="9_0xgxe"]
-[ext_resource type="Texture2D" uid="uid://vdmsx2pxmgqu" path="res://main_street_objects/main_street_pink_house2.png" id="10_rkexx"]
-[ext_resource type="Texture2D" uid="uid://opf48n5bxk7s" path="res://main_street_objects/main_street_yellow_house.png" id="11_oahl2"]
-[ext_resource type="Texture2D" uid="uid://ddleaikbx2gm7" path="res://main_street_objects/main_street_grey_house.png" id="12_6u5q2"]
-[ext_resource type="Script" uid="uid://ctxqrtk070xj4" path="res://scenes/door_area.gd" id="13_3c7gq"]
-[ext_resource type="Texture2D" uid="uid://dxrsktkorwrb" path="res://main_street_objects/main_street_door_shop.png" id="14_bivvy"]
+[ext_resource type="Texture2D" uid="uid://dd65dxjr6v2b8" path="res://assets/main_street_objects/main_street_left_roof.png" id="3_3c7gq"]
+[ext_resource type="Texture2D" uid="uid://ce5xht61jurfs" path="res://assets/main_street_objects/main_street_right_roof.png" id="4_bivvy"]
+[ext_resource type="Texture2D" uid="uid://di3exrpak7x7o" path="res://assets/main_street_objects/main_street_pink_house.png" id="5_6e07w"]
+[ext_resource type="Texture2D" uid="uid://cx6pluixje7e0" path="res://assets/main_street_objects/main_street_shop.png" id="6_drii4"]
+[ext_resource type="Texture2D" uid="uid://ca2h2mvb6vjbi" path="res://assets/main_street_objects/main_street_trash_cans.png" id="7_le1d0"]
+[ext_resource type="Texture2D" uid="uid://817viul2vd1q" path="res://assets/main_street_objects/main_street_trees.png" id="8_6c23v"]
+[ext_resource type="Texture2D" uid="uid://cq1on8yyjygqa" path="res://assets/main_street_objects/main_street_door_fence.png" id="9_0xgxe"]
+[ext_resource type="Texture2D" uid="uid://vdmsx2pxmgqu" path="res://assets/main_street_objects/main_street_pink_house2.png" id="10_rkexx"]
+[ext_resource type="Texture2D" uid="uid://opf48n5bxk7s" path="res://assets/main_street_objects/main_street_yellow_house.png" id="11_oahl2"]
+[ext_resource type="Texture2D" uid="uid://ddleaikbx2gm7" path="res://assets/main_street_objects/main_street_grey_house.png" id="12_6u5q2"]
+[ext_resource type="Texture2D" uid="uid://dxrsktkorwrb" path="res://assets/main_street_objects/main_street_door_shop.png" id="14_bivvy"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="15_bivvy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_laxlr"]
 
@@ -79,15 +79,20 @@ size = Vector2(207, 1521)
 size = Vector2(322, 230)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e07w"]
-size = Vector2(81, 69)
+size = Vector2(81, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c7gq"]
+size = Vector2(59.75, 432.25)
 
 [node name="Main_street" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Bgd" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("1_eif53")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h1lmc")]
+z_index = 2
 position = Vector2(946, 9)
 
 [node name="Left-roof" type="StaticBody2D" parent="."]
@@ -132,9 +137,11 @@ position = Vector2(-1079.5, 6)
 shape = SubResource("RectangleShape2D_xbw02")
 
 [node name="shop" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="shop"]
-z_index = 1
+y_sort_enabled = true
 texture = ExtResource("6_drii4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shop"]
@@ -150,6 +157,8 @@ position = Vector2(160.75, -230.75)
 shape = SubResource("RectangleShape2D_jgc30")
 
 [node name="trash-cans" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="trash-cans"]
 texture = ExtResource("7_le1d0")
@@ -160,9 +169,10 @@ position = Vector2(-306, -208)
 shape = SubResource("CapsuleShape2D_ieyt4")
 
 [node name="trees" type="StaticBody2D" parent="."]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="trees"]
-z_index = 3
+y_sort_enabled = true
 texture = ExtResource("8_6c23v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trees"]
@@ -171,8 +181,10 @@ position = Vector2(-1350.5, 931.75)
 shape = SubResource("RectangleShape2D_kox1y")
 
 [node name="fence&flowers" type="StaticBody2D" parent="."]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="fence&flowers"]
+y_sort_enabled = true
 texture = ExtResource("9_0xgxe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fence&flowers"]
@@ -238,15 +250,31 @@ position = Vector2(-1213, -357)
 shape = SubResource("RectangleShape2D_a2xgc")
 
 [node name="ShopDoor" type="Area2D" parent="."]
-script = ExtResource("13_3c7gq")
+y_sort_enabled = true
+script = ExtResource("15_bivvy")
+target_scene = "res://scenes/Shop.tscn"
+target_door_name = "ShopDoor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopDoor"]
 z_index = 2
-position = Vector2(158.5, -36.5)
+position = Vector2(158.5, -52)
 shape = SubResource("RectangleShape2D_6e07w")
 
 [node name="Sprite2D" type="Sprite2D" parent="ShopDoor"]
 z_index = 1
 texture = ExtResource("14_bivvy")
 
+[node name="library-street-enter" type="Area2D" parent="."]
+position = Vector2(1397, 219)
+script = ExtResource("15_bivvy")
+target_scene = "res://scenes/Near-library.tscn"
+target_door_name = "main-street-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="library-street-enter"]
+position = Vector2(80, 0)
+shape = SubResource("RectangleShape2D_3c7gq")
+
+[node name="Sprite2D" type="Sprite2D" parent="library-street-enter"]
+
 [connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]
+[connection signal="body_entered" from="library-street-enter" to="library-street-enter" method="_on_body_entered"]

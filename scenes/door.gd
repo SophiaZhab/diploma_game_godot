@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var target_scene: String
-@export var target_door_name: String = ""  # ім’я дверей для повернення (де з’явиться гравець)
+@export var target_door_name: String = ""  
 
 func _ready():
 	add_to_group("doors")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cno4kf64ygqmh"]
+[gd_scene load_steps=7 format=3 uid="uid://cno4kf64ygqmh"]
 
 [ext_resource type="Texture2D" uid="uid://ctqokxk2f0bnu" path="res://assets/backgrounds/bgd-cor.png" id="1_7ycg3"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_cra4x"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cra4x"]
 size = Vector2(34, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg5t0"]
+size = Vector2(279.5, 25)
 
 [node name="Corridor" type="Node2D"]
 
@@ -46,4 +49,25 @@ target_door_name = "corridor-enter"
 position = Vector2(-47, 2)
 shape = SubResource("RectangleShape2D_cra4x")
 
+[node name="eng-enter" type="Area2D" parent="."]
+position = Vector2(-88, 257)
+script = ExtResource("4_cra4x")
+target_scene = "res://scenes/engeenering-class.tscn"
+target_door_name = "cor-from-eng-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="eng-enter"]
+position = Vector2(1.25, 84.5)
+shape = SubResource("RectangleShape2D_qg5t0")
+
+[node name="class2-enter" type="Area2D" parent="."]
+position = Vector2(-586, 57)
+script = ExtResource("4_cra4x")
+target_scene = "res://scenes/second-class.tscn"
+target_door_name = "cor-from-class2"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="class2-enter"]
+polygon = PackedVector2Array(3, -45, 66, -13, 66, -48)
+
 [connection signal="body_entered" from="hall-enter" to="hall-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="eng-enter" to="eng-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="class2-enter" to="class2-enter" method="_on_body_entered"]

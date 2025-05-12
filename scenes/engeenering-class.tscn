@@ -1,0 +1,304 @@
+[gd_scene load_steps=13 format=3 uid="uid://cmbgc5fl66q4w"]
+
+[ext_resource type="Texture2D" uid="uid://2tfr873ioeex" path="res://assets/backgrounds/bgd-eng.png" id="1_fqumv"]
+[ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_b8xwd"]
+[ext_resource type="Texture2D" uid="uid://4hc85fomwlx4" path="res://assets/engineering-class-objects/back-tabl.png" id="3_b8xwd"]
+[ext_resource type="Texture2D" uid="uid://c3rxl0thg0od" path="res://assets/engineering-class-objects/frame.png" id="4_5hv1l"]
+[ext_resource type="Texture2D" uid="uid://d3k17s2i8e52c" path="res://assets/engineering-class-objects/back-t.png" id="5_wu7v7"]
+[ext_resource type="Texture2D" uid="uid://b6wyfeqkrbguy" path="res://assets/engineering-class-objects/side-table.png" id="6_foj6x"]
+[ext_resource type="Texture2D" uid="uid://pjtm58qbrtb6" path="res://assets/engineering-class-objects/table1.png" id="7_chbp0"]
+[ext_resource type="Texture2D" uid="uid://cgcm8547bacdk" path="res://assets/engineering-class-objects/table5.png" id="8_6tahh"]
+[ext_resource type="Texture2D" uid="uid://gqap1tgk71me" path="res://assets/engineering-class-objects/table3.png" id="9_6tahh"]
+[ext_resource type="Texture2D" uid="uid://tscwu4on7s3n" path="res://assets/engineering-class-objects/table2.png" id="10_udkkq"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="11_es5m7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0duk"]
+size = Vector2(100, 21)
+
+[node name="Engeenering-class" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-393, -61)
+scale = Vector2(0.869179, 0.904016)
+texture = ExtResource("1_fqumv")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_b8xwd")]
+z_index = 1
+position = Vector2(-722, -171)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.85, 0.85)
+
+[node name="back-table" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="back-table"]
+position = Vector2(-600.75, -291.782)
+scale = Vector2(0.78271, 0.71729)
+texture = ExtResource("3_b8xwd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back-table"]
+position = Vector2(42.9114, 0)
+scale = Vector2(1.0591, 1)
+polygon = PackedVector2Array(-646, -161, -646, -199, -675, -199, -675, -185, -681, -186, -682, -257, -624.876, -257, -535, -257, -535, -187, -541, -187, -541, -203, -587, -203, -587, -160, -595, -161, -595, -175, -639, -173, -638, -161)
+
+[node name="frame" type="StaticBody2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="frame"]
+position = Vector2(-381.919, 134.5)
+scale = Vector2(0.87011, 0.94515)
+texture = ExtResource("4_5hv1l")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="frame"]
+z_index = -3
+y_sort_enabled = true
+polygon = PackedVector2Array(-405, -262, -1095, -259, -1095, 458, 284, 458, 334, 458, 334, 595, -1209, 593, -1220, -412, -409, -400)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="frame"]
+z_index = -3
+y_sort_enabled = true
+polygon = PackedVector2Array(332, 469, 332, -258, -410, -260, -414, -402, 411, -400, 409, 591, 332, 597)
+
+[node name="back-table2" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="back-table2"]
+position = Vector2(-142.125, -290)
+scale = Vector2(0.765187, 0.71729)
+texture = ExtResource("3_b8xwd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back-table2"]
+position = Vector2(488.576, -1)
+scale = Vector2(1.03784, 1)
+polygon = PackedVector2Array(-646, -161, -646, -199, -675, -199, -675, -185, -681, -186, -682, -257, -535, -257, -535, -187, -541, -187, -541, -203, -587, -203, -587, -160, -595, -161, -595, -175, -639, -173, -638, -161)
+
+[node name="back-table3" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="back-table3"]
+position = Vector2(101.5, -290)
+scale = Vector2(0.752336, 0.71729)
+texture = ExtResource("3_b8xwd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back-table3"]
+position = Vector2(725.006, 2)
+scale = Vector2(1.02466, 1)
+polygon = PackedVector2Array(-646, -161, -646, -199, -675, -199, -675, -185, -681, -186, -682, -257, -535, -257, -535, -187, -541, -187, -541, -203, -587, -203, -587, -160, -595, -161, -595, -175, -639, -173, -638, -161)
+
+[node name="back-table4" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="back-table4"]
+position = Vector2(-384.554, -262)
+scale = Vector2(0.777249, 0.71729)
+texture = ExtResource("5_wu7v7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="back-table4"]
+position = Vector2(252.35, -3)
+scale = Vector2(1.05, 1)
+polygon = PackedVector2Array(-646, -161, -646, -199, -675, -199, -675, -185, -681, -186, -682, -257, -532, -257, -535, -187, -541, -187, -541, -203, -587, -203, -587, -160, -595, -161, -595, -175, -639, -173, -638, -161)
+
+[node name="side-t1" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(285, 337)
+
+[node name="Sprite2D" type="Sprite2D" parent="side-t1"]
+position = Vector2(-24, -465.018)
+scale = Vector2(0.709577, 0.739287)
+texture = ExtResource("6_foj6x")
+offset = Vector2(0, -60)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="side-t1"]
+z_index = -2
+position = Vector2(7.62939e-06, 31.3602)
+scale = Vector2(1, 1.05458)
+polygon = PackedVector2Array(-86, -426, -86, -472, -29, -472, -29, -532, 44, -532, 44, -390, -49, -391, -48, -399, -28, -399, -28, -424)
+
+[node name="side-t2" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(285, 337)
+
+[node name="Sprite2D" type="Sprite2D" parent="side-t2"]
+position = Vector2(-23, -247)
+scale = Vector2(0.709577, 0.750716)
+texture = ExtResource("6_foj6x")
+offset = Vector2(0, -60)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="side-t2"]
+z_index = -2
+position = Vector2(-3.99998, 241.657)
+scale = Vector2(1, 1.02377)
+polygon = PackedVector2Array(-86, -426, -86, -472, -29, -472, -29, -532, 44, -532, 44, -390, -49, -391, -48, -399, -28, -399, -28, -424)
+
+[node name="side-t3" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(285, 337)
+
+[node name="Sprite2D" type="Sprite2D" parent="side-t3"]
+position = Vector2(-29.3438, -32.6895)
+scale = Vector2(0.752798, 0.73643)
+texture = ExtResource("6_foj6x")
+offset = Vector2(0, -60)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="side-t3"]
+z_index = -3
+position = Vector2(5.00001, 459.302)
+scale = Vector2(1, 1.04577)
+polygon = PackedVector2Array(-86, -426, -86, -472, -29, -472, -29, -532, 44, -532, 44, -390, -49, -391, -48, -399, -28, -399, -28, -424)
+
+[node name="table1" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table1"]
+position = Vector2(-704, 317)
+scale = Vector2(0.80163, 0.752605)
+texture = ExtResource("7_chbp0")
+offset = Vector2(0, -100)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table1"]
+z_index = -1
+position = Vector2(3.5, 2.99999)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+
+[node name="table12" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table12"]
+position = Vector2(-682, 64)
+scale = Vector2(0.80163, 0.783132)
+texture = ExtResource("8_6tahh")
+offset = Vector2(0, -110)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table12"]
+z_index = -1
+position = Vector2(7.5, -249)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+
+[node name="table32" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table32"]
+position = Vector2(-269, 63)
+scale = Vector2(0.80163, 0.783132)
+texture = ExtResource("8_6tahh")
+offset = Vector2(0, -120)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table32"]
+z_index = -1
+position = Vector2(429.5, -268)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+
+[node name="table22" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table22"]
+position = Vector2(-496, 79)
+scale = Vector2(0.826389, 0.78029)
+texture = ExtResource("9_6tahh")
+offset = Vector2(0, -120)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table22"]
+z_index = -1
+position = Vector2(223.5, -237.042)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+
+[node name="table21" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table21"]
+position = Vector2(-523, 337)
+scale = Vector2(0.826389, 0.79216)
+texture = ExtResource("9_6tahh")
+offset = Vector2(0, -120)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table21"]
+z_index = -1
+position = Vector2(192.5, 11.9578)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -665.5, 293.042, -665.5, 353.042, -668, 352, -667, 362)
+
+[node name="table42" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table42"]
+position = Vector2(-83, 77)
+scale = Vector2(0.826389, 0.78029)
+texture = ExtResource("9_6tahh")
+offset = Vector2(0, -120)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table42"]
+z_index = -1
+position = Vector2(639.5, -251.042)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+
+[node name="table31" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table31"]
+position = Vector2(-281, 338)
+scale = Vector2(0.826389, 0.795127)
+texture = ExtResource("9_6tahh")
+offset = Vector2(0, -120)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table31"]
+z_index = -1
+position = Vector2(433.5, 14.9578)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -674.5, 296.042, -668.5, 358.042, -668, 352, -667, 362)
+
+[node name="table41" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="table41"]
+position = Vector2(-77, 334)
+scale = Vector2(0.80163, 0.783132)
+texture = ExtResource("8_6tahh")
+offset = Vector2(0, -120)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table41"]
+z_index = -1
+position = Vector2(629.5, 5)
+polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+
+[node name="main-table" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="main-table"]
+position = Vector2(-934, 292.456)
+scale = Vector2(0.680203, 0.786763)
+texture = ExtResource("10_udkkq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="main-table"]
+position = Vector2(-0.00012207, -18.3842)
+scale = Vector2(1, 1.03938)
+polygon = PackedVector2Array(-978, 417, -959, 417, -962, 373, -991, 372, -991, 365, -990, 321, -959, 321, -960, 277, -871, 277, -873, 416, -868, 416, -868, 423, -980, 421, -981, 414)
+
+[node name="cor-from-eng-enter" type="Area2D" parent="."]
+position = Vector2(-838, -207)
+script = ExtResource("11_es5m7")
+target_scene = "res://scenes/Corridor.tscn"
+target_door_name = "eng-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cor-from-eng-enter"]
+z_index = 1
+position = Vector2(-1, -45.5)
+shape = SubResource("RectangleShape2D_m0duk")
+
+[connection signal="body_entered" from="cor-from-eng-enter" to="cor-from-eng-enter" method="_on_body_entered"]

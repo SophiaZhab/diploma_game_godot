@@ -21,7 +21,7 @@ func _set_spawn_position():
 		print("Checking door: ", door.name)
 		if door.name == Global.last_door_name:
 			print("Match! Spawning at door: ", door.name)
-			position = door.global_position + Vector2(0, 20)
+			position = door.global_position + Vector2(0, 0)
 			break
 
 	Global.last_door_name = ""

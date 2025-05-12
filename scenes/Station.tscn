@@ -1,0 +1,383 @@
+[gd_scene load_steps=39 format=3 uid="uid://brspnvtjvfghr"]
+
+[ext_resource type="Texture2D" uid="uid://cmbalg36y77af" path="res://assets/backgrounds/bgd-st.png" id="1_47i8t"]
+[ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_gs0vj"]
+[ext_resource type="Texture2D" uid="uid://b5qj1qs7ncqyx" path="res://assets/station-objects/house.png" id="3_024pm"]
+[ext_resource type="Texture2D" uid="uid://b1xkpnn3uhdhf" path="res://assets/station-objects/fence1.png" id="4_hk4pu"]
+[ext_resource type="Texture2D" uid="uid://bnanbsrxeud31" path="res://assets/station-objects/fence2.png" id="5_jolm3"]
+[ext_resource type="Texture2D" uid="uid://b0wor2akxj44w" path="res://assets/station-objects/fence3.png" id="6_ea8no"]
+[ext_resource type="Texture2D" uid="uid://ck3l6sxc2n4do" path="res://assets/station-objects/fence4.png" id="7_0l87m"]
+[ext_resource type="Texture2D" uid="uid://cwo8i88tq6y8e" path="res://assets/station-objects/fence5.png" id="8_mru4e"]
+[ext_resource type="Texture2D" uid="uid://by8073fxlk7ih" path="res://assets/station-objects/gate1.png" id="9_aeaty"]
+[ext_resource type="Texture2D" uid="uid://co8mo3jx8cdq4" path="res://assets/station-objects/gate2.png" id="10_aay5l"]
+[ext_resource type="Texture2D" uid="uid://ftlk88qxvrr1" path="res://assets/station-objects/bush.png" id="11_jolm3"]
+[ext_resource type="Texture2D" uid="uid://cwc4k7lwsnarc" path="res://assets/station-objects/firtree1.png" id="12_mru4e"]
+[ext_resource type="Texture2D" uid="uid://bkke7l3mnenn0" path="res://assets/station-objects/firtree2.png" id="13_aeaty"]
+[ext_resource type="Texture2D" uid="uid://c53yau1f3xcv0" path="res://assets/station-objects/snow2.png" id="14_mru4e"]
+[ext_resource type="Texture2D" uid="uid://b128vqpidjiyi" path="res://assets/station-objects/column.png" id="15_c04um"]
+[ext_resource type="Texture2D" uid="uid://caxxkjpvfh8ud" path="res://assets/station-objects/counter1.png" id="16_32oji"]
+[ext_resource type="Texture2D" uid="uid://te3qljug7d7t" path="res://assets/station-objects/counter2.png" id="17_6wosg"]
+[ext_resource type="Texture2D" uid="uid://ckty5umng54rk" path="res://assets/station-objects/counter3.png" id="18_e7t4q"]
+[ext_resource type="Texture2D" uid="uid://icvss8vgfld8" path="res://assets/station-objects/counter4.png" id="19_0l680"]
+[ext_resource type="Texture2D" uid="uid://c7j5hfj5p7hqd" path="res://assets/station-objects/counter5.png" id="20_32oji"]
+[ext_resource type="Texture2D" uid="uid://dr122vxuf1qdr" path="res://assets/station-objects/counter32.png" id="21_6wosg"]
+[ext_resource type="Texture2D" uid="uid://rkglyq5s8x0" path="res://assets/station-objects/firtree-group.png" id="22_e7t4q"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="23_0l680"]
+[ext_resource type="Texture2D" uid="uid://bymtgwsc745ml" path="res://assets/station-objects/bush-group.png" id="24_pmrc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12mre"]
+size = Vector2(550.75, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hmra"]
+size = Vector2(31.25, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7t4q"]
+size = Vector2(2094.5, 249)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_210md"]
+size = Vector2(279, 2015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgwd3"]
+size = Vector2(1271.5, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c04um"]
+size = Vector2(1598, 565.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32oji"]
+size = Vector2(295, 1604)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ea8no"]
+radius = 44.1814
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_210md"]
+radius = 90.0222
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmrc8"]
+size = Vector2(75, 38.75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_32oji"]
+radius = 20.5183
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goa4b"]
+radius = 10.7703
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goa4b"]
+size = Vector2(284, 41.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndcrq"]
+size = Vector2(40, 182)
+
+[node name="Station" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5, 5)
+texture = ExtResource("1_47i8t")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_gs0vj")]
+z_index = 1
+position = Vector2(-318, 259)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, 2)
+zoom = Vector2(0.75, 0.75)
+limit_left = -1495
+limit_top = -1060
+limit_right = 1505
+limit_bottom = 1055
+
+[node name="building" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="building"]
+position = Vector2(-823, 384)
+texture = ExtResource("3_024pm")
+offset = Vector2(800, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="building"]
+z_index = 1
+position = Vector2(-821.375, 113)
+shape = SubResource("RectangleShape2D_12mre")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="building"]
+z_index = 1
+position = Vector2(-442, 186)
+shape = SubResource("RectangleShape2D_2hmra")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="building"]
+z_index = 1
+position = Vector2(-443, 28)
+shape = SubResource("RectangleShape2D_2hmra")
+
+[node name="fence1" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="fence1"]
+position = Vector2(-916, 858)
+texture = ExtResource("4_hk4pu")
+offset = Vector2(0, -90)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fence1"]
+polygon = PackedVector2Array(-592, 865, -592, 850, -1529, 858, -1528, 1220, -863, 1210, -1375, 1059, -1329, 886, -822, 869)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fence1"]
+position = Vector2(-350.25, 1193.5)
+shape = SubResource("RectangleShape2D_e7t4q")
+
+[node name="fence2" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="fence2"]
+position = Vector2(566, 876)
+texture = ExtResource("5_jolm3")
+offset = Vector2(0, -100)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fence2"]
+polygon = PackedVector2Array(-243, 868, 278, 960, 317, 1054, 297, 1118, 1543, 1125, 1545, 867, -241, 860)
+
+[node name="fence3" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="fence3"]
+position = Vector2(1359, 616)
+texture = ExtResource("6_ea8no")
+offset = Vector2(0, -800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fence3"]
+position = Vector2(1483, -94)
+shape = SubResource("RectangleShape2D_210md")
+
+[node name="fence4" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="fence4"]
+position = Vector2(52.5, -794)
+scale = Vector2(1.00424, 1)
+texture = ExtResource("7_0l87m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fence4"]
+position = Vector2(755.25, -972)
+shape = SubResource("RectangleShape2D_dgwd3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fence4"]
+position = Vector2(-743, -841)
+shape = SubResource("RectangleShape2D_c04um")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fence4"]
+polygon = PackedVector2Array(59, -555, 148, -842, 121, -1113, 60, -1114)
+
+[node name="fence5" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="fence5"]
+position = Vector2(-1233, 60.5)
+scale = Vector2(1, 1.00415)
+texture = ExtResource("8_mru4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fence5"]
+position = Vector2(-1368.5, 71)
+shape = SubResource("RectangleShape2D_32oji")
+
+[node name="gate1" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="gate1"]
+position = Vector2(-541, 771)
+texture = ExtResource("9_aeaty")
+offset = Vector2(-22, -60)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gate1"]
+polygon = PackedVector2Array(-584, 868, -518, 742, -536, 743, -595, 849, -596, 873)
+
+[node name="gate2" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="gate2"]
+position = Vector2(-314, 894)
+texture = ExtResource("10_aay5l")
+offset = Vector2(-15, -95)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gate2"]
+position = Vector2(0, 10)
+polygon = PackedVector2Array(-391, 915, -235, 870, -237, 854, -325.07, 880.705, -392, 901)
+
+[node name="bush" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="bush"]
+position = Vector2(-1310, 921)
+texture = ExtResource("11_jolm3")
+offset = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bush"]
+z_index = 1
+position = Vector2(-1311, 920)
+shape = SubResource("CircleShape2D_ea8no")
+
+[node name="firtree1" type="StaticBody2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="firtree1"]
+position = Vector2(263, 814)
+texture = ExtResource("12_mru4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="firtree1"]
+position = Vector2(266, 966)
+shape = SubResource("CircleShape2D_210md")
+
+[node name="firtree2" type="StaticBody2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="firtree2"]
+position = Vector2(819, 699)
+texture = ExtResource("13_aeaty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="firtree2"]
+position = Vector2(819, 946)
+shape = SubResource("CircleShape2D_210md")
+
+[node name="snow" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(958, 914)
+texture = ExtResource("14_mru4e")
+
+[node name="column2" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="column" type="Sprite2D" parent="column2"]
+position = Vector2(-441, 184)
+texture = ExtResource("15_c04um")
+offset = Vector2(0, -115)
+
+[node name="counter1" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter1"]
+position = Vector2(-2, -187)
+texture = ExtResource("16_32oji")
+offset = Vector2(15, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter1"]
+position = Vector2(-1, -188)
+shape = SubResource("RectangleShape2D_pmrc8")
+
+[node name="counter2" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter2"]
+position = Vector2(795, -322)
+texture = ExtResource("17_6wosg")
+offset = Vector2(15, -140)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="counter2"]
+polygon = PackedVector2Array(764, -326, 795, -342, 803, -330, 828, -331, 835, -347, 836, -348, 857, -357, 855, -363, 833, -354, 817, -358, 796, -357, 794, -349)
+
+[node name="counter3" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter3"]
+position = Vector2(1133, 489)
+texture = ExtResource("18_e7t4q")
+offset = Vector2(15, 10)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="counter3"]
+polygon = PackedVector2Array(1141, 585, 1147, 584, 1152, 578, 1151, 560, 1167, 545, 1172, 550, 1178, 550, 1184, 544, 1179, 537, 1168, 538, 1097, 497, 1086, 493, 1079, 497, 1081, 504, 1091, 507, 1133, 558, 1132, 571, 1134, 581, 1138, 584)
+
+[node name="counter4" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter4"]
+position = Vector2(371, 594)
+texture = ExtResource("19_0l680")
+offset = Vector2(240, -500)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="counter4"]
+z_index = 1
+polygon = PackedVector2Array(123, 462, 368, 621, 373, 631, 386, 626, 742, 761, 742, 746, 382, 608, 366, 600, 355, 602)
+
+[node name="counter5" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter5"]
+position = Vector2(1109, 46)
+texture = ExtResource("20_32oji")
+offset = Vector2(20, -370)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter5"]
+position = Vector2(1104, 40)
+shape = SubResource("CircleShape2D_32oji")
+
+[node name="counter32" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter32"]
+position = Vector2(958, 600)
+texture = ExtResource("21_6wosg")
+offset = Vector2(15, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter32"]
+z_index = 1
+position = Vector2(965, 612)
+shape = SubResource("CircleShape2D_goa4b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="counter32"]
+z_index = 1
+position = Vector2(933, 634)
+shape = SubResource("CircleShape2D_goa4b")
+
+[node name="tree-group" type="Sprite2D" parent="."]
+position = Vector2(-854, -805)
+texture = ExtResource("22_e7t4q")
+
+[node name="near-station-enter" type="Area2D" parent="."]
+position = Vector2(-616, 979)
+script = ExtResource("23_0l680")
+target_scene = "res://scenes/Way-to-station.tscn"
+target_door_name = "station-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="near-station-enter"]
+position = Vector2(-4, 79.25)
+shape = SubResource("RectangleShape2D_goa4b")
+
+[node name="bush-group" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="bush-group"]
+position = Vector2(589, -851)
+texture = ExtResource("24_pmrc8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bush-group"]
+polygon = PackedVector2Array(474, -838, 443, -834, 476, -781, 510, -778, 532, -784, 536, -821, 595, -825, 620, -825, 617, -794, 656, -776, 676, -785, 692, -801, 675, -826)
+
+[node name="st-building-enter" type="Area2D" parent="."]
+position = Vector2(-448, 106)
+script = ExtResource("23_0l680")
+target_scene = "res://scenes/Station-building.tscn"
+target_door_name = "station-exit"
+
+[node name="Sprite2D" type="Sprite2D" parent="st-building-enter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="st-building-enter"]
+position = Vector2(-78, 12)
+shape = SubResource("RectangleShape2D_ndcrq")
+
+[connection signal="body_entered" from="near-station-enter" to="near-station-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="st-building-enter" to="st-building-enter" method="_on_body_entered"]

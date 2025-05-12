@@ -61,6 +61,8 @@ texture = ExtResource("1_ec5oe")
 z_index = 2
 position = Vector2(252, 109)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="side-refrigerators" type="StaticBody2D" parent="."]
 y_sort_enabled = true
 

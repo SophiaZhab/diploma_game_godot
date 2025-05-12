@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3jhfifm0gi1n"]
+
+[ext_resource type="Texture2D" uid="uid://4jeey8brjlt7" path="res://assets/backgrounds/шлях_до_станції.png" id="1_6eqsa"]
+[ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_wr734"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="3_wr734"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qol1q"]
+size = Vector2(498.5, 68.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr734"]
+size = Vector2(476.5, 49.5)
+
+[node name="Way-to-station" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6eqsa")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_wr734")]
+z_index = 1
+position = Vector2(501, 244)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-9, 0)
+zoom = Vector2(0.4, 0.4)
+limit_left = -1500
+limit_top = -1065
+limit_right = 1500
+limit_bottom = 1063
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(216, 69)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-193, -69)
+polygon = PackedVector2Array(297, 1057, 280, 1011, 364, 986, 443, 840, 452, 761, 456, 698, 406, 627, 385, 552, 385, 460, 397, 360, 423, 243, 464, 80, 368, -83, 293, -154, 360, -363, 347, -476, 293, -618, 285, -764, 297, -864, 339, -1081, -1574, -1098, -1578, 1162, 594, 1178, 577, 1066)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-193, -74)
+polygon = PackedVector2Array(593, 1178, 576, 1065, 810, 1065, 777, 973, 789, 915, 885, 777, 1002, 718, 910, 535, 868, 451, 835, 338, 806, 217, 802, 100, 843, 58, 835, -17, 747, -75, 706, -155, 706, -280, 731, -376, 764, -435, 697, -489, 639, -589, 635, -723, 655, -869, 706, -928, 802, -1057, 330, -1053, 330, -1107, 1499, -1095, 1503, 1153)
+
+[node name="main-street-from-st" type="Area2D" parent="."]
+position = Vector2(571, 936)
+script = ExtResource("3_wr734")
+target_scene = "res://scenes/main_street.tscn"
+target_door_name = "station-way-enter"
+
+[node name="Sprite2D" type="Sprite2D" parent="main-street-from-st"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main-street-from-st"]
+position = Vector2(8, 94)
+shape = SubResource("RectangleShape2D_qol1q")
+
+[node name="station-enter" type="Area2D" parent="."]
+position = Vector2(539, -953)
+script = ExtResource("3_wr734")
+target_scene = "res://scenes/Station.tscn"
+target_door_name = "near-station-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="station-enter"]
+position = Vector2(46, -90)
+shape = SubResource("RectangleShape2D_wr734")
+
+[connection signal="body_entered" from="main-street-from-st" to="main-street-from-st" method="_on_body_entered"]
+[connection signal="body_entered" from="station-enter" to="station-enter" method="_on_body_entered"]

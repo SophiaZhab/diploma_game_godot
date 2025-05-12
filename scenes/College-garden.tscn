@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0blabul5j84p"]
+
+[ext_resource type="Texture2D" uid="uid://6n0uisgyx65p" path="res://assets/backgrounds/bgd-cg.png" id="1_dj8jf"]
+[ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_6f4rk"]
+[ext_resource type="Texture2D" uid="uid://dxbw62dg8100k" path="res://assets/college-garden-objects/college.png" id="3_jxhpe"]
+[ext_resource type="Texture2D" uid="uid://dsu34w0wtvvbf" path="res://assets/college-garden-objects/fence.png" id="4_6f4rk"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="5_jxhpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxhpe"]
+size = Vector2(351, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jwuc"]
+size = Vector2(108, 22)
+
+[node name="College-garden" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(34.5719, 24.5)
+scale = Vector2(1.02305, 1.02305)
+texture = ExtResource("1_dj8jf")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_6f4rk")]
+position = Vector2(60, 1002)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.375, 0.375)
+limit_left = -1500
+limit_top = -1570
+limit_right = 1570
+limit_bottom = 1110
+drag_horizontal_offset = 0.03
+drag_vertical_offset = -1.0
+
+[node name="college" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="college"]
+position = Vector2(34.5719, 24.5)
+scale = Vector2(1.02305, 1.02305)
+texture = ExtResource("3_jxhpe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="college"]
+polygon = PackedVector2Array(-1500, 298, -1427, 302, -1435, 336, -1435, 366, -896, 381, -900, 305, -395, 305, -398, 545, -170, 545, -174, 678, -91, 670, -76, 640, 164, 651, 168, 681, 251, 681, 243, 545, 487, 549, 479, 302, 598, 304, 572, 410, 593, 475, 712, 457, 741, 410, 790, 423, 876, 410, 909, 322, 976, 305, 976, 389, 1504, 385, 1504, 313, 1580, 309, 1574, 931, 1752, 931, 1614, -1168, -1556, -1170, -1608, 925, -1500, 917)
+
+[node name="fence" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="fence"]
+z_index = 2
+position = Vector2(40, 853)
+scale = Vector2(1.00917, 1.02415)
+texture = ExtResource("4_6f4rk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fence"]
+polygon = PackedVector2Array(-131, 1102, -131, 1064, -586, 1077, -924, 1064, -1225, 993, -1517, 985, -1505, 788, -1622, 797, -1588, 1093, -874, 1244, -160, 1194, -131, 1194)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="fence"]
+polygon = PackedVector2Array(212, 1189, 212, 1097, 671, 1097, 985, 1056, 1311, 960, 1578, 964, 1578, 914, 1741, 914, 1741, 1102, 855, 1206)
+
+[node name="main-from-college-enter" type="Area2D" parent="."]
+position = Vector2(47, 1063)
+script = ExtResource("5_jxhpe")
+target_scene = "res://scenes/main_street.tscn"
+target_door_name = "college-garden-enter"
+
+[node name="Sprite2D" type="Sprite2D" parent="main-from-college-enter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main-from-college-enter"]
+position = Vector2(-3.5, 81)
+shape = SubResource("RectangleShape2D_jxhpe")
+
+[node name="college-enter" type="Area2D" parent="."]
+position = Vector2(36, 698)
+script = ExtResource("5_jxhpe")
+target_scene = "res://scenes/College.tscn"
+target_door_name = "garden-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="college-enter"]
+position = Vector2(24, -45)
+shape = SubResource("RectangleShape2D_3jwuc")
+
+[connection signal="body_entered" from="main-from-college-enter" to="main-from-college-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="college-enter" to="college-enter" method="_on_body_entered"]

@@ -39,13 +39,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_tqiix")
+"texture": ExtResource("8_c35mf")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_e7oew")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_c35mf")
+"texture": ExtResource("6_tqiix")
 }],
 "loop": true,
 "name": &"run_left",
@@ -53,13 +53,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_65viv")
+"texture": ExtResource("11_bjvpn")
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_x7c3f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_bjvpn")
+"texture": ExtResource("9_65viv")
 }],
 "loop": true,
 "name": &"run_right",
@@ -86,7 +86,7 @@ script = ExtResource("1_ebec5")
 y_sort_enabled = true
 scale = Vector2(0.155562, 0.155562)
 sprite_frames = SubResource("SpriteFrames_6loc5")
-animation = &"run_right"
+animation = &"run_left"
 offset = Vector2(0, -500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -98,5 +98,3 @@ shape = SubResource("CapsuleShape2D_laxlr")
 y_sort_enabled = true
 position = Vector2(1, 0)
 gizmo_extents = 20.4
-
-[node name="Camera2D" type="Camera2D" parent="."]

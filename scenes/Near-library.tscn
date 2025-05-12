@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4h7ahtdfuf42"]
+[gd_scene load_steps=22 format=3 uid="uid://b4h7ahtdfuf42"]
 
 [ext_resource type="Texture2D" uid="uid://dhq0cjv07mwcn" path="res://assets/backgrounds/bgd-nl.png" id="2_4pdbx"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="3_43dku"]
@@ -29,13 +29,16 @@ size = Vector2(826.5, 759)
 size = Vector2(142.5, 1682)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kolov"]
-size = Vector2(242, 1356)
+size = Vector2(111, 1356)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5xry"]
 size = Vector2(628, 164)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83wtd"]
 size = Vector2(79, 533.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pdbx"]
+size = Vector2(101, 33.5)
 
 [node name="Near-library" type="Node2D"]
 y_sort_enabled = true
@@ -45,6 +48,13 @@ texture = ExtResource("2_4pdbx")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_43dku")]
 z_index = 1
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+zoom = Vector2(0.75, 0.75)
+limit_left = -1450
+limit_top = -1000
+limit_right = 1500
+limit_bottom = 1065
 
 [node name="roof" type="StaticBody2D" parent="."]
 z_index = 3
@@ -160,7 +170,7 @@ position = Vector2(1568.75, 95)
 shape = SubResource("RectangleShape2D_j4mll")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="borders"]
-position = Vector2(-1622, 497)
+position = Vector2(-1556.5, 497)
 shape = SubResource("RectangleShape2D_kolov")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="borders"]
@@ -168,23 +178,33 @@ position = Vector2(-1300, 1141)
 shape = SubResource("RectangleShape2D_s5xry")
 
 [node name="main-street-enter" type="Area2D" parent="."]
-position = Vector2(-1395, 259)
+position = Vector2(-1378, 261)
 script = ExtResource("12_4pdbx")
 target_scene = "res://scenes/main_street.tscn"
 target_door_name = "library-street-enter"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main-street-enter"]
-position = Vector2(-74.5, -6.125)
+position = Vector2(-90, -6)
 shape = SubResource("RectangleShape2D_83wtd")
 
 [node name="Sprite2D" type="Sprite2D" parent="main-street-enter"]
 
 [node name="LibraryDoor" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(636, -323)
 priority = 1
+script = ExtResource("12_4pdbx")
+target_scene = "res://scenes/library.tscn"
+target_door_name = "street-enter"
 
 [node name="Sprite2D" type="Sprite2D" parent="LibraryDoor"]
-z_index = 1
-position = Vector2(638, -462)
+position = Vector2(0, -121)
 texture = ExtResource("12_43dku")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryDoor"]
+position = Vector2(-1, -45)
+shape = SubResource("RectangleShape2D_4pdbx")
+
 [connection signal="body_entered" from="main-street-enter" to="main-street-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="LibraryDoor" to="LibraryDoor" method="_on_body_entered"]

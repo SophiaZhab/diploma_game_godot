@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cno4kf64ygqmh"]
+
+[ext_resource type="Texture2D" uid="uid://ctqokxk2f0bnu" path="res://assets/backgrounds/bgd-cor.png" id="1_7ycg3"]
+[ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_cra4x"]
+[ext_resource type="Texture2D" uid="uid://qytmat7evqf2" path="res://assets/corridor/frame.png" id="3_qg5t0"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="4_cra4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cra4x"]
+size = Vector2(34, 280)
+
+[node name="Corridor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.99997, 5.00002)
+scale = Vector2(1.22995, 1.22995)
+texture = ExtResource("1_7ycg3")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_cra4x")]
+position = Vector2(-774, 117)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.85, 0.85)
+limit_left = -1850
+limit_right = 1842
+
+[node name="frame" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="frame"]
+position = Vector2(-9, -9)
+scale = Vector2(1.23252, 1.23252)
+texture = ExtResource("3_qg5t0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="frame"]
+polygon = PackedVector2Array(0, -359, 6, -578, -1651, -575, -1642, 699, -104, 708, -101, 351, -226, 351, -226, 288, -1268, 288, -1268, 12, -610, 20, -610, 2, -519, 2, -519, 41, -389, 20, 7, 5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="frame"]
+polygon = PackedVector2Array(-2, -585, 1545, -582, 1548, 746, -106, 708, -102, 350, 58, 356, 51, 284, 1250, 287, 1253, 14, -2, 5)
+
+[node name="hall-enter" type="Area2D" parent="."]
+position = Vector2(-1206, 147)
+script = ExtResource("4_cra4x")
+target_scene = "res://scenes/College.tscn"
+target_door_name = "corridor-enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hall-enter"]
+position = Vector2(-47, 2)
+shape = SubResource("RectangleShape2D_cra4x")
+
+[connection signal="body_entered" from="hall-enter" to="hall-enter" method="_on_body_entered"]

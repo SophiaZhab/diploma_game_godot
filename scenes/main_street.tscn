@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://34olrx86jbjf"]
+[gd_scene load_steps=40 format=3 uid="uid://34olrx86jbjf"]
 
 [ext_resource type="Texture2D" uid="uid://cbttgi0epj26d" path="res://assets/backgrounds/main_street.png" id="1_eif53"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_h1lmc"]
@@ -46,7 +46,7 @@ height = 440.0
 size = Vector2(307, 257.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2fwu"]
-size = Vector2(1809, 599)
+size = Vector2(1812, 618)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6loc5"]
 size = Vector2(259, 119.5)
@@ -81,8 +81,14 @@ size = Vector2(322, 230)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e07w"]
 size = Vector2(81, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bivvy"]
+size = Vector2(60, 374)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c7gq"]
-size = Vector2(59.75, 432.25)
+size = Vector2(176, 48.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drii4"]
+size = Vector2(134, 30.5)
 
 [node name="Main_street" type="Node2D"]
 y_sort_enabled = true
@@ -94,6 +100,13 @@ texture = ExtResource("1_eif53")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h1lmc")]
 z_index = 2
 position = Vector2(946, 9)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.75, 0.75)
+limit_left = -1500
+limit_top = -1065
+limit_right = 1500
+limit_bottom = 1065
 
 [node name="Left-roof" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_laxlr")
@@ -169,6 +182,7 @@ position = Vector2(-306, -208)
 shape = SubResource("CapsuleShape2D_ieyt4")
 
 [node name="trees" type="StaticBody2D" parent="."]
+z_index = 3
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="trees"]
@@ -188,7 +202,7 @@ y_sort_enabled = true
 texture = ExtResource("9_0xgxe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fence&flowers"]
-position = Vector2(-15.5, -762.5)
+position = Vector2(-17, -772)
 shape = SubResource("RectangleShape2D_c2fwu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="fence&flowers"]
@@ -265,16 +279,42 @@ z_index = 1
 texture = ExtResource("14_bivvy")
 
 [node name="library-street-enter" type="Area2D" parent="."]
-position = Vector2(1397, 219)
+position = Vector2(1375, 245)
 script = ExtResource("15_bivvy")
 target_scene = "res://scenes/Near-library.tscn"
 target_door_name = "main-street-enter"
 
+[node name="Sprite2D" type="Sprite2D" parent="library-street-enter"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="library-street-enter"]
-position = Vector2(80, 0)
+position = Vector2(93, 3)
+shape = SubResource("RectangleShape2D_bivvy")
+
+[node name="station-way-enter" type="Area2D" parent="."]
+position = Vector2(339, 979)
+script = ExtResource("15_bivvy")
+target_scene = "res://scenes/Way-to-station.tscn"
+target_door_name = "main-street-from-st"
+
+[node name="Sprite2D" type="Sprite2D" parent="station-way-enter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="station-way-enter"]
+position = Vector2(-8, 64.75)
 shape = SubResource("RectangleShape2D_3c7gq")
 
-[node name="Sprite2D" type="Sprite2D" parent="library-street-enter"]
+[node name="college-garden-enter" type="Area2D" parent="."]
+position = Vector2(-983, -1000)
+script = ExtResource("15_bivvy")
+target_scene = "res://scenes/College-garden.tscn"
+target_door_name = "main-from-college-enter"
+
+[node name="Sprite2D" type="Sprite2D" parent="college-garden-enter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="college-garden-enter"]
+position = Vector2(-2, -53.25)
+shape = SubResource("RectangleShape2D_drii4")
 
 [connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]
 [connection signal="body_entered" from="library-street-enter" to="library-street-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="station-way-enter" to="station-way-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="college-garden-enter" to="college-garden-enter" method="_on_body_entered"]

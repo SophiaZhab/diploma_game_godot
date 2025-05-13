@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cml6p061tfgu"]
+
+[ext_resource type="Script" uid="uid://d31qi0ik6p6dy" path="res://scenes/ui_root.gd" id="1_iiivb"]
+[ext_resource type="Texture2D" uid="uid://uj2pla3qy46j" path="res://assets/icons/backpack.png" id="1_rt4gy"]
+[ext_resource type="PackedScene" uid="uid://dikm7285nf4b8" path="res://scenes/inventory-gui.tscn" id="3_11qqv"]
+
+[node name="UIroot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iiivb")
+
+[node name="InventoryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 482.0
+offset_right = 1106.0
+offset_bottom = 604.0
+icon = ExtResource("1_rt4gy")
+icon_alignment = 1
+expand_icon = true
+
+[node name="InventoryGui" parent="." instance=ExtResource("3_11qqv")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -174.0
+offset_right = 259.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dikm7285nf4b8"]
+
+[ext_resource type="Script" uid="uid://dh8dmkkmh8y4f" path="res://scenes/inventory_gui.gd" id="1_grwby"]
+[ext_resource type="Texture2D" uid="uid://tdrnpklii7cj" path="res://assets/objects-for-inventory/InventoryRect.png" id="1_pnmpy"]
+[ext_resource type="PackedScene" uid="uid://bmgxje7dh2gxr" path="res://scenes/slot_gui.tscn" id="2_grwby"]
+
+[node name="InventoryGui" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 527.0
+offset_bottom = 345.0
+script = ExtResource("1_grwby")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 621.0
+offset_bottom = 403.0
+texture = ExtResource("1_pnmpy")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -144.0
+offset_right = 210.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 17
+theme_override_constants/v_separation = 17
+columns = 3
+
+[node name="Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_grwby")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_grwby")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_grwby")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_grwby")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_grwby")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_grwby")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2

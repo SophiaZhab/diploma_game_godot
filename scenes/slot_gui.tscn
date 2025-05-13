@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmgxje7dh2gxr"]
+
+[ext_resource type="Texture2D" uid="uid://ctm1wgli8gfbi" path="res://assets/objects-for-inventory/InventorySlot.png" id="1_uwo2y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwo2y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Slot" type="Panel"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = -1
+anchor_right = 0.049
+anchor_bottom = 0.086
+offset_right = 18.552
+offset_bottom = 17.272
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwo2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -2)
+scale = Vector2(1.03289, 1.01224)
+texture = ExtResource("1_uwo2y")
+centered = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 22.0
+offset_right = 130.0
+offset_bottom = 127.0

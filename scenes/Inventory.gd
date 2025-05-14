@@ -1,7 +1,7 @@
 extends Node
 
-var items := {}  # item_name -> кількість
-var ui: Node = null  # посилання на InventoryUI, за потреби
+var items := {} 
+var ui: Node = null
 
 func add_item(item_name: String, icon: Texture):
 	if items.has(item_name):

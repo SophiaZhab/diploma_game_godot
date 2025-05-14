@@ -39,6 +39,18 @@ func _add_to_inventory():
 					narration.show_lines([
 						"Записка: «Якщо ти хочеш допомогти — йди до коледжу.»"
 					])
+				"book1":
+					narration.show_lines([
+						"Піднято: книжка, 1 шт."
+					])
+				"book2":
+					narration.show_lines([
+						"Книжка?"
+					])
+				"book3":
+					narration.show_lines([
+						"Книжка з цифрами..."
+					])
 				_: 
 					narration.show_lines([
 						"Ти підняв: " + item_name

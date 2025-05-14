@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4h7ahtdfuf42"]
+[gd_scene load_steps=29 format=3 uid="uid://b4h7ahtdfuf42"]
 
 [ext_resource type="Texture2D" uid="uid://dhq0cjv07mwcn" path="res://assets/backgrounds/bgd-nl.png" id="2_4pdbx"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="3_43dku"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://scenes/Item.gd" id="14_s7u5w"]
 [ext_resource type="Texture2D" uid="uid://bj7soc0vdc8m3" path="res://assets/icons/shovel.png" id="15_w38u1"]
 [ext_resource type="Texture2D" uid="uid://d1yycpywrhk4h" path="res://assets/objects-for-inventory/shovel.png" id="16_vsso6"]
+[ext_resource type="Texture2D" uid="uid://bhd0k6yl37j42" path="res://assets/icons/book1.png" id="17_w38u1"]
+[ext_resource type="Texture2D" uid="uid://dvg6p2dkkmhjo" path="res://assets/objects-for-inventory/book1.png" id="18_vsso6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tmwq"]
 size = Vector2(1512, 444)
@@ -44,10 +46,14 @@ size = Vector2(79, 533.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pdbx"]
 size = Vector2(101, 33.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ugnb"]
+size = Vector2(65, 21.5)
+
 [node name="Near-library" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
 texture = ExtResource("2_4pdbx")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_43dku")]
@@ -73,6 +79,7 @@ position = Vector2(-572, 907)
 shape = SubResource("RectangleShape2D_5tmwq")
 
 [node name="gray-house" type="StaticBody2D" parent="."]
+z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="gray-house"]
 y_sort_enabled = true
@@ -230,6 +237,21 @@ texture = ExtResource("16_vsso6")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Showel"]
 position = Vector2(-88.4, 442.1)
 polygon = PackedVector2Array(-23, 27, -20, 20, -9, 22, -3, 0, 8, -32, 4, -47, 5, -57, 39, -46, 16, -22, 3, 23, 14, 29, 8, 50)
+
+[node name="Book1" type="Area2D" parent="."]
+z_index = 1
+script = ExtResource("14_s7u5w")
+item_name = "book1"
+icon = ExtResource("17_w38u1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Book1"]
+position = Vector2(291, 686)
+scale = Vector2(0.535294, 0.535294)
+texture = ExtResource("18_vsso6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Book1"]
+position = Vector2(291.5, 674.25)
+shape = SubResource("RectangleShape2D_8ugnb")
 
 [connection signal="body_entered" from="main-street-enter" to="main-street-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="LibraryDoor" to="LibraryDoor" method="_on_body_entered"]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmkr15j8chnhw"]
+
+[ext_resource type="Script" uid="uid://drmuxkhq2kpit" path="res://scenes/shelf.gd" id="1_qhud5"]
+[ext_resource type="Script" uid="uid://csynhbocp5f46" path="res://scenes/BookItem.gd" id="2_0f1be"]
+[ext_resource type="Texture2D" uid="uid://4coaaqduujtm" path="res://assets/bookshelves/book_1.png" id="2_4y00f"]
+[ext_resource type="Texture2D" uid="uid://da5ivl6tdw47r" path="res://assets/bookshelves/book_2.png" id="4_ebaci"]
+[ext_resource type="Texture2D" uid="uid://cpjsby2r2soca" path="res://assets/bookshelves/book_3.png" id="5_ql6m6"]
+[ext_resource type="Texture2D" uid="uid://b2axwjp0lrvff" path="res://assets/bookshelves/book_4.png" id="6_dflkh"]
+[ext_resource type="Texture2D" uid="uid://buao8hv8g6new" path="res://assets/bookshelves/book_5.png" id="7_adjun"]
+[ext_resource type="Texture2D" uid="uid://0gw7h4wb3pub" path="res://assets/bookshelves/book_6.png" id="8_shqxt"]
+[ext_resource type="Texture2D" uid="uid://bgsukdby20aai" path="res://assets/bookshelves/book_7.png" id="9_43gpj"]
+[ext_resource type="Texture2D" uid="uid://dya5owprvj3po" path="res://assets/bookshelves/book_8.png" id="10_ftwx5"]
+[ext_resource type="Texture2D" uid="uid://cng78w83ksvxy" path="res://assets/bookshelves/book_9.png" id="11_ip2o1"]
+[ext_resource type="Texture2D" uid="uid://cyo7je78gedhc" path="res://assets/bookshelves/book_10.png" id="12_lrcp2"]
+
+[node name="BookShelf" type="Node2D"]
+script = ExtResource("1_qhud5")
+
+[node name="BookShelf" type="HBoxContainer" parent="."]
+offset_right = 135.0
+offset_bottom = 504.0
+
+[node name="Book1" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("2_4y00f")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book1"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book2" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("4_ebaci")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book2"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book3" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("5_ql6m6")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book3"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book4" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("6_dflkh")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book4"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book5" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("7_adjun")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book5"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book6" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("8_shqxt")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book6"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book7" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("9_43gpj")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book7"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book8" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("10_ftwx5")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book8"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book9" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("11_ip2o1")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book9"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2
+
+[node name="Book10" type="TextureRect" parent="BookShelf"]
+layout_mode = 2
+texture = ExtResource("12_lrcp2")
+script = ExtResource("2_0f1be")
+
+[node name="Panel" type="Panel" parent="BookShelf/Book10"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 1574.0
+mouse_filter = 2

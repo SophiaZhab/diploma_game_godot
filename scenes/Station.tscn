@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://brspnvtjvfghr"]
+[gd_scene load_steps=46 format=3 uid="uid://brspnvtjvfghr"]
 
 [ext_resource type="Texture2D" uid="uid://cmbalg36y77af" path="res://assets/backgrounds/bgd-st.png" id="1_47i8t"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_gs0vj"]
@@ -29,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://cjmtcb3xuu4o6" path="res://assets/icons/station-key.png" id="27_qndqd"]
 [ext_resource type="Texture2D" uid="uid://bn71oe1lo57eo" path="res://assets/objects-for-inventory/station-key.png" id="28_hu8dm"]
 [ext_resource type="PackedScene" uid="uid://c4x58rr734q1r" path="res://scenes/Narration.tscn" id="29_hu8dm"]
+[ext_resource type="Texture2D" uid="uid://dmk4nd2a52iqk" path="res://assets/icons/book2.png" id="30_25vvw"]
+[ext_resource type="Texture2D" uid="uid://jv12yqwkjos1" path="res://assets/objects-for-inventory/book2.png" id="31_wjdke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12mre"]
 size = Vector2(550.75, 659)
@@ -408,6 +410,19 @@ shape = SubResource("RectangleShape2D_ndcrq")
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("25_ndcrq")]
 
 [node name="NarrationManager" parent="." instance=ExtResource("29_hu8dm")]
+
+[node name="Book2" type="Area2D" parent="."]
+script = ExtResource("26_wp55w")
+item_name = "book2"
+icon = ExtResource("30_25vvw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Book2"]
+position = Vector2(-1311, 1031)
+scale = Vector2(0.690083, 0.690083)
+texture = ExtResource("31_wjdke")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book2"]
+polygon = PackedVector2Array(-1345, 1056, -1354, 1030, -1316, 1019, -1268, 1011, -1267, 1034, -1344, 1059)
 
 [connection signal="input_event" from="stationKey" to="stationKey" method="_on_input_event"]
 [connection signal="body_entered" from="near-station-enter" to="near-station-enter" method="_on_body_entered"]

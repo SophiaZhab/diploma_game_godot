@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://34olrx86jbjf"]
+[gd_scene load_steps=49 format=3 uid="uid://34olrx86jbjf"]
 
 [ext_resource type="Script" uid="uid://cl00kaqwlsfi2" path="res://scenes/main_street.gd" id="1_6e07w"]
 [ext_resource type="Texture2D" uid="uid://cbttgi0epj26d" path="res://assets/backgrounds/main_street.png" id="1_eif53"]
@@ -18,6 +18,9 @@
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="15_bivvy"]
 [ext_resource type="Texture2D" uid="uid://nwwnkegsojb4" path="res://assets/near-library-objects/car-leftside.png" id="18_6c23v"]
 [ext_resource type="Script" uid="uid://vp22na8u7c8m" path="res://scenes/AreaTrigger.gd" id="18_le1d0"]
+[ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://scenes/Item.gd" id="19_0xgxe"]
+[ext_resource type="Texture2D" uid="uid://guih1t76y8wv" path="res://assets/icons/book3.png" id="20_rkexx"]
+[ext_resource type="Texture2D" uid="uid://cwbac5518lnuh" path="res://assets/objects-for-inventory/book3.png" id="21_rkexx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_laxlr"]
 
@@ -107,6 +110,7 @@ script = ExtResource("1_6e07w")
 [node name="Bgd" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("1_eif53")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h1lmc")]
 z_index = 2
@@ -376,6 +380,19 @@ one_shot = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="yellow-doors"]
 position = Vector2(521.25, -148.5)
 shape = SubResource("RectangleShape2D_le1d0")
+
+[node name="Book3" type="Area2D" parent="."]
+script = ExtResource("19_0xgxe")
+item_name = "book3"
+icon = ExtResource("20_rkexx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Book3"]
+position = Vector2(-569, -174)
+scale = Vector2(0.473333, 0.473333)
+texture = ExtResource("21_rkexx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book3"]
+polygon = PackedVector2Array(-579, -154, -579, -201, -559, -202, -559, -154)
 
 [connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]
 [connection signal="body_entered" from="library-street-enter" to="library-street-enter" method="_on_body_entered"]

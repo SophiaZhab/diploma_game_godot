@@ -5,6 +5,9 @@ extends Control
 @onready var flashlight_texture := preload("res://assets/icons/flashlights.png")
 @onready var shovel_texture := preload("res://assets/icons/shovel.png")
 @onready var key_texture := preload("res://assets/icons/station-key.png")
+@onready var book1_texture := preload("res://assets/icons/book1.png")
+@onready var book2_texture := preload("res://assets/icons/book2.png")
+@onready var book3_texture := preload("res://assets/icons/book3.png")
 
 var isOpen: bool = false
 
@@ -58,6 +61,12 @@ func get_item_texture(item_name: String) -> Texture:
 			return shovel_texture
 		"stationKey":
 			return key_texture
+		"book1":
+			return book1_texture
+		"book2":
+			return book2_texture
+		"book3":
+			return book3_texture
 		_:
 		
 			return null  

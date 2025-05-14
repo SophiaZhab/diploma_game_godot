@@ -1,0 +1,297 @@
+[gd_scene load_steps=14 format=3 uid="uid://cybpgsv3sdeja"]
+
+[ext_resource type="Texture2D" uid="uid://dh5hgbyctx3bn" path="res://assets/bookshelves/book1.png" id="3_35ns8"]
+[ext_resource type="Texture2D" uid="uid://birg0q0b1hfwv" path="res://assets/bookshelves/book2.png" id="5_vc4ki"]
+[ext_resource type="Texture2D" uid="uid://bjpgdd2svohta" path="res://assets/bookshelves/book3.png" id="6_ho57j"]
+[ext_resource type="Texture2D" uid="uid://bl8dihmv52x2t" path="res://assets/bookshelves/book4.png" id="7_3djws"]
+[ext_resource type="Texture2D" uid="uid://bn0knb1rmko1s" path="res://assets/bookshelves/book5.png" id="8_adrl1"]
+[ext_resource type="Texture2D" uid="uid://dp4m4mmdpqtsi" path="res://assets/bookshelves/book6.png" id="9_2mod0"]
+[ext_resource type="Texture2D" uid="uid://r1ubihnwu310" path="res://assets/bookshelves/book7.png" id="10_2utl5"]
+[ext_resource type="Texture2D" uid="uid://cqwlffathrjkp" path="res://assets/bookshelves/book8.png" id="11_fwld3"]
+[ext_resource type="Texture2D" uid="uid://c5g5qgu7vjfar" path="res://assets/bookshelves/book9.png" id="12_4qjg6"]
+[ext_resource type="Texture2D" uid="uid://ceqpnd8v3iwwu" path="res://assets/bookshelves/book10.png" id="13_wxibq"]
+
+[sub_resource type="GDScript" id="GDScript_03em0"]
+script/source = "extends Control
+class_name ShelfUI
+
+@onready var slots = $GridContainer.get_children()
+@onready var layer = $BookLayer
+
+var slot_to_book = {}
+var book_to_slot = {}
+
+func _ready():
+	layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for book in layer.get_children():
+		var correct_slot = slots[book.id]
+		place_book_in_slot(book, correct_slot)
+
+func swap_books(dropped_book: Book, target_slot: Slot) -> void:
+	_swap_books(dropped_book, target_slot)
+
+func _swap_books(book: Book, slot: Slot) -> void:
+	var other = slot_to_book.get(slot, null)
+	var from_slot = book_to_slot.get(book, null)
+
+	if from_slot:
+		slot_to_book.erase(from_slot)
+	if other:
+		place_book_in_slot(other, from_slot)
+
+	place_book_in_slot(book, slot)
+	_check_solution()
+
+func place_book_in_slot(book: Book, slot: Slot) -> void:
+	book.global_position = slot.global_position
+	layer.move_child(book, layer.get_child_count() - 1)
+
+	slot_to_book[slot] = book
+	book_to_slot[book] = slot
+
+func _check_solution() -> void:
+	for slot in slots:
+		var book = slot_to_book.get(slot, null)
+		if book == null or book.id != slot.index:
+			return
+	NarrationManager.show_lines([\"Відмінно! Ти впорався з головоломкою.\"])
+"
+
+[sub_resource type="GDScript" id="GDScript_71xq3"]
+script/source = "extends PanelContainer
+class_name Slot
+
+@export var index: int
+
+func can_drop_data(_position, data) -> bool:
+	return data.has(\"book\")
+
+func drop_data(_position, data):
+	var book = data[\"book\"] as Book
+	get_node(\"/root/ShelfUI\").swap_books(book, self)
+"
+
+[sub_resource type="GDScript" id="GDScript_3bx1s"]
+script/source = "extends TextureRect
+class_name Book
+
+@export var id: int  # правильна позиція
+
+func _get_drag_data(_at_position: Vector2) -> Variant:
+	var preview = duplicate()
+	preview.modulate = Color(1, 1, 1, 0.7)
+	set_drag_preview(preview)
+	return {\"book\": self}
+"
+
+[node name="ShelfUI" type="Control"]
+custom_minimum_size = Vector2(3000, 1500)
+layout_mode = 3
+anchor_left = -1.304
+anchor_top = 0.103
+anchor_right = 0.893
+anchor_bottom = 2.504
+offset_left = 0.208008
+offset_top = 0.255936
+offset_right = 469.264
+offset_bottom = -55.5922
+script = SubResource("GDScript_03em0")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.845
+anchor_bottom = 1.053
+offset_right = -2495.0
+offset_bottom = -1539.5
+columns = 10
+
+[node name="Slot0" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(250, 1580)
+layout_mode = 2
+script = SubResource("GDScript_71xq3")
+
+[node name="Slot1" type="PanelContainer" parent="GridContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+mouse_filter = 2
+script = SubResource("GDScript_71xq3")
+index = 1
+
+[node name="Slot2" type="PanelContainer" parent="GridContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+mouse_filter = 2
+script = SubResource("GDScript_71xq3")
+index = 2
+
+[node name="Slot3" type="PanelContainer" parent="GridContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+mouse_filter = 2
+script = SubResource("GDScript_71xq3")
+index = 3
+
+[node name="Slot4" type="PanelContainer" parent="GridContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+mouse_filter = 2
+script = SubResource("GDScript_71xq3")
+index = 4
+
+[node name="Slot5" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+script = SubResource("GDScript_71xq3")
+index = 5
+
+[node name="Slot6" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+script = SubResource("GDScript_71xq3")
+index = 6
+
+[node name="Slot7" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+script = SubResource("GDScript_71xq3")
+index = 7
+
+[node name="Slot8" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+script = SubResource("GDScript_71xq3")
+index = 8
+
+[node name="Slot9" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(250, 140)
+layout_mode = 2
+script = SubResource("GDScript_71xq3")
+index = 9
+
+[node name="BookLayer" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.871
+anchor_bottom = 1.037
+offset_right = -0.000244141
+offset_bottom = 0.499878
+
+[node name="Book0" type="TextureRect" parent="BookLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.091
+anchor_bottom = 1.0
+offset_left = 257.0
+offset_top = -13.9999
+offset_right = 269.217
+offset_bottom = 4.0
+texture = ExtResource("3_35ns8")
+expand_mode = 1
+script = SubResource("GDScript_3bx1s")
+
+[node name="Book1" type="TextureRect" parent="BookLayer"]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 9.00006
+offset_right = 203.0
+offset_bottom = 1583.0
+texture = ExtResource("5_vc4ki")
+expand_mode = 1
+script = SubResource("GDScript_3bx1s")
+id = 1
+
+[node name="Book2" type="TextureRect" parent="BookLayer"]
+layout_mode = 0
+offset_left = 516.0
+offset_top = -4.99994
+offset_right = 766.0
+offset_bottom = 1571.0
+texture = ExtResource("6_ho57j")
+expand_mode = 1
+script = SubResource("GDScript_3bx1s")
+id = 2
+
+[node name="Book3" type="TextureRect" parent="BookLayer"]
+layout_mode = 0
+offset_left = 770.0
+offset_top = -9.99994
+offset_right = 1020.0
+offset_bottom = 1563.0
+texture = ExtResource("7_3djws")
+expand_mode = 1
+script = SubResource("GDScript_3bx1s")
+id = 3
+
+[node name="Book4" type="TextureRect" parent="BookLayer"]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = -17.9999
+offset_right = 1266.0
+offset_bottom = 1556.0
+texture = ExtResource("8_adrl1")
+expand_mode = 1
+script = SubResource("GDScript_3bx1s")
+id = 4
+
+[node name="Book5" type="TextureRect" parent="BookLayer"]
+layout_mode = 0
+offset_left = 1276.0
+offset_top = 3.00006
+offset_right = 1526.0
+offset_bottom = 1577.0
+texture = ExtResource("9_2mod0")
+expand_mode = 1
+script = SubResource("GDScript_3bx1s")
+id = 5
+
+[node name="Book6" type="TextureRect" parent="BookLayer"]
+layout_mode = 0
+offset_left = 1546.0
+offset_top = -8.99994
+offset_right = 1796.0
+offset_bottom = 1565.0
+texture = ExtResource("10_2utl5")
+expand_mode = 1
+script = SubResource("GDScript_3bx1s")
+id = 6
+
+[node name="Book7" type="TextureRect" parent="BookLayer"]
+layout_mode = 0
+offset_left = 1799.0
+offset_top = 30.0001
+offset_right = 2049.0
+offset_bottom = 1604.0
+texture = ExtResource("11_fwld3")
+script = SubResource("GDScript_3bx1s")
+id = 7
+
+[node name="Book8" type="TextureRect" parent="BookLayer"]
+z_index = 1
+layout_mode = 0
+offset_left = 2013.0
+offset_top = 6.10352e-05
+offset_right = 2263.0
+offset_bottom = 1574.0
+texture = ExtResource("12_4qjg6")
+script = SubResource("GDScript_3bx1s")
+id = 8
+
+[node name="Book9" type="TextureRect" parent="BookLayer"]
+z_index = 1
+layout_mode = 0
+offset_left = 2271.0
+offset_top = 8.00006
+offset_right = 2521.0
+offset_bottom = 1582.0
+texture = ExtResource("13_wxibq")
+script = SubResource("GDScript_3bx1s")
+id = 9
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1425, 802)
+zoom = Vector2(0.37, 0.37)
+limit_right = 1500

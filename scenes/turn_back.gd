@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var target_scene: String
-@export var return_spawn_point_name: String = ""  # <- ім'я входу в попередню сцену
+@export var return_spawn_point_name: String = ""
 
 func _ready():
 	input_pickable = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://qbewrt1qo2sa"]
+[gd_scene load_steps=15 format=3 uid="uid://qbewrt1qo2sa"]
 
 [ext_resource type="Texture2D" uid="uid://cs5wd6231kws6" path="res://assets/backgrounds/bgd-in-st.png" id="1_jedoh"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_8bctb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://brbenr6dio74u" path="res://assets/inside-station-objects/cabinet.png" id="7_0iakx"]
 [ext_resource type="Texture2D" uid="uid://nqsop3whqxax" path="res://assets/inside-station-objects/lights.png" id="8_7mwff"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="9_7mwff"]
+[ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="10_kb5dq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qunjg"]
 size = Vector2(50, 63)
@@ -116,5 +117,9 @@ target_door_name = "st-building-enter"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="station-exit"]
 position = Vector2(61, 4)
 shape = SubResource("RectangleShape2D_05luc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIroot" parent="CanvasLayer" instance=ExtResource("10_kb5dq")]
 
 [connection signal="body_entered" from="station-exit" to="station-exit" method="_on_body_entered"]

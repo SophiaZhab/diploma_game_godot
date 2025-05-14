@@ -3,6 +3,8 @@ extends Control
 @onready var container := $NinePatchRect/GridContainer
 @onready var inventory_slot_scene := preload("res://scenes/slot_gui.tscn")
 @onready var flashlight_texture := preload("res://assets/icons/flashlights.png")
+@onready var shovel_texture := preload("res://assets/icons/shovel.png")
+@onready var key_texture := preload("res://assets/icons/station-key.png")
 
 var isOpen: bool = false
 
@@ -21,23 +23,16 @@ func close():
 	isOpen = false
 
 func update_inventory_ui(icon: Texture = null):
-	# Remove all children of the container
+
 	for child in container.get_children():
 		child.queue_free()
 	
 	for item_name in Inventory.items.keys():
 		var slot = inventory_slot_scene.instantiate()
 		
-		# Find the correct node paths - adjust these to match your actual scene hierarchy
-		# Check your slot_gui.tscn to find the correct paths
-		var icon_node = slot.find_child("TextureRect") # Common name for texture nodes
-		#var count_label = slot.find_child("Label") # Common name for label nodes
-		
-		# Alternatively, if you know the exact paths:
-		# var icon_node = slot.get_node("TextureRect") 
-		# var count_label = slot.get_node("Label")
-		
-		# Debug output to help find node names
+
+		var icon_node = slot.find_child("TextureRect")
+	
 		print("Available children in slot: ", slot.get_children())
 		
 		if icon_node:
@@ -54,15 +49,15 @@ func update_inventory_ui(icon: Texture = null):
 			
 		container.add_child(slot)
 
-# Helper function to get the appropriate texture for each item type
+
 func get_item_texture(item_name: String) -> Texture:
 	match item_name:
 		"flashlight":
 			return flashlight_texture
-		# Add more items here as needed
-		# "medkit":
-		#    return medkit_texture
+		"shovel":
+			return shovel_texture
+		"stationKey":
+			return key_texture
 		_:
-			# Default texture or placeholder for unknown items
-			# You might want to load a default/missing texture here
-			return null  # Or return a default texture
+		
+			return null  

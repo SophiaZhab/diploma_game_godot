@@ -6,7 +6,8 @@ extends Control
 func _ready():
 	$InventoryButton.pressed.connect(_on_inventory_button_pressed)
 	inventory_ui.close()
-	
+	mouse_filter = MOUSE_FILTER_IGNORE
+
 	
 
 func _on_inventory_button_pressed():

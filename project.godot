@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Global.gd"
 Inventory="*res://scenes/Inventory.gd"
+NarrationManager="*res://scenes/Narration.tscn"
 
 [rendering]
 

@@ -8,10 +8,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="Slot" type="Panel"]
 custom_minimum_size = Vector2(50, 50)
 anchors_preset = -1
-anchor_right = 0.049
-anchor_bottom = 0.086
-offset_right = 18.552
-offset_bottom = 17.272
+anchor_right = 0.137
+anchor_bottom = 0.236
+offset_right = 0.175995
+offset_bottom = 0.071991
 theme_override_styles/panel = SubResource("StyleBoxFlat_uwo2y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

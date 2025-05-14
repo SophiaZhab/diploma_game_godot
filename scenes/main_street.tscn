@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://34olrx86jbjf"]
+[gd_scene load_steps=46 format=3 uid="uid://34olrx86jbjf"]
 
 [ext_resource type="Script" uid="uid://cl00kaqwlsfi2" path="res://scenes/main_street.gd" id="1_6e07w"]
 [ext_resource type="Texture2D" uid="uid://cbttgi0epj26d" path="res://assets/backgrounds/main_street.png" id="1_eif53"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dxrsktkorwrb" path="res://assets/main_street_objects/main_street_door_shop.png" id="14_bivvy"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="15_6e07w"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="15_bivvy"]
+[ext_resource type="Texture2D" uid="uid://nwwnkegsojb4" path="res://assets/near-library-objects/car-leftside.png" id="18_6c23v"]
+[ext_resource type="Script" uid="uid://vp22na8u7c8m" path="res://scenes/AreaTrigger.gd" id="18_le1d0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_laxlr"]
 
@@ -92,6 +94,12 @@ size = Vector2(176, 48.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drii4"]
 size = Vector2(134, 30.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c23v"]
+size = Vector2(53.5, 522)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_le1d0"]
+size = Vector2(157.5, 97)
+
 [node name="Main_street" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6e07w")
@@ -102,9 +110,10 @@ texture = ExtResource("1_eif53")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h1lmc")]
 z_index = 2
-position = Vector2(946, 9)
+position = Vector2(-1422, 342)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, 2)
 zoom = Vector2(0.75, 0.75)
 limit_left = -1500
 limit_top = -1065
@@ -320,6 +329,53 @@ shape = SubResource("RectangleShape2D_drii4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("15_6e07w")]
+
+[node name="car4" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="car4"]
+position = Vector2(-1163.6, 130.5)
+scale = Vector2(1.07446, 1.03741)
+texture = ExtResource("18_6c23v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car4"]
+position = Vector2(-2497.71, 302)
+scale = Vector2(1.05858, 1)
+polygon = PackedVector2Array(1040, -72, 1017, -112, 1017, -195, 1123, -218, 1437, -209, 1448, -164, 1443, -95, 1383, -69)
+
+[node name="car5" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="car5"]
+position = Vector2(-649.6, 120.5)
+scale = Vector2(1.07446, 1.03741)
+texture = ExtResource("18_6c23v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car5"]
+position = Vector2(-1983.71, 292)
+scale = Vector2(1.05858, 1)
+polygon = PackedVector2Array(1040, -72, 1017, -112, 1017, -195, 1123, -218, 1437, -209, 1448, -164, 1443, -95, 1383, -69)
+
+[node name="city-exit" type="Area2D" parent="."]
+script = ExtResource("18_le1d0")
+trigger_lines = Array[String](["Я звідти прийшов.", "Там точно немає відповідей."])
+one_shot = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="city-exit"]
+z_index = 3
+position = Vector2(-1512.75, 315)
+shape = SubResource("RectangleShape2D_6c23v")
+
+[node name="yellow-doors" type="Area2D" parent="."]
+script = ExtResource("18_le1d0")
+trigger_lines = Array[String](["Зачинено."])
+one_shot = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="yellow-doors"]
+position = Vector2(521.25, -148.5)
+shape = SubResource("RectangleShape2D_le1d0")
 
 [connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]
 [connection signal="body_entered" from="library-street-enter" to="library-street-enter" method="_on_body_entered"]

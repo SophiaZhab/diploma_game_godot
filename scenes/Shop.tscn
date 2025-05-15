@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxj61imb3tqd" path="res://assets/Shop_objects/frame.png" id="4_fpbbi"]
 [ext_resource type="Texture2D" uid="uid://c38iahoownen" path="res://assets/Shop_objects/refrigerators.png" id="5_m0qts"]
 [ext_resource type="Texture2D" uid="uid://085vr4d6n4ur" path="res://assets/Shop_objects/boxes.png" id="6_fpbbi"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="7_m0qts"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="7_m0qts"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="8_ht580"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht580"]

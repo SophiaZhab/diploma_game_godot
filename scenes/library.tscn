@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cvyckm42s73rp" path="res://assets/library-objects/right-shelves.png" id="8_q3d3p"]
 [ext_resource type="Texture2D" uid="uid://v2oxepoaokes" path="res://assets/library-objects/table1.png" id="9_7bqx5"]
 [ext_resource type="Texture2D" uid="uid://dmengukcic8hi" path="res://assets/library-objects/table2.png" id="10_aotgj"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="11_7bqx5"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="11_7bqx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bqx5"]
 size = Vector2(683, 222)
@@ -53,9 +53,10 @@ texture = ExtResource("7_qyo4v")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_6frsu")]
 z_index = 1
-position = Vector2(199, 4)
+position = Vector2(-153, 441)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, 2)
 
 [node name="frame" type="StaticBody2D" parent="."]
 z_index = 1

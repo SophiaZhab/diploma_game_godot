@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://qbewrt1qo2sa"]
+[gd_scene load_steps=25 format=3 uid="uid://qbewrt1qo2sa"]
 
 [ext_resource type="Texture2D" uid="uid://cs5wd6231kws6" path="res://assets/backgrounds/bgd-in-st.png" id="1_jedoh"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_8bctb"]
@@ -8,8 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://beurw8pd2tcjx" path="res://assets/inside-station-objects/table2.png" id="5_4mfnc"]
 [ext_resource type="Texture2D" uid="uid://brbenr6dio74u" path="res://assets/inside-station-objects/cabinet.png" id="7_0iakx"]
 [ext_resource type="Texture2D" uid="uid://nqsop3whqxax" path="res://assets/inside-station-objects/lights.png" id="8_7mwff"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="9_7mwff"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="9_7mwff"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="10_kb5dq"]
+[ext_resource type="Script" uid="uid://bfao5jtjmvofb" path="res://scenes/cyber_sp.gd" id="11_qm4h5"]
+[ext_resource type="Texture2D" uid="uid://ckt7fgr60oj7" path="res://assets/characters/cyberSp.png" id="12_60bg7"]
+[ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="13_nt64q"]
+[ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="14_alp0d"]
+[ext_resource type="Texture2D" uid="uid://c4mgbc5lna52g" path="res://assets/portraits/mainP.png" id="15_2xv26"]
+[ext_resource type="FontFile" uid="uid://u3e74nua3vqy" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf" id="16_2xv26"]
+[ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="17_a5qgv"]
+[ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="17_xoy17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qunjg"]
 size = Vector2(50, 63)
@@ -20,8 +28,14 @@ size = Vector2(86, 205)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb5dq"]
 size = Vector2(36, 83.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5qgv"]
+radius = 39.0128
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05luc"]
 size = Vector2(48, 156)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0joe8"]
+radius = 77.0584
 
 [node name="Station-building" type="Node2D"]
 y_sort_enabled = true
@@ -33,7 +47,8 @@ texture = ExtResource("1_jedoh")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_8bctb")]
 z_index = 1
-position = Vector2(-53, 363)
+position = Vector2(211, 218)
+scale = Vector2(1.05, 1.05)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -101,6 +116,11 @@ texture = ExtResource("7_0iakx")
 position = Vector2(-89, 213.75)
 shape = SubResource("RectangleShape2D_kb5dq")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cabinet"]
+z_index = 2
+position = Vector2(-40, 419)
+shape = SubResource("CircleShape2D_a5qgv")
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(72.0312, 344.438)
 scale = Vector2(0.627023, 0.672266)
@@ -121,5 +141,91 @@ shape = SubResource("RectangleShape2D_05luc")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("10_kb5dq")]
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="CyberSp" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-37, 422)
+script = ExtResource("11_qm4h5")
+
+[node name="Sprite2D" type="Sprite2D" parent="CyberSp"]
+position = Vector2(3.54684, -3.63803)
+scale = Vector2(0.330627, 0.330627)
+texture = ExtResource("12_60bg7")
+offset = Vector2(0, -300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CyberSp"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_0joe8")
+
+[node name="DialogManager" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("13_nt64q")
+
+[node name="Panel" type="Panel" parent="DialogManager"]
+modulate = Color(0.44946, 0.813107, 0.960462, 0.662745)
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 650.0
+
+[node name="PortraitLeft" type="TextureRect" parent="DialogManager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -549.0
+offset_top = -552.0
+offset_right = 1171.0
+offset_bottom = 1290.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.298563, 0.298563)
+texture = ExtResource("14_alp0d")
+
+[node name="PortraitRight" type="TextureRect" parent="DialogManager"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -564.0
+offset_right = 1246.0
+offset_bottom = 1149.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.328163, 0.328163)
+texture = ExtResource("15_2xv26")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogManager"]
+offset_left = 39.0
+offset_top = 436.0
+offset_right = 1008.0
+offset_bottom = 624.0
+
+[node name="NameLabel" type="Label" parent="DialogManager"]
+offset_left = 78.0
+offset_top = 452.0
+offset_right = 370.0
+offset_bottom = 502.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("16_2xv26")
+theme_override_font_sizes/font_size = 23
+
+[node name="TextLabel" type="RichTextLabel" parent="DialogManager"]
+offset_left = 78.0
+offset_top = 510.0
+offset_right = 967.0
+offset_bottom = 606.0
+theme_override_colors/default_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/normal_font = ExtResource("17_xoy17")
+theme_override_fonts/bold_font = ExtResource("17_a5qgv")
+theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 23
 
 [connection signal="body_entered" from="station-exit" to="station-exit" method="_on_body_entered"]
+[connection signal="body_entered" from="CyberSp" to="CyberSp" method="_on_body_entered"]

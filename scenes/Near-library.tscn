@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dxu5668h2fakv" path="res://assets/near-library-objects/library-building.png" id="9_vsso6"]
 [ext_resource type="Texture2D" uid="uid://nwwnkegsojb4" path="res://assets/near-library-objects/car-leftside.png" id="10_8ugnb"]
 [ext_resource type="Texture2D" uid="uid://6lxofvaodgqw" path="res://assets/near-library-objects/cars.png" id="11_2fdif"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="12_4pdbx"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="12_4pdbx"]
 [ext_resource type="Texture2D" uid="uid://d3wh50nrxn0yx" path="res://assets/near-library-objects/LibraryDoors.png" id="12_43dku"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="13_bcxob"]
-[ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://scenes/Item.gd" id="14_s7u5w"]
+[ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://Scripts/Item.gd" id="14_s7u5w"]
 [ext_resource type="Texture2D" uid="uid://bj7soc0vdc8m3" path="res://assets/icons/shovel.png" id="15_w38u1"]
 [ext_resource type="Texture2D" uid="uid://d1yycpywrhk4h" path="res://assets/objects-for-inventory/shovel.png" id="16_vsso6"]
 [ext_resource type="Texture2D" uid="uid://bhd0k6yl37j42" path="res://assets/icons/book1.png" id="17_w38u1"]
@@ -44,7 +44,7 @@ size = Vector2(628, 164)
 size = Vector2(79, 533.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pdbx"]
-size = Vector2(101, 33.5)
+size = Vector2(101, 49.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ugnb"]
 size = Vector2(65, 21.5)
@@ -203,18 +203,19 @@ shape = SubResource("RectangleShape2D_83wtd")
 [node name="LibraryDoor" type="Area2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(636, -323)
+position = Vector2(634, -317)
 priority = 1
 script = ExtResource("12_4pdbx")
 target_scene = "res://scenes/library.tscn"
 target_door_name = "street-enter"
+is_puzzle_door = true
 
 [node name="Sprite2D" type="Sprite2D" parent="LibraryDoor"]
-position = Vector2(0, -121)
+position = Vector2(0, -131.5)
 texture = ExtResource("12_43dku")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LibraryDoor"]
-position = Vector2(-1, -45)
+position = Vector2(-2, -59.5)
 shape = SubResource("RectangleShape2D_4pdbx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

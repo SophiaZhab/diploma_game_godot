@@ -47,6 +47,10 @@ func _add_to_inventory():
 					narration.show_lines([
 						"Книжка?"
 					])
+				"stationKey":
+					narration.show_lines([
+						"Іржавий ключ."
+					])
 				"book3":
 					narration.show_lines([
 						"Книжка з цифрами..."

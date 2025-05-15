@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Global.gd"
-Inventory="*res://scenes/Inventory.gd"
+Inventory="*res://Scripts/Inventory.gd"
 NarrationManager="*res://scenes/Narration.tscn"
 
 [rendering]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkj8gn4v4jbed"]
+
+[ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="1_61ysr"]
+[ext_resource type="Texture2D" uid="uid://c4mgbc5lna52g" path="res://assets/portraits/mainP.png" id="2_qxd2b"]
+
+[node name="StationDialog" type="Node2D"]
+
+[node name="DialogUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PortraitLeft" type="TextureRect" parent="DialogUI"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 93.0
+offset_right = 1741.0
+offset_bottom = 1935.0
+scale = Vector2(0.297996, 0.297996)
+texture = ExtResource("1_61ysr")
+
+[node name="PortraitRight" type="TextureRect" parent="DialogUI"]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 80.0
+offset_right = 2372.0
+offset_bottom = 1793.0
+scale = Vector2(0.331023, 0.331023)
+texture = ExtResource("2_qxd2b")
+
+[node name="NameLabel" type="Label" parent="DialogUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 387.0
+offset_right = 407.0
+offset_bottom = 497.0
+
+[node name="TextLabel" type="RichTextLabel" parent="DialogUI"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 493.0
+offset_right = 1154.0
+offset_bottom = 647.0

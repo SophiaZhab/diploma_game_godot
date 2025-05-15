@@ -15,10 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://ddleaikbx2gm7" path="res://assets/main_street_objects/main_street_grey_house.png" id="12_6u5q2"]
 [ext_resource type="Texture2D" uid="uid://dxrsktkorwrb" path="res://assets/main_street_objects/main_street_door_shop.png" id="14_bivvy"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="15_6e07w"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="15_bivvy"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="15_bivvy"]
 [ext_resource type="Texture2D" uid="uid://nwwnkegsojb4" path="res://assets/near-library-objects/car-leftside.png" id="18_6c23v"]
-[ext_resource type="Script" uid="uid://vp22na8u7c8m" path="res://scenes/AreaTrigger.gd" id="18_le1d0"]
-[ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://scenes/Item.gd" id="19_0xgxe"]
+[ext_resource type="Script" uid="uid://vp22na8u7c8m" path="res://Scripts/AreaTrigger.gd" id="18_le1d0"]
+[ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://Scripts/Item.gd" id="19_0xgxe"]
 [ext_resource type="Texture2D" uid="uid://guih1t76y8wv" path="res://assets/icons/book3.png" id="20_rkexx"]
 [ext_resource type="Texture2D" uid="uid://cwbac5518lnuh" path="res://assets/objects-for-inventory/book3.png" id="21_rkexx"]
 
@@ -114,7 +114,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h1lmc")]
 z_index = 2
-position = Vector2(-1422, 342)
+position = Vector2(-1309, 332)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-1, 2)

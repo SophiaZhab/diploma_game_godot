@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmww3k6cbpdo7"]
+
+[ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="1_xeye3"]
+[ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="2_o0g86"]
+[ext_resource type="Texture2D" uid="uid://c4mgbc5lna52g" path="res://assets/portraits/mainP.png" id="3_pybqc"]
+
+[node name="DialogManager" type="CanvasLayer"]
+script = ExtResource("1_xeye3")
+
+[node name="PortraitLeft" type="TextureRect" parent="."]
+offset_left = 21.0
+offset_top = 93.0
+offset_right = 1741.0
+offset_bottom = 1935.0
+scale = Vector2(0.297996, 0.297996)
+texture = ExtResource("2_o0g86")
+
+[node name="PortraitRight" type="TextureRect" parent="."]
+offset_left = 526.0
+offset_top = 80.0
+offset_right = 2372.0
+offset_bottom = 1793.0
+scale = Vector2(0.331023, 0.331023)
+texture = ExtResource("3_pybqc")
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 387.0
+offset_right = 407.0
+offset_bottom = 497.0
+
+[node name="TextLabel" type="RichTextLabel" parent="."]
+offset_left = 1.0
+offset_top = 493.0
+offset_right = 1154.0
+offset_bottom = 647.0

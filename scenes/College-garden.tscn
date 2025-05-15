@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_6f4rk"]
 [ext_resource type="Texture2D" uid="uid://dxbw62dg8100k" path="res://assets/college-garden-objects/college.png" id="3_jxhpe"]
 [ext_resource type="Texture2D" uid="uid://dsu34w0wtvvbf" path="res://assets/college-garden-objects/fence.png" id="4_6f4rk"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="5_jxhpe"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="5_jxhpe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxhpe"]
 size = Vector2(351, 69)

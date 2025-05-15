@@ -22,10 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://c7j5hfj5p7hqd" path="res://assets/station-objects/counter5.png" id="20_32oji"]
 [ext_resource type="Texture2D" uid="uid://dr122vxuf1qdr" path="res://assets/station-objects/counter32.png" id="21_6wosg"]
 [ext_resource type="Texture2D" uid="uid://rkglyq5s8x0" path="res://assets/station-objects/firtree-group.png" id="22_e7t4q"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="23_0l680"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="23_0l680"]
 [ext_resource type="Texture2D" uid="uid://bymtgwsc745ml" path="res://assets/station-objects/bush-group.png" id="24_pmrc8"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="25_ndcrq"]
-[ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://scenes/Item.gd" id="26_wp55w"]
+[ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://Scripts/Item.gd" id="26_wp55w"]
 [ext_resource type="Texture2D" uid="uid://cjmtcb3xuu4o6" path="res://assets/icons/station-key.png" id="27_qndqd"]
 [ext_resource type="Texture2D" uid="uid://bn71oe1lo57eo" path="res://assets/objects-for-inventory/station-key.png" id="28_hu8dm"]
 [ext_resource type="PackedScene" uid="uid://c4x58rr734q1r" path="res://scenes/Narration.tscn" id="29_hu8dm"]
@@ -398,6 +398,8 @@ position = Vector2(-448, 106)
 script = ExtResource("23_0l680")
 target_scene = "res://scenes/Station-building.tscn"
 target_door_name = "station-exit"
+is_key_door = true
+required_key = "stationKey"
 
 [node name="Sprite2D" type="Sprite2D" parent="st-building-enter"]
 

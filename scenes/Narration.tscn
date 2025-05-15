@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4x58rr734q1r"]
 
-[ext_resource type="Script" uid="uid://c3vrhp8dxnjnk" path="res://scenes/narration.gd" id="1_t4fkj"]
+[ext_resource type="Script" uid="uid://c3vrhp8dxnjnk" path="res://Scripts/narration.gd" id="1_t4fkj"]
 [ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="2_eqksj"]
 [ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="3_ho48j"]
 
@@ -15,17 +15,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -421.0
-offset_top = -90.0
+offset_top = -100.0
 offset_right = 421.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = 6
 offset_left = 189.0
-offset_top = 582.0
+offset_top = 569.0
 offset_right = 966.0
-offset_bottom = 629.0
+offset_bottom = 616.0
 theme_override_colors/default_color = Color(0.674388, 0.607166, 0.69516, 1)
 theme_override_fonts/normal_font = ExtResource("2_eqksj")
 theme_override_fonts/bold_font = ExtResource("3_ho48j")

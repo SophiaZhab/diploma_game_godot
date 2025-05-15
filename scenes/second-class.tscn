@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dcoa577em1x3d" path="res://assets/class2-objects/tbl2.png" id="7_frabw"]
 [ext_resource type="Texture2D" uid="uid://dryqry1eocb5l" path="res://assets/class2-objects/tbl3.png" id="7_smlmg"]
 [ext_resource type="Texture2D" uid="uid://ghj6lhxhu8gd" path="res://assets/class2-objects/chair.png" id="8_3ag2i"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="9_smlmg"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="9_smlmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ag2i"]
 size = Vector2(248, 35)

@@ -11,6 +11,5 @@ func add_item(item_name: String, icon: Texture):
 
 	print("Inventory: ", items)
 
-	# Якщо є UI — оновити
 	if ui:
 		ui.update_inventory_ui(icon)

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgcm8547bacdk" path="res://assets/engineering-class-objects/table5.png" id="8_6tahh"]
 [ext_resource type="Texture2D" uid="uid://gqap1tgk71me" path="res://assets/engineering-class-objects/table3.png" id="9_6tahh"]
 [ext_resource type="Texture2D" uid="uid://tscwu4on7s3n" path="res://assets/engineering-class-objects/table2.png" id="10_udkkq"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="11_es5m7"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="11_es5m7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0duk"]
 size = Vector2(100, 21)

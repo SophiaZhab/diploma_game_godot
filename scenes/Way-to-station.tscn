@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4jeey8brjlt7" path="res://assets/backgrounds/шлях_до_станції.png" id="1_6eqsa"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_wr734"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="3_wr734"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="3_wr734"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="4_qol1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qol1q"]

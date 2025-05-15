@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://ndiwsvyvlsad"]
 
 [ext_resource type="Texture2D" uid="uid://cfphi78iw0b81" path="res://assets/backgrounds/bgd-col.png" id="1_lj3cq"]
-[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://scenes/door.gd" id="1_omf3q"]
+[ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="1_omf3q"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_h187c"]
 [ext_resource type="Texture2D" uid="uid://kkahqyil15s4" path="res://assets/college-objects/bgd-col.png" id="3_h187c"]
 [ext_resource type="Texture2D" uid="uid://bojdjkoe0y4ov" path="res://assets/college-objects/frame.png" id="3_qjbqs"]

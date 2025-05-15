@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbax4d5jdcit7"]
+
+[ext_resource type="Script" uid="uid://dsdcltf2o5xs5" path="res://scenes/lock_panel.gd" id="1_2e8xs"]
+[ext_resource type="Texture2D" uid="uid://bktx4i4lsfnfp" path="res://assets/backgrounds/library-lock.png" id="2_nj503"]
+[ext_resource type="Script" uid="uid://dy61yidi57cqy" path="res://Scripts/turn_back.gd" id="3_7rkrg"]
+[ext_resource type="Texture2D" uid="uid://c5fnirx4yyhe" path="res://assets/icons/arrow.png" id="4_oe6g6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukeso"]
+bg_color = Color(0.231373, 0.658824, 0.768627, 0)
+
+[node name="LockPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2e8xs")
+
+[node name="Bgd" type="Sprite2D" parent="."]
+position = Vector2(18, -89.75)
+scale = Vector2(1, 0.919802)
+texture = ExtResource("2_nj503")
+
+[node name="Digit1" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+top_level = true
+layout_mode = 0
+offset_left = -285.0
+offset_top = -116.0
+offset_right = -20.0
+offset_bottom = 285.0
+theme_override_constants/icon_max_width = 8
+theme_override_font_sizes/font_size = 95
+theme_override_styles/focus = SubResource("StyleBoxFlat_ukeso")
+
+[node name="Digit2" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+top_level = true
+layout_mode = 0
+offset_left = -5.0
+offset_top = -115.0
+offset_right = 256.0
+offset_bottom = 284.0
+theme_override_constants/icon_max_width = 8
+theme_override_font_sizes/font_size = 95
+theme_override_styles/focus = SubResource("StyleBoxFlat_ukeso")
+
+[node name="Digit3" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+top_level = true
+layout_mode = 0
+offset_left = 275.0
+offset_top = -112.0
+offset_right = 543.0
+offset_bottom = 287.0
+theme_override_constants/icon_max_width = 8
+theme_override_font_sizes/font_size = 95
+theme_override_styles/focus = SubResource("StyleBoxFlat_ukeso")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(10, 5)
+zoom = Vector2(0.385, 0.385)
+
+[node name="turn-back" type="Area2D" parent="."]
+script = ExtResource("3_7rkrg")
+target_scene = "res://scenes/Near-library.tscn"
+return_spawn_point_name = "LibraryDoor"
+
+[node name="Sprite2D" type="Sprite2D" parent="turn-back"]
+position = Vector2(-3.4297, 687.125)
+scale = Vector2(1.92003, 1.85596)
+texture = ExtResource("4_oe6g6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="turn-back"]
+position = Vector2(-5.975, -89.6667)
+scale = Vector2(0.916667, 0.916667)
+polygon = PackedVector2Array(-94, 709, 91, 711, 93, 784, 207, 784, 2, 979, -204, 781, -93, 781)

@@ -10,11 +10,11 @@ offset_left = 489.0
 offset_top = 245.0
 offset_right = 657.0
 offset_bottom = 276.0
-text = "Start game"
+text = "Почати гру"
 
 [node name="ExitButton" type="Button" parent="."]
 offset_left = 489.0
 offset_top = 301.0
 offset_right = 658.0
 offset_bottom = 332.0
-text = "Exit"
+text = "Вийти"

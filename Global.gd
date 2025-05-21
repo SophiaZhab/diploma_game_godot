@@ -4,6 +4,7 @@ var last_door_position = Vector2.ZERO
 var last_door_name: String = ""
 var puzzle_library_solved := false
 var dialogs_played = {}
+var visited_library := false
 
 func _ready():
 	print("Global script initialized")

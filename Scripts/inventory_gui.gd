@@ -8,6 +8,7 @@ extends Control
 @onready var book1_texture := preload("res://assets/icons/book1.png")
 @onready var book2_texture := preload("res://assets/icons/book2.png")
 @onready var book3_texture := preload("res://assets/icons/book3.png")
+@onready var notecode_texture := preload("res://assets/icons/note-code.png")
 
 var isOpen: bool = false
 
@@ -67,6 +68,8 @@ func get_item_texture(item_name: String) -> Texture:
 			return book2_texture
 		"book3":
 			return book3_texture
+		"note-code":
+			return notecode_texture
 		_:
 		
 			return null  

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d31qi0ik6p6dy" path="res://Scripts/ui_root.gd" id="1_iiivb"]
 [ext_resource type="Texture2D" uid="uid://uj2pla3qy46j" path="res://assets/icons/backpack.png" id="1_rt4gy"]
-[ext_resource type="PackedScene" uid="uid://dikm7285nf4b8" path="res://scenes/inventory-gui.tscn" id="3_11qqv"]
+[ext_resource type="PackedScene" uid="uid://dikm7285nf4b8" path="res://scenes/inventoryUI.tscn" id="3_11qqv"]
 
 [node name="UIroot" type="Control"]
 layout_mode = 3

@@ -160,18 +160,18 @@ offset = Vector2(0, -300)
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_0joe8")
 
-[node name="DialogManager" type="CanvasLayer" parent="."]
+[node name="DialogueManager" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("13_nt64q")
 
-[node name="Panel" type="Panel" parent="DialogManager"]
+[node name="Panel" type="Panel" parent="DialogueManager"]
 modulate = Color(0.44946, 0.813107, 0.960462, 0.662745)
 offset_left = -1.0
 offset_top = 1.0
 offset_right = 1151.0
 offset_bottom = 650.0
 
-[node name="PortraitLeft" type="TextureRect" parent="DialogManager"]
+[node name="PortraitLeft" type="TextureRect" parent="DialogueManager"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -186,7 +186,7 @@ grow_vertical = 0
 scale = Vector2(0.298563, 0.298563)
 texture = ExtResource("14_alp0d")
 
-[node name="PortraitRight" type="TextureRect" parent="DialogManager"]
+[node name="PortraitRight" type="TextureRect" parent="DialogueManager"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -201,13 +201,13 @@ grow_vertical = 0
 scale = Vector2(0.328163, 0.328163)
 texture = ExtResource("15_2xv26")
 
-[node name="PanelContainer" type="PanelContainer" parent="DialogManager"]
+[node name="PanelContainer" type="PanelContainer" parent="DialogueManager"]
 offset_left = 39.0
 offset_top = 436.0
 offset_right = 1008.0
 offset_bottom = 624.0
 
-[node name="NameLabel" type="Label" parent="DialogManager"]
+[node name="NameLabel" type="Label" parent="DialogueManager"]
 offset_left = 78.0
 offset_top = 452.0
 offset_right = 370.0
@@ -216,7 +216,7 @@ theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
 theme_override_fonts/font = ExtResource("16_2xv26")
 theme_override_font_sizes/font_size = 23
 
-[node name="TextLabel" type="RichTextLabel" parent="DialogManager"]
+[node name="TextLabel" type="RichTextLabel" parent="DialogueManager"]
 offset_left = 78.0
 offset_top = 510.0
 offset_right = 967.0
@@ -226,6 +226,9 @@ theme_override_fonts/normal_font = ExtResource("17_xoy17")
 theme_override_fonts/bold_font = ExtResource("17_a5qgv")
 theme_override_font_sizes/normal_font_size = 23
 theme_override_font_sizes/bold_font_size = 23
+
+[node name="TypingTimer" type="Timer" parent="DialogueManager"]
+wait_time = 0.03
 
 [connection signal="body_entered" from="station-exit" to="station-exit" method="_on_body_entered"]
 [connection signal="body_entered" from="CyberSp" to="CyberSp" method="_on_body_entered"]

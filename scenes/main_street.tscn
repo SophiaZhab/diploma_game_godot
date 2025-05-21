@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://34olrx86jbjf"]
+[gd_scene load_steps=51 format=3 uid="uid://34olrx86jbjf"]
 
 [ext_resource type="Script" uid="uid://cl00kaqwlsfi2" path="res://scenes/main_street.gd" id="1_6e07w"]
 [ext_resource type="Texture2D" uid="uid://cbttgi0epj26d" path="res://assets/backgrounds/main_street.png" id="1_eif53"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://Scripts/Item.gd" id="19_0xgxe"]
 [ext_resource type="Texture2D" uid="uid://guih1t76y8wv" path="res://assets/icons/book3.png" id="20_rkexx"]
 [ext_resource type="Texture2D" uid="uid://cwbac5518lnuh" path="res://assets/objects-for-inventory/book3.png" id="21_rkexx"]
+[ext_resource type="Texture2D" uid="uid://q2gvnfgdfofm" path="res://assets/near-library-objects/car-rightside.png" id="22_oahl2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_laxlr"]
 
@@ -103,6 +104,9 @@ size = Vector2(53.5, 522)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le1d0"]
 size = Vector2(157.5, 97)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oahl2"]
+size = Vector2(102, 149)
+
 [node name="Main_street" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6e07w")
@@ -113,7 +117,7 @@ texture = ExtResource("1_eif53")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h1lmc")]
-z_index = 2
+z_index = 1
 position = Vector2(-1309, 332)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -245,7 +249,7 @@ position = Vector2(694.75, -531)
 shape = SubResource("RectangleShape2D_o27cm")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="yellow-building"]
-position = Vector2(521.75, -591.5)
+position = Vector2(522.75, -591.5)
 shape = SubResource("RectangleShape2D_phmlb")
 
 [node name="grey-building" type="StaticBody2D" parent="."]
@@ -334,20 +338,6 @@ shape = SubResource("RectangleShape2D_drii4")
 
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("15_6e07w")]
 
-[node name="car4" type="StaticBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="car4"]
-position = Vector2(-1163.6, 130.5)
-scale = Vector2(1.07446, 1.03741)
-texture = ExtResource("18_6c23v")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car4"]
-position = Vector2(-2497.71, 302)
-scale = Vector2(1.05858, 1)
-polygon = PackedVector2Array(1040, -72, 1017, -112, 1017, -195, 1123, -218, 1437, -209, 1448, -164, 1443, -95, 1383, -69)
-
 [node name="car5" type="StaticBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
@@ -359,6 +349,20 @@ texture = ExtResource("18_6c23v")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car5"]
 position = Vector2(-1983.71, 292)
+scale = Vector2(1.05858, 1)
+polygon = PackedVector2Array(1040, -72, 1017, -112, 1017, -195, 1123, -218, 1437, -209, 1448, -164, 1443, -95, 1383, -69)
+
+[node name="car4" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="car4"]
+position = Vector2(-1163.6, 130.5)
+scale = Vector2(1.07446, 1.03741)
+texture = ExtResource("18_6c23v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car4"]
+position = Vector2(-2497.71, 302)
 scale = Vector2(1.05858, 1)
 polygon = PackedVector2Array(1040, -72, 1017, -112, 1017, -195, 1123, -218, 1437, -209, 1448, -164, 1443, -95, 1383, -69)
 
@@ -393,6 +397,26 @@ texture = ExtResource("21_rkexx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book3"]
 polygon = PackedVector2Array(-579, -154, -579, -201, -559, -202, -559, -154)
+
+[node name="car6" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="car6"]
+position = Vector2(1323, 454)
+scale = Vector2(1.07446, 1.03741)
+texture = ExtResource("22_oahl2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="car6"]
+position = Vector2(-15, 623)
+scale = Vector2(1.05858, 1)
+polygon = PackedVector2Array(1040, -72, 1017, -112, 1017, -195, 1123, -218, 1437, -209, 1448, -164, 1443, -95, 1383, -69)
+
+[node name="fence" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fence"]
+position = Vector2(840, -383)
+shape = SubResource("RectangleShape2D_oahl2")
 
 [connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]
 [connection signal="body_entered" from="library-street-enter" to="library-street-enter" method="_on_body_entered"]

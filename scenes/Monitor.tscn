@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://cunt7bujlo2eu"]
+
+[ext_resource type="Script" uid="uid://cxfjr01q4vd24" path="res://Scripts/monitor.gd" id="1_v3j3j"]
+[ext_resource type="Texture2D" uid="uid://ck5xce2yrlwjm" path="res://assets/backgrounds/monitor.png" id="2_hpieq"]
+[ext_resource type="FontFile" uid="uid://c2olj7almidhk" path="res://assets/fonts/TerminusTTF-4.49.3.ttf" id="3_e2cdi"]
+[ext_resource type="Texture2D" uid="uid://dh2aq8pn86o17" path="res://assets/backgrounds/monitor_way.png" id="4_hpieq"]
+[ext_resource type="Script" uid="uid://dy61yidi57cqy" path="res://Scripts/turn_back.gd" id="5_cfkts"]
+[ext_resource type="Texture2D" uid="uid://c5fnirx4yyhe" path="res://assets/icons/arrow.png" id="6_fusxq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfkts"]
+font = ExtResource("3_e2cdi")
+font_size = 98
+font_color = Color(0.467351, 0.68295, 0.375699, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fusxq"]
+font = ExtResource("3_e2cdi")
+font_size = 80
+font_color = Color(0.466667, 0.682353, 0.376471, 1)
+
+[node name="Monitor" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_v3j3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(0.764126, 0.737)
+texture = ExtResource("2_hpieq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3, 35)
+zoom = Vector2(0.5, 0.5)
+
+[node name="LabelLine1" type="Label" parent="."]
+layout_mode = 0
+offset_left = -555.0
+offset_top = 128.0
+offset_right = -400.0
+offset_bottom = 293.0
+label_settings = SubResource("LabelSettings_cfkts")
+
+[node name="LabelLine2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -555.0
+offset_top = 262.0
+offset_right = 345.0
+offset_bottom = 427.0
+text = "2 3               "
+label_settings = SubResource("LabelSettings_cfkts")
+
+[node name="HiddenLineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 68.5625
+offset_bottom = 31.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -562.0
+offset_top = 7.0
+offset_right = 801.0
+offset_bottom = 146.0
+text = "визначити місцезнаходження:"
+label_settings = SubResource("LabelSettings_fusxq")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -562.0
+offset_top = -405.0
+offset_right = 801.0
+offset_bottom = -266.0
+text = "Внести дані з приладів:"
+label_settings = SubResource("LabelSettings_fusxq")
+
+[node name="Way" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(14, 29)
+scale = Vector2(0.766525, 0.741541)
+texture = ExtResource("4_hpieq")
+
+[node name="turn-back" type="Area2D" parent="."]
+script = ExtResource("5_cfkts")
+target_scene = "res://scenes/Station-building.tscn"
+return_spawn_point_name = "MonitorAccess"
+
+[node name="Sprite2D" type="Sprite2D" parent="turn-back"]
+position = Vector2(9, 562)
+scale = Vector2(1.39673, 1.35012)
+texture = ExtResource("6_fusxq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="turn-back"]
+position = Vector2(8, 24)
+scale = Vector2(0.633836, 0.633836)
+polygon = PackedVector2Array(-94, 709, 91, 711, 93, 784, 207, 784, 2, 979, -204, 781, -93, 781)
+
+[connection signal="input_event" from="turn-back" to="turn-back" method="_on_input_event"]

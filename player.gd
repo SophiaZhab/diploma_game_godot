@@ -28,7 +28,11 @@ func _set_spawn_position():
 
 
 func _physics_process(_delta):
-	#z_index = int(position.y)
+	if Global.is_dialog_active:
+		velocity = Vector2.ZERO
+		anim_sprite.play("stand")
+		return
+
 	var direction = Vector2.ZERO
 	
 	if Input.is_action_pressed("ui_right"):

@@ -34,7 +34,7 @@ func handle_key_door(body):
 	if body.name == "Player" or body.is_in_group("player"):
 		
 		if Inventory.items.has(required_key) and Inventory.items[required_key] > 0:
-				
+			Global.last_door_name = target_door_name
 			call_deferred("_change_scene", target_scene)
 		else:
 			NarrationManager.show_lines([
@@ -46,6 +46,7 @@ func handle_regular_door(body: Node2D) -> void:
 		print("Player entered regular door: ", name)
 		Global.last_door_name = target_door_name
 		call_deferred("_change_scene", target_scene)
+
 
 func open_puzzle():
 	print("Opening puzzle")

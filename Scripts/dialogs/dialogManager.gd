@@ -13,7 +13,7 @@ var is_typing = false
 @onready var text_label = $TextLabel
 
 func start_dialog(data: Array, item: Dictionary = {}):
-	
+	Global.is_dialog_active = true
 	dialog_data = data
 	current_index = 0
 	item_to_add = item
@@ -44,6 +44,7 @@ func _ready():
 	$TypingTimer.connect("timeout", Callable(self, "_on_TypingTimer_timeout"))
 
 func _end_dialog():
+	Global.is_dialog_active = false
 	hide()
 	
 

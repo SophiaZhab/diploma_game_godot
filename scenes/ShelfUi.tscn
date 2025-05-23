@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://cybpgsv3sdeja"]
 
-[ext_resource type="Texture2D" uid="uid://dh5hgbyctx3bn" path="res://assets/bookshelves/book1.png" id="3_35ns8"]
-[ext_resource type="Texture2D" uid="uid://birg0q0b1hfwv" path="res://assets/bookshelves/book2.png" id="5_vc4ki"]
-[ext_resource type="Texture2D" uid="uid://bjpgdd2svohta" path="res://assets/bookshelves/book3.png" id="6_ho57j"]
-[ext_resource type="Texture2D" uid="uid://bl8dihmv52x2t" path="res://assets/bookshelves/book4.png" id="7_3djws"]
-[ext_resource type="Texture2D" uid="uid://bn0knb1rmko1s" path="res://assets/bookshelves/book5.png" id="8_adrl1"]
-[ext_resource type="Texture2D" uid="uid://dp4m4mmdpqtsi" path="res://assets/bookshelves/book6.png" id="9_2mod0"]
-[ext_resource type="Texture2D" uid="uid://r1ubihnwu310" path="res://assets/bookshelves/book7.png" id="10_2utl5"]
-[ext_resource type="Texture2D" uid="uid://cqwlffathrjkp" path="res://assets/bookshelves/book8.png" id="11_fwld3"]
-[ext_resource type="Texture2D" uid="uid://c5g5qgu7vjfar" path="res://assets/bookshelves/book9.png" id="12_4qjg6"]
-[ext_resource type="Texture2D" uid="uid://ceqpnd8v3iwwu" path="res://assets/bookshelves/book10.png" id="13_wxibq"]
+[ext_resource type="Texture2D" uid="uid://dh5hgbyctx3bn" path="res://assets/bookshelves/book1.png" id="1_03em0"]
+[ext_resource type="Texture2D" uid="uid://birg0q0b1hfwv" path="res://assets/bookshelves/book2.png" id="2_71xq3"]
+[ext_resource type="Texture2D" uid="uid://bjpgdd2svohta" path="res://assets/bookshelves/book3.png" id="3_3bx1s"]
+[ext_resource type="Texture2D" uid="uid://bl8dihmv52x2t" path="res://assets/bookshelves/book4.png" id="4_vc4ki"]
+[ext_resource type="Texture2D" uid="uid://bn0knb1rmko1s" path="res://assets/bookshelves/book5.png" id="5_ho57j"]
+[ext_resource type="Texture2D" uid="uid://dp4m4mmdpqtsi" path="res://assets/bookshelves/book6.png" id="6_3djws"]
+[ext_resource type="Texture2D" uid="uid://r1ubihnwu310" path="res://assets/bookshelves/book7.png" id="7_adrl1"]
+[ext_resource type="Texture2D" uid="uid://cqwlffathrjkp" path="res://assets/bookshelves/book8.png" id="8_2mod0"]
+[ext_resource type="Texture2D" uid="uid://c5g5qgu7vjfar" path="res://assets/bookshelves/book9.png" id="9_2utl5"]
+[ext_resource type="Texture2D" uid="uid://ceqpnd8v3iwwu" path="res://assets/bookshelves/book10.png" id="10_fwld3"]
 
 [sub_resource type="GDScript" id="GDScript_03em0"]
 script/source = "extends Control
@@ -189,7 +189,7 @@ offset_left = 257.0
 offset_top = -13.9999
 offset_right = 269.217
 offset_bottom = 4.0
-texture = ExtResource("3_35ns8")
+texture = ExtResource("1_03em0")
 expand_mode = 1
 script = SubResource("GDScript_3bx1s")
 
@@ -199,7 +199,7 @@ offset_left = -47.0
 offset_top = 9.00006
 offset_right = 203.0
 offset_bottom = 1583.0
-texture = ExtResource("5_vc4ki")
+texture = ExtResource("2_71xq3")
 expand_mode = 1
 script = SubResource("GDScript_3bx1s")
 id = 1
@@ -210,7 +210,7 @@ offset_left = 516.0
 offset_top = -4.99994
 offset_right = 766.0
 offset_bottom = 1571.0
-texture = ExtResource("6_ho57j")
+texture = ExtResource("3_3bx1s")
 expand_mode = 1
 script = SubResource("GDScript_3bx1s")
 id = 2
@@ -221,7 +221,7 @@ offset_left = 770.0
 offset_top = -9.99994
 offset_right = 1020.0
 offset_bottom = 1563.0
-texture = ExtResource("7_3djws")
+texture = ExtResource("4_vc4ki")
 expand_mode = 1
 script = SubResource("GDScript_3bx1s")
 id = 3
@@ -232,7 +232,7 @@ offset_left = 1016.0
 offset_top = -17.9999
 offset_right = 1266.0
 offset_bottom = 1556.0
-texture = ExtResource("8_adrl1")
+texture = ExtResource("5_ho57j")
 expand_mode = 1
 script = SubResource("GDScript_3bx1s")
 id = 4
@@ -243,7 +243,7 @@ offset_left = 1276.0
 offset_top = 3.00006
 offset_right = 1526.0
 offset_bottom = 1577.0
-texture = ExtResource("9_2mod0")
+texture = ExtResource("6_3djws")
 expand_mode = 1
 script = SubResource("GDScript_3bx1s")
 id = 5
@@ -254,7 +254,7 @@ offset_left = 1546.0
 offset_top = -8.99994
 offset_right = 1796.0
 offset_bottom = 1565.0
-texture = ExtResource("10_2utl5")
+texture = ExtResource("7_adrl1")
 expand_mode = 1
 script = SubResource("GDScript_3bx1s")
 id = 6
@@ -265,7 +265,7 @@ offset_left = 1799.0
 offset_top = 30.0001
 offset_right = 2049.0
 offset_bottom = 1604.0
-texture = ExtResource("11_fwld3")
+texture = ExtResource("8_2mod0")
 script = SubResource("GDScript_3bx1s")
 id = 7
 
@@ -276,7 +276,7 @@ offset_left = 2013.0
 offset_top = 6.10352e-05
 offset_right = 2263.0
 offset_bottom = 1574.0
-texture = ExtResource("12_4qjg6")
+texture = ExtResource("9_2utl5")
 script = SubResource("GDScript_3bx1s")
 id = 8
 
@@ -287,7 +287,7 @@ offset_left = 2271.0
 offset_top = 8.00006
 offset_right = 2521.0
 offset_bottom = 1582.0
-texture = ExtResource("13_wxibq")
+texture = ExtResource("10_fwld3")
 script = SubResource("GDScript_3bx1s")
 id = 9
 

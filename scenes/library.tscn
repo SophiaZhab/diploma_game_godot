@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://v2oxepoaokes" path="res://assets/library-objects/table1.png" id="9_7bqx5"]
 [ext_resource type="Texture2D" uid="uid://dmengukcic8hi" path="res://assets/library-objects/table2.png" id="10_aotgj"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="11_7bqx5"]
-[ext_resource type="Script" uid="uid://cm7wo0midiv8k" path="res://scenes/book_puzzle.gd" id="12_aotgj"]
+[ext_resource type="Script" uid="uid://cm7wo0midiv8k" path="res://Scripts/book_puzzle.gd" id="12_aotgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bqx5"]
 size = Vector2(683, 222)

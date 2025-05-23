@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://qbewrt1qo2sa"]
+[gd_scene load_steps=26 format=3 uid="uid://qbewrt1qo2sa"]
 
 [ext_resource type="Texture2D" uid="uid://cs5wd6231kws6" path="res://assets/backgrounds/bgd-in-st.png" id="1_jedoh"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_8bctb"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://nqsop3whqxax" path="res://assets/inside-station-objects/lights.png" id="8_7mwff"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="9_7mwff"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="10_kb5dq"]
-[ext_resource type="Script" uid="uid://bfao5jtjmvofb" path="res://scenes/cyber_sp.gd" id="11_qm4h5"]
+[ext_resource type="Script" uid="uid://bfao5jtjmvofb" path="res://Scripts/cyber_sp.gd" id="11_qm4h5"]
 [ext_resource type="Texture2D" uid="uid://ckt7fgr60oj7" path="res://assets/characters/cyberSp.png" id="12_60bg7"]
 [ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="13_nt64q"]
 [ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="14_alp0d"]
@@ -29,13 +29,16 @@ size = Vector2(86, 205)
 size = Vector2(36, 83.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5qgv"]
-radius = 39.0128
+radius = 30.0666
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05luc"]
 size = Vector2(48, 156)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0joe8"]
-radius = 77.0584
+radius = 55.0364
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5qgv"]
+size = Vector2(117, 47.5)
 
 [node name="Station-building" type="Node2D"]
 y_sort_enabled = true
@@ -47,14 +50,15 @@ texture = ExtResource("1_jedoh")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_8bctb")]
 z_index = 1
-position = Vector2(211, 218)
-scale = Vector2(1.05, 1.05)
+position = Vector2(71, 435)
+scale = Vector2(1.2, 1.2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="table1" type="StaticBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+position = Vector2(9, -21)
 
 [node name="Sprite2D" type="Sprite2D" parent="table1"]
 position = Vector2(158.156, 296.098)
@@ -64,18 +68,18 @@ texture = ExtResource("3_4mfnc")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table1"]
 position = Vector2(0.93256, -14.0673)
 scale = Vector2(1.02923, 1.02923)
-polygon = PackedVector2Array(67, 444, 66, 425, 38, 430, 62, 409, 26, 402, 26, 320, 226.448, 318.749, 226.448, 400.363, 144, 401, 142, 347, 108, 355, 105, 391, 75, 400, 75, 409, 104, 421, 103, 432, 74, 423)
+polygon = PackedVector2Array(67.1059, 431.456, 66, 425, 38, 430, 62, 409, 26, 402, 26, 320, 226.448, 318.749, 226.448, 400.363, 144, 401, 142, 347, 108, 355, 105, 391, 75, 400, 75, 409, 104, 421, 103, 432, 74, 423)
 
 [node name="frame" type="StaticBody2D" parent="."]
 z_index = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="frame"]
-position = Vector2(70.5, 124.938)
-scale = Vector2(0.598775, 0.638604)
+position = Vector2(70.5, 128)
+scale = Vector2(0.598775, 0.644067)
 texture = ExtResource("4_8bctb")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="frame"]
-polygon = PackedVector2Array(-106, -45, -65.0535, -45.4908, -65, -10, -16, -8, -16, -46, 145, -43, 146, -1, 223, 0, 224, -44, 248, -46, 247, 82, 362, 82, 355, -194, 291, -261, -162, -265, -162, 558, 418, 568, 405, 233, 249, 235, 249, 463, -106, 463)
+polygon = PackedVector2Array(-106, -45, -65.0535, -45.4908, -65, -10, -16, -8, -16, -46, 145, -43, 146, -1, 223, 0, 224, -44, 248, -46, 247, 82, 362, 82, 355, -194, 291, -261, -162, -265, -162, 558, 418, 568, 405, 233, 249, 235, 249, 475, -109, 474)
 
 [node name="chair" type="StaticBody2D" parent="."]
 z_index = 1
@@ -118,16 +122,16 @@ shape = SubResource("RectangleShape2D_kb5dq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="cabinet"]
 z_index = 2
-position = Vector2(-40, 419)
+position = Vector2(104, 96)
 shape = SubResource("CircleShape2D_a5qgv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(72.0312, 344.438)
-scale = Vector2(0.627023, 0.672266)
+position = Vector2(72.0312, 345.938)
+scale = Vector2(0.627023, 0.679099)
 texture = ExtResource("8_7mwff")
 
 [node name="station-exit" type="Area2D" parent="."]
-position = Vector2(220, 154)
+position = Vector2(199, 156)
 script = ExtResource("9_7mwff")
 target_scene = "res://scenes/Station.tscn"
 target_door_name = "st-building-enter"
@@ -135,7 +139,7 @@ target_door_name = "st-building-enter"
 [node name="Sprite2D" type="Sprite2D" parent="station-exit"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="station-exit"]
-position = Vector2(61, 4)
+position = Vector2(83, 1)
 shape = SubResource("RectangleShape2D_05luc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -147,17 +151,17 @@ offset_right = -1.0
 [node name="CyberSp" type="Area2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-37, 422)
+position = Vector2(111, 92)
 script = ExtResource("11_qm4h5")
 
 [node name="Sprite2D" type="Sprite2D" parent="CyberSp"]
-position = Vector2(3.54684, -3.63803)
-scale = Vector2(0.330627, 0.330627)
+position = Vector2(-3.45312, 1.56837)
+scale = Vector2(0.280805, 0.280805)
 texture = ExtResource("12_60bg7")
 offset = Vector2(0, -300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CyberSp"]
-position = Vector2(0, -1)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_0joe8")
 
 [node name="DialogueManager" type="CanvasLayer" parent="."]
@@ -230,5 +234,15 @@ theme_override_font_sizes/bold_font_size = 23
 [node name="TypingTimer" type="Timer" parent="DialogueManager"]
 wait_time = 0.03
 
+[node name="MonitorAcces" type="Area2D" parent="."]
+script = ExtResource("9_7mwff")
+target_scene = "res://scenes/Monitor.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonitorAcces"]
+z_index = 1
+position = Vector2(192.5, 400.25)
+shape = SubResource("RectangleShape2D_a5qgv")
+
 [connection signal="body_entered" from="station-exit" to="station-exit" method="_on_body_entered"]
 [connection signal="body_entered" from="CyberSp" to="CyberSp" method="_on_body_entered"]
+[connection signal="body_entered" from="MonitorAcces" to="MonitorAcces" method="_on_body_entered"]

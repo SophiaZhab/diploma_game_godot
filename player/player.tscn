@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://oqopv2vp1ofj"]
+[gd_scene load_steps=16 format=3 uid="uid://oqopv2vp1ofj"]
 
 [ext_resource type="Script" uid="uid://n5eng4poef5a" path="res://player.gd" id="1_ebec5"]
 [ext_resource type="Texture2D" uid="uid://xkl2lo36i1ov" path="res://player/back1.png" id="2_yllr7"]
 [ext_resource type="Texture2D" uid="uid://dkfdhhlduccde" path="res://player/back2.png" id="3_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://bbij0yjk1hpha" path="res://player/back12.png" id="3_yllr7"]
 [ext_resource type="Texture2D" uid="uid://nbhgu0vwbon5" path="res://player/forward1.png" id="4_wodsf"]
 [ext_resource type="Texture2D" uid="uid://b76i8qbuu27cu" path="res://player/forward2.png" id="5_32hag"]
+[ext_resource type="Texture2D" uid="uid://cub0wl8eab5qi" path="res://player/forward12.png" id="6_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://c1xim3hbe0k1h" path="res://player/left1.png" id="6_tqiix"]
 [ext_resource type="Texture2D" uid="uid://b4do66wrlni4x" path="res://player/left2.png" id="7_e7oew"]
 [ext_resource type="Texture2D" uid="uid://dlnwtamt8nha4" path="res://player/left3.png" id="8_c35mf"]
@@ -20,6 +22,9 @@ animations = [{
 "texture": ExtResource("2_yllr7")
 }, {
 "duration": 1.0,
+"texture": ExtResource("3_yllr7")
+}, {
+"duration": 1.0,
 "texture": ExtResource("3_kb6p2")
 }],
 "loop": true,
@@ -29,6 +34,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_wodsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kb6p2")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_32hag")
@@ -74,10 +82,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laxlr"]
-radius = 33.0
-height = 66.0
-
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_ebec5")
@@ -86,15 +90,13 @@ script = ExtResource("1_ebec5")
 y_sort_enabled = true
 scale = Vector2(0.155562, 0.155562)
 sprite_frames = SubResource("SpriteFrames_6loc5")
-animation = &"run_left"
+animation = &"run_forward"
 offset = Vector2(0, -500)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-y_sort_enabled = true
-position = Vector2(-1, 0)
-shape = SubResource("CapsuleShape2D_laxlr")
 
 [node name="FeetPosition" type="Marker2D" parent="."]
 y_sort_enabled = true
 position = Vector2(1, 0)
 gizmo_extents = 20.4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-31, 0, -29, -11, -25, -18, -21, -20, -11, -20, 25, -19, 31, -15, 35, -5, 35, 1, 34, 9, 30, 18, 24, 23, -22, 23, -28, 16, -30, 9)

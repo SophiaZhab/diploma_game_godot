@@ -245,4 +245,5 @@ shape = SubResource("RectangleShape2D_a5qgv")
 
 [connection signal="body_entered" from="station-exit" to="station-exit" method="_on_body_entered"]
 [connection signal="body_entered" from="CyberSp" to="CyberSp" method="_on_body_entered"]
+[connection signal="ready" from="CyberSp" to="CyberSp" method="_on_ready"]
 [connection signal="body_entered" from="MonitorAcces" to="MonitorAcces" method="_on_body_entered"]

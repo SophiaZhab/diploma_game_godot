@@ -3,8 +3,30 @@ extends Node2D
 var correct_sequence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var is_game_won = false
 
+const SAVE_PATH = "user://puzzle_save.cfg"
+
+func _save_game_state():
+	var config = ConfigFile.new()
+	config.set_value("puzzle", "is_solved", is_game_won)
+	var err = config.save(SAVE_PATH)
+	if err != OK:
+		print("❌ Не вдалося зберегти гру: ", err)
+	else:
+		print("✅ Стан гри збережено")
+
+func _load_game_state():
+	var config = ConfigFile.new()
+	var err = config.load(SAVE_PATH)
+	if err == OK:
+		is_game_won = config.get_value("puzzle", "is_solved", false)
+		print("✅ Стан гри завантажено: ", is_game_won)
+	else:
+		print("⚠️ Немає файлу збереження або помилка: ", err)
+		
 func _ready():
 	randomize()
+	_load_game_state()
+	
 	var book_slots = $BookShelf.get_children()
 	var book_textures = []
 	
@@ -23,6 +45,11 @@ func _ready():
 	for book in book_slots:
 		if book is BookItem:
 			book.connect("texture_changed", _check_win_condition)
+			
+	if is_game_won:
+		_show_win_message()
+		_lock_books()
+		return
 
 func _check_win_condition():
 	if is_game_won:
@@ -44,9 +71,10 @@ func _check_win_condition():
 				break
 		
 		if is_correct:
-			is_game_won = true
-			NarrationManager.show_lines(["Хух, нарешті пройшов."])
-			print("ddd")
+			if is_correct:
+				_save_game_state()
+				NarrationManager.show_lines(["Хух, нарешті пройшов."])
+				print("ddd")
 func _get_book_id_from_texture(texture):
 
 	var texture_path = texture.resource_path
@@ -61,3 +89,9 @@ func _get_book_id_from_texture(texture):
 
 func _show_win_message():
 	$WinMessage.visible = true
+
+func _lock_books():
+	var book_slots = $BookShelf.get_children()
+	for book in book_slots:
+		if book is BookItem:
+			book.set_process(false)

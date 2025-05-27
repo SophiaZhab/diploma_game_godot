@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ndiwsvyvlsad"]
+[gd_scene load_steps=32 format=3 uid="uid://ndiwsvyvlsad"]
 
 [ext_resource type="Texture2D" uid="uid://cfphi78iw0b81" path="res://assets/backgrounds/bgd-col.png" id="1_lj3cq"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="1_omf3q"]
@@ -14,6 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://0smlraqb3xdn" path="res://assets/college-objects/shadows.png" id="11_q1lxo"]
 [ext_resource type="Texture2D" uid="uid://crem7fovlbxe2" path="res://assets/college-objects/stend.png" id="12_p6r35"]
 [ext_resource type="Texture2D" uid="uid://baf880nbioany" path="res://assets/college-objects/table.png" id="13_77ebe"]
+[ext_resource type="Script" uid="uid://x3pjuc21njgt" path="res://scenes/se_sp.gd" id="15_e6faf"]
+[ext_resource type="Texture2D" uid="uid://v0bfu16et0vy" path="res://assets/characters/seSp.png" id="16_ey5b4"]
+[ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="17_llqvs"]
+[ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="18_qfknc"]
+[ext_resource type="Texture2D" uid="uid://c4mgbc5lna52g" path="res://assets/portraits/mainP.png" id="19_wxm7v"]
+[ext_resource type="FontFile" uid="uid://u3e74nua3vqy" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf" id="20_a1gxx"]
+[ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="21_svopu"]
+[ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="22_4i4tk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vg2b3"]
 size = Vector2(228, 31)
@@ -33,8 +41,14 @@ size = Vector2(59.125, 68)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77ebe"]
 size = Vector2(194, 77.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d44ma"]
+radius = 28.0179
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omf3q"]
 size = Vector2(37, 253)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22ggd"]
+radius = 72.0
 
 [node name="College" type="Node2D"]
 y_sort_enabled = true
@@ -59,7 +73,8 @@ texture = ExtResource("1_lj3cq")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h187c")]
 z_index = 1
-position = Vector2(-138, -659)
+position = Vector2(44, 488)
+scale = Vector2(1.23, 1.23)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.95, 0.95)
@@ -127,6 +142,7 @@ shape = SubResource("CircleShape2D_ums8t")
 [node name="candles3" type="StaticBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+position = Vector2(0, 63)
 
 [node name="Sprite2D" type="Sprite2D" parent="candles3"]
 position = Vector2(-148, 565)
@@ -265,14 +281,18 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="computer"]
-position = Vector2(44, 319)
-scale = Vector2(0.758333, 0.7)
+position = Vector2(52.4574, 305.25)
+scale = Vector2(0.702741, 0.648684)
 texture = ExtResource("13_77ebe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="computer"]
-position = Vector2(-25, 8)
-scale = Vector2(0.962623, 0.962623)
+position = Vector2(-3.64006, 24.7406)
+scale = Vector2(0.877854, 0.877854)
 polygon = PackedVector2Array(-45, 429, -98, 429, -95, 364, -67, 363, -68, 367, -34.2813, 357.357, -27.0095, 341.775, 154.895, 329.925, 155.934, 303.955, 203.72, 314.343, 202.681, 334.081, 180.866, 346.547, 159.05, 332.003, 159, 386, 170, 374, 209, 375, 206, 452, 167, 458, 169, 378, 158, 391, 145, 386, -48, 390, -48, 399)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="computer"]
+position = Vector2(-123, 473)
+shape = SubResource("CircleShape2D_d44ma")
 
 [node name="corridor-enter" type="Area2D" parent="."]
 position = Vector2(1079, -522)
@@ -284,5 +304,92 @@ target_door_name = "hall-enter"
 position = Vector2(59, 4)
 shape = SubResource("RectangleShape2D_omf3q")
 
+[node name="seSp" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("15_e6faf")
+
+[node name="Sprite2D" type="Sprite2D" parent="seSp"]
+position = Vector2(-125.937, 464.325)
+scale = Vector2(0.334125, 0.322676)
+texture = ExtResource("16_ey5b4")
+offset = Vector2(0, -300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="seSp"]
+position = Vector2(-122, 470)
+shape = SubResource("CircleShape2D_22ggd")
+
+[node name="DialogueManager" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("17_llqvs")
+
+[node name="Panel" type="Panel" parent="DialogueManager"]
+modulate = Color(0.44946, 0.813107, 0.960462, 0.662745)
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 650.0
+
+[node name="PortraitLeft" type="TextureRect" parent="DialogueManager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = -572.0
+offset_right = 1294.0
+offset_bottom = 1337.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.298563, 0.298563)
+texture = ExtResource("18_qfknc")
+
+[node name="PortraitRight" type="TextureRect" parent="DialogueManager"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -564.0
+offset_right = 1246.0
+offset_bottom = 1149.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.328163, 0.328163)
+texture = ExtResource("19_wxm7v")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueManager"]
+offset_left = 39.0
+offset_top = 436.0
+offset_right = 1008.0
+offset_bottom = 624.0
+
+[node name="NameLabel" type="Label" parent="DialogueManager"]
+offset_left = 78.0
+offset_top = 452.0
+offset_right = 370.0
+offset_bottom = 502.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("20_a1gxx")
+theme_override_font_sizes/font_size = 23
+
+[node name="TextLabel" type="RichTextLabel" parent="DialogueManager"]
+offset_left = 78.0
+offset_top = 510.0
+offset_right = 967.0
+offset_bottom = 606.0
+theme_override_colors/default_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/normal_font = ExtResource("21_svopu")
+theme_override_fonts/bold_font = ExtResource("22_4i4tk")
+theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 23
+
+[node name="TypingTimer" type="Timer" parent="DialogueManager"]
+wait_time = 0.03
+
 [connection signal="body_entered" from="garden-enter" to="garden-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="corridor-enter" to="corridor-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="seSp" to="seSp" method="_on_body_entered"]
+[connection signal="ready" from="seSp" to="seSp" method="_on_ready"]

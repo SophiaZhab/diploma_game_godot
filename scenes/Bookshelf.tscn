@@ -37,3 +37,5 @@ texture = ExtResource("5_t584b")
 position = Vector2(-2.97491, 638.333)
 scale = Vector2(0.916667, 0.916667)
 polygon = PackedVector2Array(-94, 709, 91, 711, 93, 784, 207, 784, 2, 979, -204, 781, -93, 781)
+
+[connection signal="input_event" from="turn-back" to="turn-back" method="_on_input_event"]

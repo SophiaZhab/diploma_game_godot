@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmbgc5fl66q4w"]
+[gd_scene load_steps=23 format=3 uid="uid://cmbgc5fl66q4w"]
 
 [ext_resource type="Texture2D" uid="uid://2tfr873ioeex" path="res://assets/backgrounds/bgd-eng.png" id="1_fqumv"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_b8xwd"]
@@ -11,9 +11,23 @@
 [ext_resource type="Texture2D" uid="uid://gqap1tgk71me" path="res://assets/engineering-class-objects/table3.png" id="9_6tahh"]
 [ext_resource type="Texture2D" uid="uid://tscwu4on7s3n" path="res://assets/engineering-class-objects/table2.png" id="10_udkkq"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="11_es5m7"]
+[ext_resource type="Script" uid="uid://dqg6wka5w06mq" path="res://scenes/bd_sp.gd" id="12_emejd"]
+[ext_resource type="Texture2D" uid="uid://bdrhgtxu3px1n" path="res://assets/characters/dbSp.png" id="13_t003c"]
+[ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="14_v2o7o"]
+[ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="15_hjts3"]
+[ext_resource type="Texture2D" uid="uid://c4mgbc5lna52g" path="res://assets/portraits/mainP.png" id="16_sjdsh"]
+[ext_resource type="FontFile" uid="uid://u3e74nua3vqy" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf" id="17_8hgho"]
+[ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="18_y3xrn"]
+[ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="19_dv1pu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0duk"]
+radius = 39.0128
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0duk"]
 size = Vector2(100, 21)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4v0n"]
+radius = 113.745
 
 [node name="Engeenering-class" type="Node2D"]
 y_sort_enabled = true
@@ -26,6 +40,7 @@ texture = ExtResource("1_fqumv")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_b8xwd")]
 z_index = 1
 position = Vector2(-722, -171)
+scale = Vector2(1.1, 1.1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.85, 0.85)
@@ -169,7 +184,7 @@ offset = Vector2(0, -100)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table1"]
 z_index = -1
 position = Vector2(3.5, 2.99999)
-polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+polygon = PackedVector2Array(-768.5, 354, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -634.5, 356, -668, 352, -665.5, 354)
 
 [node name="table12" type="StaticBody2D" parent="."]
 z_index = 1
@@ -184,7 +199,7 @@ offset = Vector2(0, -110)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table12"]
 z_index = -1
 position = Vector2(7.5, -249)
-polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+polygon = PackedVector2Array(-769.5, 353, -770, 353, -767.5, 211, -675.5, 212, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -666.5, 354)
 
 [node name="table32" type="StaticBody2D" parent="."]
 z_index = 1
@@ -214,7 +229,7 @@ offset = Vector2(0, -120)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table22"]
 z_index = -1
 position = Vector2(223.5, -237.042)
-polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -667, 362)
+polygon = PackedVector2Array(-771.5, 354.042, -771.5, 351.042, -766.5, 213.042, -682.5, 212.042, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -637, 298, -635, 352, -668, 352, -668.5, 355.042)
 
 [node name="table21" type="StaticBody2D" parent="."]
 z_index = 1
@@ -229,7 +244,7 @@ offset = Vector2(0, -120)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table21"]
 z_index = -1
 position = Vector2(192.5, 11.9578)
-polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -665.5, 293.042, -665.5, 353.042, -668, 352, -667, 362)
+polygon = PackedVector2Array(-769.5, 358.042, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -665.5, 293.042, -665.5, 353.042, -668, 352, -668.5, 357.042)
 
 [node name="table42" type="StaticBody2D" parent="."]
 z_index = 1
@@ -259,7 +274,7 @@ offset = Vector2(0, -120)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table31"]
 z_index = -1
 position = Vector2(433.5, 14.9578)
-polygon = PackedVector2Array(-769, 360, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -674.5, 296.042, -668.5, 358.042, -668, 352, -667, 362)
+polygon = PackedVector2Array(-770.5, 355.042, -770, 353, -766, 203, -675, 201, -675, 233, -667, 238, -668, 278, -679, 281, -679, 297, -674.5, 296.042, -668.5, 358.042, -668, 352, -670.5, 358.042)
 
 [node name="table41" type="StaticBody2D" parent="."]
 z_index = 1
@@ -288,7 +303,11 @@ texture = ExtResource("10_udkkq")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="main-table"]
 position = Vector2(-0.00012207, -18.3842)
 scale = Vector2(1, 1.03938)
-polygon = PackedVector2Array(-978, 417, -959, 417, -962, 373, -991, 372, -991, 365, -990, 321, -959, 321, -960, 277, -871, 277, -873, 416, -868, 416, -868, 423, -980, 421, -981, 414)
+polygon = PackedVector2Array(-978, 417, -959, 417, -962, 373, -991, 372, -991, 365, -990, 321, -959, 321, -964, 281.306, -873, 281.306, -873, 416, -868, 416, -868, 423, -980, 421, -981, 414)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main-table"]
+position = Vector2(-980, 282)
+shape = SubResource("CircleShape2D_m0duk")
 
 [node name="cor-from-eng-enter" type="Area2D" parent="."]
 position = Vector2(-838, -207)
@@ -301,4 +320,92 @@ z_index = 1
 position = Vector2(-1, -45.5)
 shape = SubResource("RectangleShape2D_m0duk")
 
+[node name="bdSp" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-853, -194)
+script = ExtResource("12_emejd")
+
+[node name="Sprite2D" type="Sprite2D" parent="bdSp"]
+position = Vector2(-126.687, 466.004)
+scale = Vector2(0.328359, 0.306607)
+texture = ExtResource("13_t003c")
+offset = Vector2(0, -300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bdSp"]
+position = Vector2(-122, 470)
+shape = SubResource("CircleShape2D_b4v0n")
+
+[node name="DialogueManager" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("14_v2o7o")
+
+[node name="Panel" type="Panel" parent="DialogueManager"]
+modulate = Color(0.44946, 0.813107, 0.960462, 0.662745)
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 650.0
+
+[node name="PortraitLeft" type="TextureRect" parent="DialogueManager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = -572.0
+offset_right = 1294.0
+offset_bottom = 1337.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.298563, 0.298563)
+texture = ExtResource("15_hjts3")
+
+[node name="PortraitRight" type="TextureRect" parent="DialogueManager"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -564.0
+offset_right = 1246.0
+offset_bottom = 1149.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.328163, 0.328163)
+texture = ExtResource("16_sjdsh")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueManager"]
+offset_left = 39.0
+offset_top = 436.0
+offset_right = 1008.0
+offset_bottom = 624.0
+
+[node name="NameLabel" type="Label" parent="DialogueManager"]
+offset_left = 78.0
+offset_top = 452.0
+offset_right = 370.0
+offset_bottom = 502.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("17_8hgho")
+theme_override_font_sizes/font_size = 23
+
+[node name="TextLabel" type="RichTextLabel" parent="DialogueManager"]
+offset_left = 78.0
+offset_top = 510.0
+offset_right = 967.0
+offset_bottom = 606.0
+theme_override_colors/default_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/normal_font = ExtResource("18_y3xrn")
+theme_override_fonts/bold_font = ExtResource("19_dv1pu")
+theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 23
+
+[node name="TypingTimer" type="Timer" parent="DialogueManager"]
+wait_time = 0.03
+
 [connection signal="body_entered" from="cor-from-eng-enter" to="cor-from-eng-enter" method="_on_body_entered"]
+[connection signal="body_entered" from="bdSp" to="bdSp" method="_on_body_entered"]
+[connection signal="ready" from="bdSp" to="bdSp" method="_on_ready"]

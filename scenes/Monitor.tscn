@@ -63,6 +63,7 @@ text = "визначити місцезнаходження:"
 label_settings = SubResource("LabelSettings_fusxq")
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = -562.0
 offset_top = -405.0
 offset_right = 801.0

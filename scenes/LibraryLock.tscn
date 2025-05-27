@@ -81,3 +81,5 @@ visible = false
 position = Vector2(1022, -303)
 scale = Vector2(0.903333, 0.903333)
 texture = ExtResource("5_oe6g6")
+
+[connection signal="input_event" from="turn-back" to="turn-back" method="_on_input_event"]

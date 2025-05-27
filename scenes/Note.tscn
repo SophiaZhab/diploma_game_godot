@@ -46,3 +46,5 @@ polygon = PackedVector2Array(-94, 709, 91, 711, 93, 784, 207, 784, 2, 979, -204,
 position = Vector2(-64, 34)
 zoom = Vector2(0.37, 0.37)
 limit_right = 1500
+
+[connection signal="input_event" from="turn-back" to="turn-back" method="_on_input_event"]

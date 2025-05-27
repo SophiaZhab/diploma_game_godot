@@ -5,10 +5,16 @@ extends Area2D
 @export var auto_pickup: bool = false 
 
 func _ready():
+	if Global.is_item_picked(item_name):
+		queue_free()
+		return
+
 	input_pickable = true
 	print("Item ready: ", item_name)
+	
 	if auto_pickup:
 		connect("body_entered", Callable(self, "_on_body_entered"))
+
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -23,7 +29,8 @@ func _add_to_inventory():
 	if has_node("/root/Inventory"):
 		var inventory = get_node("/root/Inventory")
 		inventory.add_item(item_name, icon)
-		print("Item added to inventory: ", item_name)
+
+		Global.mark_item_picked(item_name)
 		
 		if has_node("/root/NarrationManager"):
 			var narration = get_node("/root/NarrationManager")

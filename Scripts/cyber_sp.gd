@@ -38,3 +38,11 @@ func start_library_dialog():
 	var dialog_manager = get_node("/root/Station-building/DialogueManager")
 	dialog_data_library += dialog_data_end2
 	dialog_manager.start_dialog(dialog_data_library)
+
+
+func _on_ready() -> void:
+	if Global.puzzle_library_solved:
+		$Sprite2D.visible = false
+		
+	if Global.is_way_to_college_showed:
+		$Sprite2D.visible = true

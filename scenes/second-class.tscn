@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1tmofskrothl"]
+[gd_scene load_steps=22 format=3 uid="uid://1tmofskrothl"]
 
 [ext_resource type="Texture2D" uid="uid://basyvbbcjr6ub" path="res://assets/backgrounds/bgd-class.png" id="1_wh688"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_x11rc"]
@@ -9,9 +9,24 @@
 [ext_resource type="Texture2D" uid="uid://dryqry1eocb5l" path="res://assets/class2-objects/tbl3.png" id="7_smlmg"]
 [ext_resource type="Texture2D" uid="uid://ghj6lhxhu8gd" path="res://assets/class2-objects/chair.png" id="8_3ag2i"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="9_smlmg"]
+[ext_resource type="Texture2D" uid="uid://dc2qimnco001u" path="res://assets/characters/mathSp.png" id="10_3ag2i"]
+[ext_resource type="Script" uid="uid://gnlnlswxta0n" path="res://scenes/math_sp.gd" id="10_5wiq6"]
+[ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="12_b4wbn"]
+[ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="13_e3g53"]
+[ext_resource type="Texture2D" uid="uid://c4mgbc5lna52g" path="res://assets/portraits/mainP.png" id="14_i18e8"]
+[ext_resource type="FontFile" uid="uid://u3e74nua3vqy" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf" id="15_7rf1c"]
+[ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="16_pbhbe"]
+[ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="17_0uh44"]
+[ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="18_e3g53"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wiq6"]
+radius = 32.0156
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ag2i"]
 size = Vector2(248, 35)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hbyek"]
+radius = 104.043
 
 [node name="Second-class" type="Node2D"]
 y_sort_enabled = true
@@ -24,7 +39,7 @@ texture = ExtResource("1_wh688")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_x11rc")]
 z_index = 1
 position = Vector2(105, 147)
-scale = Vector2(1.1, 1.1)
+scale = Vector2(1.14, 1.14)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.85, 0.85)
@@ -71,6 +86,10 @@ offset = Vector2(0, -120)
 position = Vector2(1, 24.5203)
 polygon = PackedVector2Array(138, 229, 137, 82, 241, 83, 241, 225, 247, 226, 247, 233)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table11"]
+position = Vector2(596, -23)
+shape = SubResource("CircleShape2D_5wiq6")
+
 [node name="table12" type="StaticBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
@@ -97,7 +116,7 @@ offset = Vector2(0, -120)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="table21"]
 position = Vector2(-189, -238.48)
-polygon = PackedVector2Array(138, 229, 137, 82, 241, 83, 241, 225, 247, 226, 247, 233)
+polygon = PackedVector2Array(138, 229, 137, 82, 241, 83, 241, 225, 247, 226, 247, 233, 167.084, 230.067)
 
 [node name="table22" type="StaticBody2D" parent="."]
 z_index = 1
@@ -235,4 +254,96 @@ target_door_name = "class2-enter"
 position = Vector2(7, 61)
 shape = SubResource("RectangleShape2D_3ag2i")
 
+[node name="mathSp" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(719, -498)
+script = ExtResource("10_5wiq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="mathSp"]
+position = Vector2(-128.35, 466.374)
+scale = Vector2(0.315659, 0.303066)
+texture = ExtResource("10_3ag2i")
+offset = Vector2(0, -300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mathSp"]
+position = Vector2(-122, 470)
+shape = SubResource("CircleShape2D_hbyek")
+
+[node name="DialogueManager" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("12_b4wbn")
+
+[node name="Panel" type="Panel" parent="DialogueManager"]
+modulate = Color(0.44946, 0.813107, 0.960462, 0.662745)
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 650.0
+
+[node name="PortraitLeft" type="TextureRect" parent="DialogueManager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -549.0
+offset_top = -552.0
+offset_right = 1171.0
+offset_bottom = 1290.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.298563, 0.298563)
+texture = ExtResource("13_e3g53")
+
+[node name="PortraitRight" type="TextureRect" parent="DialogueManager"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -564.0
+offset_right = 1246.0
+offset_bottom = 1149.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.328163, 0.328163)
+texture = ExtResource("14_i18e8")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueManager"]
+offset_left = 39.0
+offset_top = 436.0
+offset_right = 1008.0
+offset_bottom = 624.0
+
+[node name="NameLabel" type="Label" parent="DialogueManager"]
+offset_left = 78.0
+offset_top = 452.0
+offset_right = 370.0
+offset_bottom = 502.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("15_7rf1c")
+theme_override_font_sizes/font_size = 23
+
+[node name="TextLabel" type="RichTextLabel" parent="DialogueManager"]
+offset_left = 78.0
+offset_top = 510.0
+offset_right = 967.0
+offset_bottom = 606.0
+theme_override_colors/default_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/normal_font = ExtResource("16_pbhbe")
+theme_override_fonts/bold_font = ExtResource("17_0uh44")
+theme_override_font_sizes/normal_font_size = 23
+theme_override_font_sizes/bold_font_size = 23
+
+[node name="TypingTimer" type="Timer" parent="DialogueManager"]
+wait_time = 0.03
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIroot" parent="CanvasLayer" instance=ExtResource("18_e3g53")]
+
 [connection signal="body_entered" from="cor-from-class2" to="cor-from-class2" method="_on_body_entered"]
+[connection signal="body_entered" from="mathSp" to="mathSp" method="_on_body_entered"]
+[connection signal="ready" from="mathSp" to="mathSp" method="_on_ready"]

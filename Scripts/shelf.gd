@@ -8,20 +8,11 @@ const SAVE_PATH = "user://puzzle_save.cfg"
 func _save_game_state():
 	var config = ConfigFile.new()
 	config.set_value("puzzle", "is_solved", is_game_won)
-	var err = config.save(SAVE_PATH)
-	if err != OK:
-		print("❌ Не вдалося зберегти гру: ", err)
-	else:
-		print("✅ Стан гри збережено")
+
 
 func _load_game_state():
 	var config = ConfigFile.new()
-	var err = config.load(SAVE_PATH)
-	if err == OK:
-		is_game_won = config.get_value("puzzle", "is_solved", false)
-		print("✅ Стан гри завантажено: ", is_game_won)
-	else:
-		print("⚠️ Немає файлу збереження або помилка: ", err)
+	
 		
 func _ready():
 	randomize()

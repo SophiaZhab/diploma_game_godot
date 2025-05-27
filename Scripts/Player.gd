@@ -12,18 +12,18 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
-		anim_sprite.play("run_right")  # Запускаємо анімацію бігу праворуч
+		anim_sprite.play("run_right") 
 	elif Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-		anim_sprite.play("run_left")  # Запускаємо анімацію бігу ліворуч
+		anim_sprite.play("run_left") 
 	elif Input.is_action_pressed("ui_down"):
 		direction.y += 1
-		anim_sprite.play("run_forward")  # Анімація вниз
+		anim_sprite.play("run_forward")  
 	elif Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-		anim_sprite.play("run_back")  # Анімація вгору
+		anim_sprite.play("run_back") 
 	else:
-		anim_sprite.play("stand")  # Якщо не рухаємось – анімація стояння
+		anim_sprite.play("stand") 
 
 	velocity = direction.normalized() * SPEED
 	move_and_slide()

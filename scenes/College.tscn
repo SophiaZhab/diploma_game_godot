@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ndiwsvyvlsad"]
+[gd_scene load_steps=33 format=3 uid="uid://ndiwsvyvlsad"]
 
 [ext_resource type="Texture2D" uid="uid://cfphi78iw0b81" path="res://assets/backgrounds/bgd-col.png" id="1_lj3cq"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="1_omf3q"]
@@ -22,6 +22,7 @@
 [ext_resource type="FontFile" uid="uid://u3e74nua3vqy" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf" id="20_a1gxx"]
 [ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="21_svopu"]
 [ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="22_4i4tk"]
+[ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="23_qfknc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vg2b3"]
 size = Vector2(228, 31)
@@ -295,13 +296,13 @@ position = Vector2(-123, 473)
 shape = SubResource("CircleShape2D_d44ma")
 
 [node name="corridor-enter" type="Area2D" parent="."]
-position = Vector2(1079, -522)
+position = Vector2(1067, -522)
 script = ExtResource("1_omf3q")
 target_scene = "res://scenes/Corridor.tscn"
 target_door_name = "hall-enter"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="corridor-enter"]
-position = Vector2(59, 4)
+position = Vector2(77, 4)
 shape = SubResource("RectangleShape2D_omf3q")
 
 [node name="seSp" type="Area2D" parent="."]
@@ -388,6 +389,10 @@ theme_override_font_sizes/bold_font_size = 23
 
 [node name="TypingTimer" type="Timer" parent="DialogueManager"]
 wait_time = 0.03
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIroot" parent="CanvasLayer" instance=ExtResource("23_qfknc")]
 
 [connection signal="body_entered" from="garden-enter" to="garden-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="corridor-enter" to="corridor-enter" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cmbgc5fl66q4w"]
+[gd_scene load_steps=24 format=3 uid="uid://cmbgc5fl66q4w"]
 
 [ext_resource type="Texture2D" uid="uid://2tfr873ioeex" path="res://assets/backgrounds/bgd-eng.png" id="1_fqumv"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_b8xwd"]
@@ -19,6 +19,7 @@
 [ext_resource type="FontFile" uid="uid://u3e74nua3vqy" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf" id="17_8hgho"]
 [ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="18_y3xrn"]
 [ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="19_dv1pu"]
+[ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="20_v2o7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0duk"]
 radius = 39.0128
@@ -306,7 +307,7 @@ scale = Vector2(1, 1.03938)
 polygon = PackedVector2Array(-978, 417, -959, 417, -962, 373, -991, 372, -991, 365, -990, 321, -959, 321, -964, 281.306, -873, 281.306, -873, 416, -868, 416, -868, 423, -980, 421, -981, 414)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main-table"]
-position = Vector2(-980, 282)
+position = Vector2(-980, 232)
 shape = SubResource("CircleShape2D_m0duk")
 
 [node name="cor-from-eng-enter" type="Area2D" parent="."]
@@ -323,12 +324,12 @@ shape = SubResource("RectangleShape2D_m0duk")
 [node name="bdSp" type="Area2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-853, -194)
+position = Vector2(-854, -251)
 script = ExtResource("12_emejd")
 
 [node name="Sprite2D" type="Sprite2D" parent="bdSp"]
-position = Vector2(-126.687, 466.004)
-scale = Vector2(0.328359, 0.306607)
+position = Vector2(-128.187, 466.257)
+scale = Vector2(0.316822, 0.304182)
 texture = ExtResource("13_t003c")
 offset = Vector2(0, -300)
 
@@ -354,9 +355,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -528.0
-offset_top = -572.0
+offset_top = -559.0
 offset_right = 1294.0
-offset_bottom = 1337.0
+offset_bottom = 1306.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.298563, 0.298563)
@@ -405,6 +406,10 @@ theme_override_font_sizes/bold_font_size = 23
 
 [node name="TypingTimer" type="Timer" parent="DialogueManager"]
 wait_time = 0.03
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIroot" parent="CanvasLayer" instance=ExtResource("20_v2o7o")]
 
 [connection signal="body_entered" from="cor-from-eng-enter" to="cor-from-eng-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="bdSp" to="bdSp" method="_on_body_entered"]

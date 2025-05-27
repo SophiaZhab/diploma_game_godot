@@ -66,7 +66,6 @@ func _show_line():
 	if entry.has("action"):
 		if entry.action == "give_code":
 			Global.library_code = entry.code
-			print("📄 Гравець отримав код:", entry.code)
 		elif entry.action == "give_item":
 			item_to_add = { "name": entry.name, "icon": entry.icon }
 		

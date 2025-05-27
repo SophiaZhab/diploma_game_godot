@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0blabul5j84p"]
+[gd_scene load_steps=11 format=3 uid="uid://b0blabul5j84p"]
 
 [ext_resource type="Texture2D" uid="uid://6n0uisgyx65p" path="res://assets/backgrounds/bgd-cg.png" id="1_dj8jf"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_6f4rk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dsu34w0wtvvbf" path="res://assets/college-garden-objects/fence.png" id="4_6f4rk"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="5_jxhpe"]
 [ext_resource type="Script" uid="uid://vp22na8u7c8m" path="res://Scripts/AreaTrigger.gd" id="6_3jwuc"]
+[ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="7_j6qkq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxhpe"]
 size = Vector2(351, 69)
@@ -91,6 +92,12 @@ trigger_lines = Array[String](["Ого, яка будівля. ", "Мабуть 
 z_index = 1
 position = Vector2(21, 1040.5)
 shape = SubResource("RectangleShape2D_j6qkq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIroot" parent="CanvasLayer" instance=ExtResource("7_j6qkq")]
+offset_left = -11.0
+offset_right = -11.0
 
 [connection signal="body_entered" from="main-from-college-enter" to="main-from-college-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="college-enter" to="college-enter" method="_on_body_entered"]

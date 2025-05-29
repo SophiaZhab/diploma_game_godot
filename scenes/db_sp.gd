@@ -1,6 +1,8 @@
 extends Area2D
 
 var dialog_started = false
+var full_dialog = ""
+var table_puzzle_scene:= "res://scenes/LibraryLock.tscn"
 
 var dialog_data_intro = [
 	{"speaker": "Дата-аналітик", "text": "Ох... хто б ти не був, але ти вчасно. Ти не приніс павербанк?", "portrait": "res://assets/portraits/dbSp.png"},
@@ -12,13 +14,26 @@ var dialog_data_end = [
 	{"speaker": "Дата-аналітик", "text": "І де ж я подів мої роздруковані дані?", "portrait": "res://assets/portraits/dbSp.png"}
 ]
 
+var dialog_data_tables = [
+	{"speaker": "Дата-аналітик", "text": "О, дякую. Допоможеш мені відновити записи?", "portrait": "res://assets/portraits/dbSp.png"}
+]
+
 func _on_body_entered(body):
 	if body.name == "Player" and not Global.dialogs_played.has("db_specialist_intro"):
 		Global.dialogs_played["db_specialist_intro"] = true
 		start_library_dialog()
+	elif body.name == "Player" and Inventory.items.has("tables") and Inventory.items["tables"] > 0 and not Global.dialogs_played.has("db_specialist_tables"):
+		var dialog_manager = get_node("/root/Engeenering-class/DialogueManager")
+		Global.dialogs_played["db_specialist_tables"] = true
+		dialog_manager.start_dialog(dialog_data_tables)
+		get_tree().change_scene_to_file("res://scenes/tables_puzzle/DatabasePuzzle.tscn")
+		
 	elif body.name == "Player" and Global.dialogs_played.has("db_specialist_intro"):
 		var dialog_manager = get_node("/root/Engeenering-class/DialogueManager")
 		dialog_manager.start_dialog(dialog_data_end)
+	
+		
+		
 
 func start_library_dialog():
 	var dialog_manager = get_node("/root/Engeenering-class/DialogueManager")

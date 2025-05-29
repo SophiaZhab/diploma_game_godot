@@ -1,0 +1,810 @@
+[gd_scene load_steps=20 format=3 uid="uid://cim36nsowkvnq"]
+
+[ext_resource type="Texture2D" uid="uid://b2gsq7orra0ln" path="res://assets/backgrounds/tables_puzzle.png" id="1_5j8qs"]
+[ext_resource type="Script" uid="uid://dg6ye2i0lj4q5" path="res://scenes/tables_puzzle/database_puzzle.gd" id="1_tbrdh"]
+[ext_resource type="Script" uid="uid://duo65m8a7c3b6" path="res://scenes/tables_puzzle/v_box_container.gd" id="2_qhvxj"]
+[ext_resource type="Script" uid="uid://bbw56xycmy3ia" path="res://scenes/tables_puzzle/drop_slot.gd" id="3_h12ag"]
+[ext_resource type="Script" uid="uid://bxi8tuo8klvfs" path="res://scenes/tables_puzzle/v_box_container_child.gd" id="4_8rtg0"]
+[ext_resource type="Script" uid="uid://dy61yidi57cqy" path="res://Scripts/turn_back.gd" id="6_8rtg0"]
+[ext_resource type="FontFile" uid="uid://on4kwbnnrwug" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Black.ttf" id="6_h12ag"]
+[ext_resource type="Texture2D" uid="uid://c5fnirx4yyhe" path="res://assets/icons/arrow.png" id="7_tbrdh"]
+[ext_resource type="Texture2D" uid="uid://c7mqansy37te8" path="res://assets/icons/key.png" id="7_xgr02"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbrdh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j8qs"]
+bg_color = Color(0.901961, 0.447059, 0.352941, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhvxj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgr02"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vof8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wd55l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sk60p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rtg0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kll11"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h12ag"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="DatabasePuzzle" type="Control" groups=["checkers"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tbrdh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-84, 66)
+scale = Vector2(0.474779, 0.438437)
+texture = ExtResource("1_5j8qs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(56, 6)
+
+[node name="Values" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_qhvxj")
+
+[node name="DropSlot1" type="Panel" parent="Values"]
+z_index = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = -306.0
+offset_top = 13.0
+offset_right = 44.0
+offset_bottom = 295.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbrdh")
+script = ExtResource("3_h12ag")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Values/DropSlot1"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -86.5
+offset_right = 165.0
+offset_bottom = 97.5
+mouse_filter = 0
+theme_override_constants/separation = 13
+script = ExtResource("4_8rtg0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Values/DropSlot1/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="TextureRect" type="TextureRect" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(15, 20)
+layout_mode = 2
+texture = ExtResource("7_xgr02")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "id"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Values/DropSlot1/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="TextureRect" type="TextureRect" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(15, 20)
+layout_mode = 2
+texture = ExtResource("7_xgr02")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "id користувача"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Values/DropSlot1/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "MAC-адреса мережі"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Values/DropSlot1/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Values/DropSlot1/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "час ост. користув."
+
+[node name="DropSlot2" type="Panel" parent="Values"]
+z_index = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 130.0
+offset_top = -171.0
+offset_right = 472.0
+offset_bottom = 127.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbrdh")
+script = ExtResource("3_h12ag")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Values/DropSlot2"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -87.0
+offset_right = 173.0
+offset_bottom = 72.0
+mouse_filter = 0
+theme_override_constants/separation = 13
+script = ExtResource("4_8rtg0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Values/DropSlot2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="TextureRect" type="TextureRect" parent="Values/DropSlot2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 20)
+layout_mode = 2
+texture = ExtResource("7_xgr02")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Values/DropSlot2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "id"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Values/DropSlot2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Values/DropSlot2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "ім'я"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Values/DropSlot2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Values/DropSlot2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "пошта"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Values/DropSlot2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot2/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Values/DropSlot2/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "дата_реєстрації"
+
+[node name="DropSlot3" type="Panel" parent="Values"]
+z_index = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = -401.0
+offset_top = -285.0
+offset_right = -64.0
+offset_bottom = -24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbrdh")
+script = ExtResource("3_h12ag")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Values/DropSlot3"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -76.0
+offset_right = 170.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(165, 110)
+mouse_filter = 0
+theme_override_constants/separation = 13
+script = ExtResource("4_8rtg0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Values/DropSlot3/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="TextureRect" type="TextureRect" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(15, 20)
+layout_mode = 2
+texture = ExtResource("7_xgr02")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "id"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Values/DropSlot3/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="TextureRect" type="TextureRect" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(15, 20)
+layout_mode = 2
+texture = ExtResource("7_xgr02")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "id користувача"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Values/DropSlot3/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "опис дії"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Values/DropSlot3/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OptionButton" type="OptionButton" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_disabled_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_hover_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/icon_normal_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_focus_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j8qs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_qhvxj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xgr02")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0vof8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wd55l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_sk60p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8rtg0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kll11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12ag")
+item_count = 4
+popup/item_0/text = "ЧИСЛО"
+popup/item_0/id = 0
+popup/item_1/text = "ТЕКСТ"
+popup/item_1/id = 1
+popup/item_2/text = "ДАТА"
+popup/item_2/id = 2
+popup/item_3/text = "ДАТА,час"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Values/DropSlot3/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 19
+text = "час дії"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -211.0
+offset_top = 4.0
+offset_right = -46.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 23
+text = "КОРИСТУВАЧІ"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = -176.0
+offset_right = 390.0
+offset_bottom = -144.0
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 23
+text = "АКТИВНОСТІ"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = -294.0
+offset_top = -295.0
+offset_right = -129.0
+offset_bottom = -263.0
+theme_override_colors/font_color = Color(0.235294, 0.235294, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_h12ag")
+theme_override_font_sizes/font_size = 23
+text = "ПРИСТРОЇ"
+
+[node name="turn-back" type="Area2D" parent="."]
+script = ExtResource("6_8rtg0")
+target_scene = "res://scenes/engeenering-class.tscn"
+return_spawn_point_name = "book-puzzle"
+
+[node name="Sprite2D" type="Sprite2D" parent="turn-back"]
+z_index = 1
+position = Vector2(54, 269)
+scale = Vector2(0.644847, 0.623329)
+texture = ExtResource("7_tbrdh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="turn-back"]
+position = Vector2(53.6404, 20.2198)
+scale = Vector2(0.29221, 0.294236)
+polygon = PackedVector2Array(-94, 709, 91, 711, 93, 784, 207, 784, 2, 979, -204, 781, -93, 781)
+
+[connection signal="input_event" from="turn-back" to="turn-back" method="_on_input_event"]

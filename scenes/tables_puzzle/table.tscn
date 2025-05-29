@@ -1,0 +1,232 @@
+[gd_scene load_steps=4 format=3 uid="uid://cverunyxjmw5k"]
+
+[ext_resource type="Script" uid="uid://bxi8tuo8klvfs" path="res://scenes/tables_puzzle/v_box_container_child.gd" id="2_osltb"]
+[ext_resource type="Script" uid="uid://bbw56xycmy3ia" path="res://scenes/tables_puzzle/drop_slot.gd" id="3_gaq3q"]
+[ext_resource type="Script" uid="uid://duo65m8a7c3b6" path="res://scenes/tables_puzzle/v_box_container.gd" id="4_oqlsh"]
+
+[node name="Table" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("4_oqlsh")
+
+[node name="DropSlot" type="Panel" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 319.0
+offset_top = 48.0
+offset_right = 568.0
+offset_bottom = 258.0
+script = ExtResource("3_gaq3q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DropSlot"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -65.0
+offset_right = 87.0
+offset_bottom = 36.0
+mouse_filter = 0
+script = ExtResource("2_osltb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DropSlot/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "eva"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DropSlot/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "id"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="DropSlot/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "phone_number"
+
+[node name="DropSlot2" type="Panel" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = -473.0
+offset_top = 51.0
+offset_right = -230.0
+offset_bottom = 234.0
+script = ExtResource("3_gaq3q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DropSlot2"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -65.0
+offset_right = 87.0
+offset_bottom = 36.0
+mouse_filter = 0
+script = ExtResource("2_osltb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DropSlot2/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "user_id"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DropSlot2/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "id"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="DropSlot2/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "phone_number"
+
+[node name="DropSlot3" type="Panel" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 35.0
+offset_top = -241.0
+offset_right = 284.0
+offset_bottom = -31.0
+script = ExtResource("3_gaq3q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DropSlot3"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -65.0
+offset_right = 87.0
+offset_bottom = 36.0
+mouse_filter = 0
+script = ExtResource("2_osltb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DropSlot3/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "eva"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DropSlot3/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "id"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="DropSlot3/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="DropSlot3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="DropSlot3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "phone_number"

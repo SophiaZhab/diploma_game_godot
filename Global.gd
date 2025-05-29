@@ -9,6 +9,7 @@ var is_dialog_active := false
 var is_way_to_college_showed := false
 var picked_items := {}
 var triggered_dialogs = {}
+var is_dragging = false
 
 
 func _ready():

@@ -1,0 +1,288 @@
+[gd_scene load_steps=3 format=3 uid="uid://cim36nsowkvnq"]
+
+[ext_resource type="Script" uid="uid://6oyps22thgqo" path="res://scenes/drop_slot.gd" id="1_1qe24"]
+[ext_resource type="Script" uid="uid://crft1mvinaqo" path="res://scenes/draggable_row_block.gd" id="2_dlbpf"]
+
+[node name="DatabasePuzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -202.0
+offset_top = -187.0
+offset_right = 228.0
+offset_bottom = 205.0
+
+[node name="DraggableRowBlock" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_dlbpf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/DraggableRowBlock"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -74.5
+offset_right = 90.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Field1" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock/VBoxContainer/Field1"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "id"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock/VBoxContainer/Field1"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Field2" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock/VBoxContainer/Field2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "username"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock/VBoxContainer/Field2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Field3" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock/VBoxContainer/Field3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "registered_at"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock/VBoxContainer/Field3"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="DraggableRowBlock2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_dlbpf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/DraggableRowBlock2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 216.0
+offset_top = -241.0
+offset_right = 395.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Field1" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer/Field1"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "id"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer/Field1"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Field2" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer/Field2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "11"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer/Field2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Field3" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer/Field3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "registered_at"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock2/VBoxContainer/Field3"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="DraggableRowBlock3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_dlbpf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/DraggableRowBlock3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -203.0
+offset_right = -171.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Field1" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer/Field1"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "id"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer/Field1"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Field2" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer/Field2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "11"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer/Field2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="Field3" type="HBoxContainer" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer/Field3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "registered_at"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/DraggableRowBlock3/VBoxContainer/Field3"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "INT"
+popup/item_0/id = 0
+popup/item_1/text = "TEXT"
+popup/item_1/id = 1
+popup/item_2/text = "DATE"
+popup/item_2/id = 2
+
+[node name="DropSlot" type="Panel" parent="."]
+layout_mode = 2
+offset_left = -364.0
+offset_top = -240.0
+offset_right = 480.0
+offset_bottom = -240.0
+script = ExtResource("1_1qe24")
+
+[node name="DropSlot2" type="Panel" parent="."]
+layout_mode = 2
+offset_left = -364.0
+offset_top = -236.0
+offset_right = 480.0
+offset_bottom = -236.0
+script = ExtResource("1_1qe24")
+
+[node name="DropSlot3" type="Panel" parent="."]
+layout_mode = 2
+offset_left = -364.0
+offset_top = -232.0
+offset_right = 480.0
+offset_bottom = -232.0
+script = ExtResource("1_1qe24")
+
+[connection signal="gui_input" from="HBoxContainer/DraggableRowBlock" to="HBoxContainer/DraggableRowBlock" method="_on_gui_input"]
+[connection signal="gui_input" from="HBoxContainer/DraggableRowBlock2" to="HBoxContainer/DraggableRowBlock2" method="_on_gui_input"]
+[connection signal="gui_input" from="HBoxContainer/DraggableRowBlock3" to="HBoxContainer/DraggableRowBlock3" method="_on_gui_input"]

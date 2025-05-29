@@ -329,19 +329,22 @@ texture = ExtResource("17_6u5q2")
 offset = Vector2(0, -380)
 
 [node name="ShopDoor" type="Area2D" parent="."]
+z_index = 1
 y_sort_enabled = true
+position = Vector2(-200, 171)
 script = ExtResource("15_bivvy")
 target_scene = "res://scenes/Shop.tscn"
 target_door_name = "ShopDoor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopDoor"]
 z_index = 2
-position = Vector2(158.5, -52)
+position = Vector2(355, -227)
 shape = SubResource("RectangleShape2D_6e07w")
 
 [node name="Sprite2D" type="Sprite2D" parent="ShopDoor"]
-z_index = 1
+position = Vector2(352, -215)
 texture = ExtResource("14_bivvy")
+offset = Vector2(-155, 50)
 
 [node name="library-street-enter" type="Area2D" parent="."]
 position = Vector2(1375, 245)

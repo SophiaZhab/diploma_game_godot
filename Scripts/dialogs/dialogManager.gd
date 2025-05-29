@@ -50,7 +50,10 @@ func _end_dialog():
 
 	if item_to_add.has("name") and item_to_add.has("icon"):
 		Inventory.add_item(item_to_add.name, item_to_add.icon)
-		NarrationManager.show_lines(["Записку додано до інвентарю."])
+		if item_to_add.name == "code-note":
+			NarrationManager.show_lines(["Записку додано до інвентарю."])
+		if item_to_add.name == "tables":
+			NarrationManager.show_lines(["Документи додані до інвентарю."])
 	
 
 	item_to_add = {}

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3jhfifm0gi1n"]
+[gd_scene load_steps=8 format=3 uid="uid://b3jhfifm0gi1n"]
 
 [ext_resource type="Texture2D" uid="uid://4jeey8brjlt7" path="res://assets/backgrounds/шлях_до_станції.png" id="1_6eqsa"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_wr734"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="3_wr734"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="4_qol1q"]
+[ext_resource type="Material" uid="uid://c6abpqumdgdr8" path="res://shaders/snow.tres" id="5_k0nl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qol1q"]
 size = Vector2(498.5, 68.5)
@@ -64,6 +65,17 @@ shape = SubResource("RectangleShape2D_wr734")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("4_qol1q")]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 3
+material = ExtResource("5_k0nl7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("5_k0nl7")
+offset_left = -1481.0
+offset_top = -1063.0
+offset_right = 1487.0
+offset_bottom = 1065.0
 
 [connection signal="body_entered" from="main-street-from-st" to="main-street-from-st" method="_on_body_entered"]
 [connection signal="body_entered" from="station-enter" to="station-enter" method="_on_body_entered"]

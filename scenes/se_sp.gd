@@ -30,11 +30,3 @@ func _on_body_entered(body):
 func start_library_dialog():
 	var dialog_manager = get_node("/root/College/DialogueManager")
 	dialog_manager.start_dialog(dialog_data_intro)
-
-
-func _on_ready() -> void:
-	if Global.puzzle_library_solved:
-		$Sprite2D.visible = false
-		
-	if Global.is_way_to_college_showed:
-		$Sprite2D.visible = true

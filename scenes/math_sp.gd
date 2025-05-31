@@ -11,7 +11,7 @@ var dialog_data_intro = [
 ]
 
 var dialog_data_end = [
-	{"speaker": "Математик", "text": "І де ж я подів мої роздруковані дані?", "portrait": "res://assets/portraits/dbSp.png"}
+	{"speaker": "Математик", "text": "Намагаюсь скласти все докупи.", "portrait": "res://assets/portraits/mathSp.png"}
 ]
 
 var dialog_data_puzzle = [

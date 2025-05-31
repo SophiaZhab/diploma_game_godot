@@ -1,12 +1,10 @@
 extends Area2D
 
-# Scene paths
 @export var target_scene: String
 @export var target_door_name: String = ""
 @export var puzzle_scene:= "res://scenes/LibraryLock.tscn" 
 @export var library_scene_path := "res://scenes/library.tscn"
 
-# Whether this is a special puzzle door
 @export var is_puzzle_door: bool = false
 
 func _ready():

@@ -10,6 +10,7 @@ var is_way_to_college_showed := false
 var picked_items := {}
 var triggered_dialogs = {}
 var is_dragging = false
+var is_table_solved = false
 
 
 func _ready():

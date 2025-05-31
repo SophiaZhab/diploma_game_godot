@@ -22,13 +22,16 @@ func _on_body_entered(body):
 	if body.name == "Player" and not Global.dialogs_played.has("db_specialist_intro"):
 		Global.dialogs_played["db_specialist_intro"] = true
 		start_library_dialog()
-	elif body.name == "Player" and Inventory.items.has("tables") and Inventory.items["tables"] > 0 and not Global.dialogs_played.has("db_specialist_tables"):
+	elif body.name == "Player" and Inventory.items.has("tables") and Inventory.items["tables"] > 0 and not Global.is_table_solved:
 		var dialog_manager = get_node("/root/Engeenering-class/DialogueManager")
 		Global.dialogs_played["db_specialist_tables"] = true
+		
 		dialog_manager.start_dialog(dialog_data_tables)
+		
+		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_file("res://scenes/tables_puzzle/DatabasePuzzle.tscn")
 		
-	elif body.name == "Player" and Global.dialogs_played.has("db_specialist_intro"):
+	elif body.name == "Player" and Global.dialogs_played.has("db_specialist_intro") and not Global.is_table_solved:
 		var dialog_manager = get_node("/root/Engeenering-class/DialogueManager")
 		dialog_manager.start_dialog(dialog_data_end)
 	

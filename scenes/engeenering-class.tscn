@@ -40,7 +40,7 @@ texture = ExtResource("1_fqumv")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_b8xwd")]
 z_index = 1
-position = Vector2(-722, -171)
+position = Vector2(-891, 46)
 scale = Vector2(1.07, 1.07)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

@@ -1,6 +1,12 @@
 extends Control
 
 func _ready():
+	NarrationManager.show_lines([
+			"Твоє завдання — відновити структуру бази даних.",
+			"Поглянь, тут три таблиці.",
+			"Треба, щоб ти правильно розставив поля у відповідні слоти. ",
+			"А також для кожного поля обери правильний тип даних. "
+		])
 	add_to_group("checkers")
 	print("Checker ready, додано до групи checkers")
 	await get_tree().process_frame  
@@ -85,4 +91,12 @@ func check_solution(_index = -1):
 			break
 
 	if all_correct:
-		print("WIN")
+		NarrationManager.show_lines([
+			"Молодець, наче все правильно.",
+			"Дякую за допомогу.",
+		])
+		Global.is_table_solved = true
+		await get_tree().create_timer(2.0).timeout
+		get_tree().change_scene_to_file("res://scenes/engeenering-class.tscn")
+		if Inventory.items.has("tables"):
+			Inventory.items.erase("tables")

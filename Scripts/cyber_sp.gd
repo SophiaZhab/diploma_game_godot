@@ -58,5 +58,8 @@ func _on_ready() -> void:
 	if Global.puzzle_library_solved:
 		$Sprite2D.visible = false
 		
-	if Global.is_way_to_college_showed:
+	if Global.is_way_to_college_showed and Global.dialogs_played.has("se_specialist_intro"):
 		$Sprite2D.visible = true
+	
+	if Global.is_table_solved:
+		$Sprite2D.visible = false

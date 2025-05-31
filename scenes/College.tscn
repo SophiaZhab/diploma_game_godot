@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ndiwsvyvlsad"]
+[gd_scene load_steps=37 format=3 uid="uid://ndiwsvyvlsad"]
 
 [ext_resource type="Texture2D" uid="uid://cfphi78iw0b81" path="res://assets/backgrounds/bgd-col.png" id="1_lj3cq"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="1_omf3q"]
@@ -23,6 +23,8 @@
 [ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="21_svopu"]
 [ext_resource type="FontFile" uid="uid://8yen3fgmky61" path="res://assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf" id="22_4i4tk"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="23_qfknc"]
+[ext_resource type="Script" uid="uid://booxamnh3h8hh" path="res://scenes/cyber_sp2.gd" id="24_a1gxx"]
+[ext_resource type="Texture2D" uid="uid://ckt7fgr60oj7" path="res://assets/characters/cyberSp.png" id="25_svopu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vg2b3"]
 size = Vector2(228, 31)
@@ -51,6 +53,12 @@ size = Vector2(37, 253)
 [sub_resource type="CircleShape2D" id="CircleShape2D_22ggd"]
 radius = 72.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1gxx"]
+radius = 27.074
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4i4tk"]
+radius = 55.0364
+
 [node name="College" type="Node2D"]
 y_sort_enabled = true
 
@@ -75,7 +83,6 @@ texture = ExtResource("1_lj3cq")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h187c")]
 z_index = 1
 position = Vector2(44, 488)
-scale = Vector2(1.21, 1.21)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.95, 0.95)
@@ -92,7 +99,7 @@ position = Vector2(-942, -476)
 texture = ExtResource("3_h187c")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bgr"]
-position = Vector2(1053, -490)
+position = Vector2(1070, -480)
 texture = ExtResource("3_h187c")
 flip_h = true
 
@@ -311,8 +318,8 @@ y_sort_enabled = true
 script = ExtResource("15_e6faf")
 
 [node name="Sprite2D" type="Sprite2D" parent="seSp"]
-position = Vector2(-125.937, 464.325)
-scale = Vector2(0.334125, 0.322676)
+position = Vector2(-120.469, 471.825)
+scale = Vector2(0.284932, 0.275169)
 texture = ExtResource("16_ey5b4")
 offset = Vector2(0, -300)
 
@@ -394,7 +401,35 @@ wait_time = 0.03
 
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("23_qfknc")]
 
+[node name="CyberSp" type="Area2D" parent="."]
+visible = false
+z_index = 1
+y_sort_enabled = true
+position = Vector2(209, 149)
+script = ExtResource("24_a1gxx")
+
+[node name="CyberSp_col" type="StaticBody2D" parent="CyberSp"]
+position = Vector2(-209, -149)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CyberSp/CyberSp_col"]
+z_index = 2
+position = Vector2(259, 613)
+shape = SubResource("CircleShape2D_a1gxx")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CyberSp"]
+position = Vector2(54, 450)
+scale = Vector2(0.280805, 0.280805)
+texture = ExtResource("25_svopu")
+offset = Vector2(0, -300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CyberSp"]
+position = Vector2(54, 460)
+shape = SubResource("CircleShape2D_4i4tk")
+
 [connection signal="body_entered" from="garden-enter" to="garden-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="corridor-enter" to="corridor-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="seSp" to="seSp" method="_on_body_entered"]
 [connection signal="ready" from="seSp" to="seSp" method="_on_ready"]
+[connection signal="body_entered" from="CyberSp" to="CyberSp" method="_on_body_entered"]
+[connection signal="ready" from="CyberSp" to="CyberSp" method="_on_ready"]

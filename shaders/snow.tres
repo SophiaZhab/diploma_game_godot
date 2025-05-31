@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c6abpqumdgdr8"]
+
+[ext_resource type="Shader" uid="uid://dvkjwqgghi0es" path="res://shaders/snow.gdshader" id="1_k4gkm"]
+
+[resource]
+shader = ExtResource("1_k4gkm")
+shader_parameter/spread = 0.5
+shader_parameter/size = 0.169
+shader_parameter/snow_color = Color(0.846978, 0.876268, 0.876849, 1)
+shader_parameter/snow_transparency = 0.189
+shader_parameter/speed = 1.824
+shader_parameter/wind = 0.206
+shader_parameter/num_of_layers = 15

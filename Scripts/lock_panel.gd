@@ -24,6 +24,7 @@ func _ready():
 		var puzzle_area = get_node("note-code")
 		if puzzle_area:
 			puzzle_area.visible = true
+			
 	else:
 		NarrationManager.show_lines([
 			"Замок. Я маю відшукати код.",
@@ -49,6 +50,8 @@ func _unlock():
 	NarrationManager.show_lines([
 			"Замок відкрито."
 		])
+	if Inventory.items.has("note-code"):
+		Inventory.items.erase("note-code")
 	Global.puzzle_library_solved = true
 	await get_tree().process_frame
 	await get_tree().create_timer(0.3).timeout 

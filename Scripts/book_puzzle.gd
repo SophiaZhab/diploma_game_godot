@@ -23,6 +23,12 @@ func _has_required_books() -> bool:
 func _open_puzzle():
 	print("All required books are present. Opening puzzle.")
 	call_deferred("_change_scene", puzzle_scene)
+	if Inventory.items.has("book1"):
+			Inventory.items.erase("book1")
+	if Inventory.items.has("book2"):
+			Inventory.items.erase("book2")
+	if Inventory.items.has("book3"):
+			Inventory.items.erase("book3")
 
 func _show_missing_books_message():
 	print("Missing one or more required books.")

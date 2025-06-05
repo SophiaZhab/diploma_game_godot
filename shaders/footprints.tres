@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ba64ub2m2vk63"]
+
+[ext_resource type="Shader" uid="uid://b3l5dpve7q235" path="res://shaders/footprints.gdshader" id="1_5dmtb"]
+
+[resource]
+shader = ExtResource("1_5dmtb")
+shader_parameter/footprint_opacity = 1.0

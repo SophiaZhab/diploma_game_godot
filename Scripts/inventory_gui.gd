@@ -41,7 +41,6 @@ func update_inventory_ui(icon: Texture = null):
 		print("Available children in slot: ", slot.get_children())
 		
 		if icon_node:
-			# You need to load the correct texture for each item
 			var item_texture = get_item_texture(item_name)
 			icon_node.texture = item_texture
 		else:

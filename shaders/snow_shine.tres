@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b1kncyo85w0wt"]
+
+[ext_resource type="Shader" uid="uid://2ru6nokqxwa2" path="res://shaders/snow_shine.gdshader" id="1_ci1vn"]
+
+[resource]
+shader = ExtResource("1_ci1vn")
+shader_parameter/trail_intensity = 0.0
+shader_parameter/snow_color = Color(1, 0.105882, 1, 0)
+shader_parameter/trail_color = Color(0.7, 0.7, 0.8, 1)
+shader_parameter/glitter_density = 30.154
+shader_parameter/glitter_size = 0.033
+shader_parameter/glitter_brightness = 0.658
+shader_parameter/glitter_speed = 0.703
+shader_parameter/glitter_color = Color(1, 1, 1, 1)
+shader_parameter/glitter_center = Vector2(0.5, 0.5)
+shader_parameter/glitter_radius = 0.481

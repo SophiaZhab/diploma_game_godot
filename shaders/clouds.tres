@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dkdtt4g11ykdh"]
+
+[ext_resource type="Shader" uid="uid://b4sg8vr3t7ofp" path="res://shaders/clouds.gdshader" id="1_42v1w"]
+
+[resource]
+shader = ExtResource("1_42v1w")
+shader_parameter/cloud_speed = 0.257
+shader_parameter/cloud_scale = 5.0
+shader_parameter/cloud_density = 0.504
+shader_parameter/cloud_coverage = 0.51
+shader_parameter/shadow_color = Color(0.087239, 0.0970068, 0.182475, 0.8)
+shader_parameter/deep_shadow_color = Color(0.0552876, 0.0634769, 0.187405, 0.9)
+shader_parameter/contrast = 1.244
+shader_parameter/edge_softness = 0.763

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://brspnvtjvfghr"]
+[gd_scene load_steps=54 format=3 uid="uid://brspnvtjvfghr"]
 
 [ext_resource type="Texture2D" uid="uid://cmbalg36y77af" path="res://assets/backgrounds/bgd-st.png" id="1_47i8t"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_gs0vj"]
@@ -23,7 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://dr122vxuf1qdr" path="res://assets/station-objects/counter32.png" id="21_6wosg"]
 [ext_resource type="Texture2D" uid="uid://rkglyq5s8x0" path="res://assets/station-objects/firtree-group.png" id="22_e7t4q"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="23_0l680"]
+[ext_resource type="Texture2D" uid="uid://dh1cexsqdevot" path="res://assets/station-objects/counter51.png" id="24_ehl4d"]
 [ext_resource type="Texture2D" uid="uid://bymtgwsc745ml" path="res://assets/station-objects/bush-group.png" id="24_pmrc8"]
+[ext_resource type="Texture2D" uid="uid://c72eg5tqs6kgb" path="res://assets/station-objects/counter52.png" id="25_ca8qu"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="25_ndcrq"]
 [ext_resource type="Script" uid="uid://s83ue36q5jqy" path="res://Scripts/Item.gd" id="26_wp55w"]
 [ext_resource type="Texture2D" uid="uid://cjmtcb3xuu4o6" path="res://assets/icons/station-key.png" id="27_qndqd"]
@@ -31,6 +33,11 @@
 [ext_resource type="PackedScene" uid="uid://c4x58rr734q1r" path="res://scenes/Narration.tscn" id="29_hu8dm"]
 [ext_resource type="Texture2D" uid="uid://dmk4nd2a52iqk" path="res://assets/icons/book2.png" id="30_25vvw"]
 [ext_resource type="Texture2D" uid="uid://jv12yqwkjos1" path="res://assets/objects-for-inventory/book2.png" id="31_wjdke"]
+[ext_resource type="Material" uid="uid://dkdtt4g11ykdh" path="res://shaders/clouds.tres" id="32_wjdke"]
+[ext_resource type="Material" uid="uid://c6abpqumdgdr8" path="res://shaders/snow.tres" id="33_hb1xt"]
+[ext_resource type="Texture2D" uid="uid://c0t4kdpm6f4wx" path="res://assets/station-objects/counter41.png" id="34_8ckdh"]
+[ext_resource type="Texture2D" uid="uid://b5qp84luyijjy" path="res://assets/station-objects/counter43.png" id="35_n2fil"]
+[ext_resource type="Material" uid="uid://b1kncyo85w0wt" path="res://shaders/snow_shine.tres" id="38_ca8qu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12mre"]
 size = Vector2(550.75, 659)
@@ -62,8 +69,11 @@ radius = 90.0222
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmrc8"]
 size = Vector2(75, 38.75)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n2fil"]
+radius = 11.4018
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_32oji"]
-radius = 20.5183
+radius = 14.2127
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_goa4b"]
 radius = 10.7703
@@ -328,25 +338,51 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="counter4"]
-position = Vector2(371, 594)
+position = Vector2(371, 614)
 texture = ExtResource("19_0l680")
-offset = Vector2(240, -500)
+offset = Vector2(160, -620)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="counter4"]
-z_index = 1
-polygon = PackedVector2Array(123, 462, 368, 621, 373, 631, 386, 626, 742, 761, 742, 746, 382, 608, 366, 600, 355, 602)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter4"]
+position = Vector2(371, 619)
+shape = SubResource("CircleShape2D_n2fil")
 
 [node name="counter5" type="StaticBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="counter5"]
-position = Vector2(1109, 46)
+position = Vector2(1105, 27)
 texture = ExtResource("20_32oji")
-offset = Vector2(20, -370)
+offset = Vector2(20, -355)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="counter5"]
 position = Vector2(1104, 40)
+shape = SubResource("CircleShape2D_32oji")
+
+[node name="counter51" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter51"]
+position = Vector2(964, 283)
+texture = ExtResource("24_ehl4d")
+offset = Vector2(20, -610)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter51"]
+position = Vector2(953, 279)
+shape = SubResource("CircleShape2D_32oji")
+
+[node name="counter52" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="counter52"]
+position = Vector2(1105, -152)
+texture = ExtResource("25_ca8qu")
+offset = Vector2(20, -175)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter52"]
+position = Vector2(1232, -144)
 shape = SubResource("CircleShape2D_32oji")
 
 [node name="counter32" type="StaticBody2D" parent="."]
@@ -425,6 +461,60 @@ texture = ExtResource("31_wjdke")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book2"]
 polygon = PackedVector2Array(-1345, 1056, -1354, 1030, -1316, 1019, -1268, 1011, -1267, 1034, -1344, 1059)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = ExtResource("38_ca8qu")
+offset_left = -1167.0
+offset_top = 374.0
+offset_right = -593.0
+offset_bottom = 686.0
+color = Color(0.303233, 0.303233, 0.303233, 1)
+
+[node name="Clouds" type="ColorRect" parent="."]
+z_index = 2
+material = ExtResource("32_wjdke")
+offset_left = -1517.0
+offset_top = -1260.0
+offset_right = 1643.0
+offset_bottom = 1331.0
+metadata/_edit_lock_ = true
+
+[node name="Snowfall" type="ColorRect" parent="."]
+z_index = 4
+material = ExtResource("33_hb1xt")
+offset_left = -1481.0
+offset_top = -1063.0
+offset_right = 1487.0
+offset_bottom = 1065.0
+metadata/_edit_lock_ = true
+
+[node name="counter41" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-13, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="counter41"]
+position = Vector2(580, 749)
+texture = ExtResource("34_8ckdh")
+offset = Vector2(0, -740)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter41"]
+position = Vector2(727, 736)
+shape = SubResource("CircleShape2D_n2fil")
+
+[node name="counter42" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-344, -129)
+
+[node name="Sprite2D" type="Sprite2D" parent="counter42"]
+position = Vector2(580, 589)
+texture = ExtResource("35_n2fil")
+offset = Vector2(0, -580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter42"]
+position = Vector2(469, 590)
+shape = SubResource("CircleShape2D_n2fil")
 
 [connection signal="input_event" from="stationKey" to="stationKey" method="_on_input_event"]
 [connection signal="body_entered" from="near-station-enter" to="near-station-enter" method="_on_body_entered"]

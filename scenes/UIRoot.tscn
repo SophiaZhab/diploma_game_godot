@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cml6p061tfgu"]
+[gd_scene load_steps=7 format=3 uid="uid://cml6p061tfgu"]
 
 [ext_resource type="Script" uid="uid://d31qi0ik6p6dy" path="res://Scripts/ui_root.gd" id="1_iiivb"]
 [ext_resource type="Texture2D" uid="uid://uj2pla3qy46j" path="res://assets/icons/backpack.png" id="1_rt4gy"]
 [ext_resource type="PackedScene" uid="uid://dikm7285nf4b8" path="res://scenes/inventoryUI.tscn" id="3_11qqv"]
+[ext_resource type="Texture2D" uid="uid://bjgceqoppx3ld" path="res://assets/icons/pause.png" id="4_selmt"]
+[ext_resource type="PackedScene" uid="uid://dq72k5a428o6w" path="res://scenes/Settings/SettingsMenu.tscn" id="5_24nwf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_selmt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="UIroot" type="Control"]
 layout_mode = 3
@@ -19,6 +24,7 @@ offset_left = 1029.0
 offset_top = 551.0
 offset_right = 1124.0
 offset_bottom = 646.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_selmt")
 icon = ExtResource("1_rt4gy")
 icon_alignment = 1
 expand_icon = true
@@ -30,9 +36,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -265.0
-offset_top = -174.0
-offset_right = 259.0
-offset_bottom = 164.0
+offset_left = -309.0
+offset_top = -199.0
+offset_right = 309.0
+offset_bottom = 199.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 76.0
+offset_bottom = 69.0
+icon = ExtResource("4_selmt")
+icon_alignment = 1
+expand_icon = true
+
+[node name="SettingsMenu" parent="." instance=ExtResource("5_24nwf")]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.0
+offset_top = -278.0
+offset_right = -359.0
+offset_bottom = -278.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(280, 230)

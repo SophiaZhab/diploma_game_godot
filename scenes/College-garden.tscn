@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0blabul5j84p"]
+[gd_scene load_steps=13 format=3 uid="uid://b0blabul5j84p"]
 
 [ext_resource type="Texture2D" uid="uid://6n0uisgyx65p" path="res://assets/backgrounds/bgd-cg.png" id="1_dj8jf"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_6f4rk"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="5_jxhpe"]
 [ext_resource type="Script" uid="uid://vp22na8u7c8m" path="res://Scripts/AreaTrigger.gd" id="6_3jwuc"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="7_j6qkq"]
+[ext_resource type="Material" uid="uid://dkdtt4g11ykdh" path="res://shaders/clouds.tres" id="8_0qog5"]
+[ext_resource type="Material" uid="uid://c6abpqumdgdr8" path="res://shaders/snow.tres" id="9_afxhk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxhpe"]
 size = Vector2(351, 69)
@@ -98,6 +100,24 @@ shape = SubResource("RectangleShape2D_j6qkq")
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("7_j6qkq")]
 offset_left = -11.0
 offset_right = -11.0
+
+[node name="Clouds" type="ColorRect" parent="."]
+z_index = 2
+material = ExtResource("8_0qog5")
+offset_left = -1517.0
+offset_top = -1260.0
+offset_right = 1643.0
+offset_bottom = 1331.0
+metadata/_edit_lock_ = true
+
+[node name="Snowfall" type="ColorRect" parent="."]
+z_index = 4
+material = ExtResource("9_afxhk")
+offset_left = -1521.0
+offset_top = -1063.0
+offset_right = 1608.0
+offset_bottom = 1116.0
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="main-from-college-enter" to="main-from-college-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="college-enter" to="college-enter" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b4h7ahtdfuf42"]
+[gd_scene load_steps=33 format=3 uid="uid://b4h7ahtdfuf42"]
 
 [ext_resource type="Texture2D" uid="uid://dhq0cjv07mwcn" path="res://assets/backgrounds/bgd-nl.png" id="2_4pdbx"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="3_43dku"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://bhd0k6yl37j42" path="res://assets/icons/book1.png" id="17_w38u1"]
 [ext_resource type="Texture2D" uid="uid://dvg6p2dkkmhjo" path="res://assets/objects-for-inventory/book1.png" id="18_vsso6"]
 [ext_resource type="Texture2D" uid="uid://bjulunav6ka2a" path="res://assets/near-library-objects/lamps.png" id="19_vsso6"]
+[ext_resource type="Material" uid="uid://dkdtt4g11ykdh" path="res://shaders/clouds.tres" id="20_2fdif"]
+[ext_resource type="Material" uid="uid://c6abpqumdgdr8" path="res://shaders/snow.tres" id="21_5tmwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tmwq"]
 size = Vector2(1512, 444)
@@ -271,6 +273,24 @@ y_sort_enabled = true
 position = Vector2(-1249, 129)
 texture = ExtResource("19_vsso6")
 offset = Vector2(0, -380)
+
+[node name="Clouds" type="ColorRect" parent="."]
+z_index = 2
+material = ExtResource("20_2fdif")
+offset_left = -1517.0
+offset_top = -1260.0
+offset_right = 1643.0
+offset_bottom = 1331.0
+metadata/_edit_lock_ = true
+
+[node name="Snowfall" type="ColorRect" parent="."]
+z_index = 4
+material = ExtResource("21_5tmwq")
+offset_left = -1521.0
+offset_top = -1063.0
+offset_right = 1608.0
+offset_bottom = 1116.0
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="main-street-enter" to="main-street-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="LibraryDoor" to="LibraryDoor" method="_on_body_entered"]

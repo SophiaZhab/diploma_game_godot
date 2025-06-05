@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Global.gd"
 Inventory="*res://Scripts/Inventory.gd"
 NarrationManager="*res://scenes/Narration.tscn"
+Music="*res://scenes/Music/MusicPlayer.tscn"
 
 [rendering]
 

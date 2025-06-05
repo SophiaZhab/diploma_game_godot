@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://34olrx86jbjf"]
+[gd_scene load_steps=58 format=3 uid="uid://34olrx86jbjf"]
 
 [ext_resource type="Script" uid="uid://cl00kaqwlsfi2" path="res://Scripts/main_street.gd" id="1_6e07w"]
 [ext_resource type="Texture2D" uid="uid://cbttgi0epj26d" path="res://assets/backgrounds/main_street.png" id="1_eif53"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://guih1t76y8wv" path="res://assets/icons/book3.png" id="20_rkexx"]
 [ext_resource type="Texture2D" uid="uid://cwbac5518lnuh" path="res://assets/objects-for-inventory/book3.png" id="21_rkexx"]
 [ext_resource type="Texture2D" uid="uid://q2gvnfgdfofm" path="res://assets/near-library-objects/car-rightside.png" id="22_oahl2"]
+[ext_resource type="Material" uid="uid://c6abpqumdgdr8" path="res://shaders/snow.tres" id="24_gdyee"]
+[ext_resource type="Material" uid="uid://dkdtt4g11ykdh" path="res://shaders/clouds.tres" id="25_v6rxp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_laxlr"]
 
@@ -481,6 +483,22 @@ trigger_id = "trigger_2"
 position = Vector2(-987, -455)
 shape = SubResource("RectangleShape2D_gdyee")
 one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4
+material = ExtResource("24_gdyee")
+offset_left = -1481.0
+offset_top = -1063.0
+offset_right = 1487.0
+offset_bottom = 1065.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 2
+material = ExtResource("25_v6rxp")
+offset_left = -1517.0
+offset_top = -1260.0
+offset_right = 1643.0
+offset_bottom = 1331.0
 
 [connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]
 [connection signal="body_entered" from="library-street-enter" to="library-street-enter" method="_on_body_entered"]

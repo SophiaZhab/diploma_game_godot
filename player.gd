@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 1000.0
 @onready var anim_sprite = $AnimatedSprite2D
 
+
 func _ready():
 	add_to_group("player")
 	print("Player initialized, checking for spawn position")

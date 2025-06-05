@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://u4a37jt3shfx"]
+[gd_scene load_steps=24 format=3 uid="uid://u4a37jt3shfx"]
 
+[ext_resource type="Script" uid="uid://bpg63sm5t3dan" path="res://Scripts/library.gd" id="1_6m1la"]
 [ext_resource type="Texture2D" uid="uid://dsla3g2y0cpxy" path="res://assets/backgrounds/bgdl.png" id="1_dr2oc"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="3_6frsu"]
 [ext_resource type="Texture2D" uid="uid://b6fgf7yvpko6a" path="res://assets/library-objects/frame.png" id="3_qyo4v"]
@@ -43,6 +44,7 @@ size = Vector2(130, 32)
 
 [node name="Library" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_6m1la")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

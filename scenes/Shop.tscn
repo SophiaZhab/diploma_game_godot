@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bw5xo4p1lvaia"]
+[gd_scene load_steps=25 format=3 uid="uid://bw5xo4p1lvaia"]
 
 [ext_resource type="Texture2D" uid="uid://bt6e0ysi3bxh2" path="res://assets/backgrounds/bgd.png" id="1_ec5oe"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="1_rgcs7"]
+[ext_resource type="Script" uid="uid://ckv4irfofrroc" path="res://Scripts/shop.gd" id="1_skkvx"]
 [ext_resource type="Texture2D" uid="uid://bx3oo36xip1b5" path="res://assets/Shop_objects/side-refrigerators.png" id="3_yltc6"]
 [ext_resource type="Texture2D" uid="uid://cxj61imb3tqd" path="res://assets/Shop_objects/frame.png" id="4_fpbbi"]
 [ext_resource type="Texture2D" uid="uid://c38iahoownen" path="res://assets/Shop_objects/refrigerators.png" id="5_m0qts"]
@@ -56,6 +57,7 @@ size = Vector2(43, 83)
 
 [node name="Shop" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_skkvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
@@ -68,11 +70,13 @@ position = Vector2(252, 109)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="side-refrigerators" type="StaticBody2D" parent="."]
+z_index = 1
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="side-refrigerators"]
-z_index = 3
+position = Vector2(-269, 121)
 texture = ExtResource("3_yltc6")
+offset = Vector2(270, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="side-refrigerators"]
 position = Vector2(-277.25, 8.75)

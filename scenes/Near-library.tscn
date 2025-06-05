@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://b4h7ahtdfuf42"]
+[gd_scene load_steps=34 format=3 uid="uid://b4h7ahtdfuf42"]
 
+[ext_resource type="Script" uid="uid://ccx672mkj3cwo" path="res://Scripts/near_library.gd" id="1_5tmwq"]
 [ext_resource type="Texture2D" uid="uid://dhq0cjv07mwcn" path="res://assets/backgrounds/bgd-nl.png" id="2_4pdbx"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="3_43dku"]
 [ext_resource type="Texture2D" uid="uid://bhqo1038cuepc" path="res://assets/near-library-objects/roof.png" id="4_5al6p"]
@@ -57,6 +58,7 @@ size = Vector2(65, 21.5)
 
 [node name="Near-library" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_5tmwq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 5)

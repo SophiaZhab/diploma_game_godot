@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://iixkmjmkrxbw"
+path="res://.godot/imported/footstep-intdoor-1 (mp3cut.net).mp3-a04886f9be331c7087fddf20969c634f.mp3str"
+
+[deps]
+
+source_file="res://assets/main_street_objects/footstep-intdoor-1 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/footstep-intdoor-1 (mp3cut.net).mp3-a04886f9be331c7087fddf20969c634f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

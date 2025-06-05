@@ -1,14 +1,34 @@
 extends CharacterBody2D
 
-const SPEED = 1000.0
-@onready var anim_sprite = $AnimatedSprite2D
+const SPEED = 400.0
 
+@onready var anim_sprite = $AnimatedSprite2D
+@onready var step_player = $StepPlayer
+
+var step_timer := 0.0
+var step_interval := 0.3
+var footstep_type := "outdoor"
+
+var footstep_sounds_outdoor = [
+	preload("res://assets/Music/footstep-outdoor-1.mp3"),
+	preload("res://assets/Music/footstep-outdoor-2.mp3"),
+	preload("res://assets/Music/footstep-outdoor-3.mp3"),
+]
+
+var footstep_sounds_indoor = [
+	preload("res://assets/Music/footstep-intdoor-1.mp3"),
+	preload("res://assets/Music/footstep-intdoor-2.mp3"),
+	preload("res://assets/Music/footstep-intdoor-3.mp3"),
+]
 
 func _ready():
 	add_to_group("player")
 	print("Player initialized, checking for spawn position")
 	await get_tree().process_frame
 	_set_spawn_position()
+	randomize()
+
+	
 	
 func _set_spawn_position():
 	if Global.last_door_name == "":
@@ -53,3 +73,17 @@ func _physics_process(_delta):
 	
 	velocity = direction.normalized() * SPEED
 	move_and_slide()
+	if velocity.length() > 0:
+		step_timer -= _delta
+		if step_timer <= 0:
+			_play_footstep()
+			step_timer = step_interval
+
+func _play_footstep():
+	step_player.bus = "SFX"
+	var sounds = footstep_sounds_indoor if Global.footstep_type == "indoor" else footstep_sounds_outdoor
+
+
+	var random_sound = sounds[randi() % sounds.size()]
+	step_player.stream = random_sound
+	step_player.play()

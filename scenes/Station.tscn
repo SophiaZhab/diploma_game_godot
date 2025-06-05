@@ -1,5 +1,6 @@
-[gd_scene load_steps=54 format=3 uid="uid://brspnvtjvfghr"]
+[gd_scene load_steps=55 format=3 uid="uid://brspnvtjvfghr"]
 
+[ext_resource type="Script" uid="uid://dbegnj5u4f4s" path="res://Scripts/station.gd" id="1_024v7"]
 [ext_resource type="Texture2D" uid="uid://cmbalg36y77af" path="res://assets/backgrounds/bgd-st.png" id="1_47i8t"]
 [ext_resource type="PackedScene" uid="uid://oqopv2vp1ofj" path="res://player/player.tscn" id="2_gs0vj"]
 [ext_resource type="Texture2D" uid="uid://b5qj1qs7ncqyx" path="res://assets/station-objects/house.png" id="3_024pm"]
@@ -86,6 +87,7 @@ size = Vector2(40, 182)
 
 [node name="Station" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_024v7")
 
 [node name="stationKey" type="Area2D" parent="."]
 z_index = 3

@@ -356,6 +356,7 @@ position = Vector2(1375, 245)
 script = ExtResource("15_bivvy")
 target_scene = "res://scenes/Near-library.tscn"
 target_door_name = "main-street-enter"
+play_sound = false
 
 [node name="Sprite2D" type="Sprite2D" parent="library-street-enter"]
 
@@ -368,6 +369,7 @@ position = Vector2(339, 979)
 script = ExtResource("15_bivvy")
 target_scene = "res://scenes/Way-to-station.tscn"
 target_door_name = "main-street-from-st"
+play_sound = false
 
 [node name="Sprite2D" type="Sprite2D" parent="station-way-enter"]
 
@@ -380,6 +382,7 @@ position = Vector2(-983, -1000)
 script = ExtResource("15_bivvy")
 target_scene = "res://scenes/College-garden.tscn"
 target_door_name = "main-from-college-enter"
+play_sound = false
 
 [node name="Sprite2D" type="Sprite2D" parent="college-garden-enter"]
 
@@ -495,6 +498,7 @@ offset_left = -1481.0
 offset_top = -1063.0
 offset_right = 1487.0
 offset_bottom = 1065.0
+metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 2
@@ -503,6 +507,7 @@ offset_left = -1517.0
 offset_top = -1260.0
 offset_right = 1643.0
 offset_bottom = 1331.0
+metadata/_edit_lock_ = true
 
 [node name="Area2D2" type="Area2D" parent="."]
 script = ExtResource("18_le1d0")

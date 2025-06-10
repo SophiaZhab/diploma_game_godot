@@ -415,6 +415,7 @@ position = Vector2(-616, 979)
 script = ExtResource("23_0l680")
 target_scene = "res://scenes/Way-to-station.tscn"
 target_door_name = "station-enter"
+play_sound = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="near-station-enter"]
 position = Vector2(-4, 79.25)

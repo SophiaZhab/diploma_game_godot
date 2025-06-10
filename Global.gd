@@ -13,7 +13,7 @@ var is_dragging = false
 var is_table_solved = false
 var footstep_type = "outdoor"
 var is_new_game := false
-
+var is_menu := true
 
 
 func _ready():

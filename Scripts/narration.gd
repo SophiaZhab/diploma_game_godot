@@ -53,3 +53,12 @@ func _unhandled_input(event):
 		else:
 			current_line += 1
 			show_next_line()
+
+func hide_dialog():
+	hide()
+	typing_timer.stop()
+	is_typing = false
+	text_label.text = ""
+	lines.clear()
+	current_line = 0
+	full_text = ""

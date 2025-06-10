@@ -64,7 +64,7 @@ void fragment() {
     combined += turbulence;
 
     combined = pow(combined, contrast);
-	
+
     float soft_range = 0.05 + edge_softness * 0.15;
     float sharp_cutoff = step(1.0 - cloud_coverage, combined);
     float smooth_cutoff = smoothstep(1.0 - cloud_coverage - soft_range, 1.0 - cloud_coverage + soft_range, combined);

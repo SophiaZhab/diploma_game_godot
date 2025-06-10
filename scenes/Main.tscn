@@ -1,27 +1,246 @@
-[gd_scene load_steps=2 format=3 uid="uid://cccbej2pep3vw"]
+[gd_scene load_steps=21 format=3 uid="uid://cccbej2pep3vw"]
 
 [ext_resource type="Script" uid="uid://mjnycpq6ovps" path="res://Main.gd" id="1_oti5k"]
+[ext_resource type="Texture2D" uid="uid://bmlsvt3ijygie" path="res://assets/backgrounds/main_bgd.png" id="2_rvslj"]
+[ext_resource type="PackedScene" uid="uid://dq72k5a428o6w" path="res://scenes/Settings/SettingsMenu.tscn" id="3_0bbpv"]
+[ext_resource type="FontFile" uid="uid://c2olj7almidhk" path="res://assets/fonts/TerminusTTF-4.49.3.ttf" id="3_nxtc6"]
+[ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="3_rarhs"]
+[ext_resource type="Script" uid="uid://bqp8o0u0qfejb" path="res://scenes/about_game.gd" id="5_c01mt"]
+[ext_resource type="Texture2D" uid="uid://tdrnpklii7cj" path="res://assets/objects-for-inventory/InventoryRect.png" id="5_vcsgt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bbpv"]
+bg_color = Color(0.516374, 0.499939, 0.588594, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rarhs"]
+bg_color = Color(0.431373, 0.415686, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxtc6"]
+bg_color = Color(0.0627451, 0.0666667, 0.101961, 0.619608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlsqs"]
+bg_color = Color(0.0470588, 0.0470588, 0.0705882, 0.341176)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8u5g"]
+bg_color = Color(0.431373, 0.415686, 0.498039, 0.380392)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.431373, 0.415686, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhr70"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.431373, 0.415686, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcsgt"]
+bg_color = Color(0.431373, 0.415686, 0.498039, 0.380392)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c01mt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.431373, 0.415686, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp0k4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjd11"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmy6f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwfav"]
+bg_color = Color(0.533333, 0.517647, 0.6, 0.666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p2gp"]
+bg_color = Color(0.431373, 0.415686, 0.498039, 0.584314)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_oti5k")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0.203434, 0.205903, 0.270586, 1)
+
+[node name="details" type="TextureRect" parent="."]
+offset_left = 82.0
+offset_top = 59.0
+offset_right = 2183.0
+offset_bottom = 685.0
+scale = Vector2(0.476613, 0.476613)
+texture = ExtResource("2_rvslj")
+
+[node name="Empty" type="Label" parent="."]
 offset_left = 489.0
-offset_top = 245.0
-offset_right = 657.0
-offset_bottom = 276.0
+offset_top = 130.0
+offset_right = 627.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.352941, 0.345098, 0.396078, 1)
+theme_override_fonts/font = ExtResource("3_nxtc6")
+theme_override_font_sizes/font_size = 55
+text = "Empty"
+
+[node name="Hive" type="Label" parent="."]
+offset_left = 647.0
+offset_top = 84.0
+offset_right = 778.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0.352941, 0.345098, 0.396078, 1)
+theme_override_fonts/font = ExtResource("3_nxtc6")
+theme_override_font_sizes/font_size = 55
+text = "Hive"
+
+[node name="StartButton" type="Button" parent="."]
+z_index = 2
+offset_left = 458.0
+offset_top = 293.0
+offset_right = 708.0
+offset_bottom = 349.0
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_0bbpv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rarhs")
 text = "Продовжити гру"
 
 [node name="ExitButton" type="Button" parent="."]
-offset_left = 489.0
-offset_top = 301.0
-offset_right = 658.0
-offset_bottom = 332.0
+z_index = 2
+custom_minimum_size = Vector2(180, 50)
+offset_left = 458.0
+offset_top = 480.0
+offset_right = 708.0
+offset_bottom = 536.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_nxtc6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jlsqs")
 text = "Вийти"
 
 [node name="NewGameButton" type="Button" parent="."]
-offset_left = 489.0
-offset_top = 193.0
-offset_right = 657.0
-offset_bottom = 224.0
+z_index = 2
+custom_minimum_size = Vector2(180, 50)
+offset_left = 458.0
+offset_top = 355.0
+offset_right = 708.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_q8u5g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhr70")
 text = "Почати спочатку"
+
+[node name="SettingsButton" type="Button" parent="."]
+z_index = 2
+custom_minimum_size = Vector2(180, 50)
+offset_left = 458.0
+offset_top = 418.0
+offset_right = 708.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_vcsgt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c01mt")
+text = "Налаштування"
+
+[node name="AboutButton" type="Button" parent="."]
+offset_left = 435.0
+offset_top = 551.0
+offset_right = 715.0
+offset_bottom = 604.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/hover = SubResource("StyleBoxFlat_wp0k4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bjd11")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qmy6f")
+text = "Про гру та розробника"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_0bbpv")]
+visible = false
+z_index = 2
+offset_left = 207.0
+offset_top = 30.0
+offset_right = 207.0
+offset_bottom = 30.0
+
+[node name="AboutGame" type="Control" parent="."]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_c01mt")
+
+[node name="ColorRect" type="ColorRect" parent="AboutGame"]
+z_index = -2
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1162.0
+offset_bottom = 652.0
+color = Color(0.0364497, 0.0350907, 0.0625695, 0.345098)
+
+[node name="TextureRect" type="TextureRect" parent="AboutGame"]
+z_index = 1
+layout_mode = 0
+offset_left = 235.0
+offset_top = 125.0
+offset_right = 939.0
+offset_bottom = 546.0
+texture = ExtResource("5_vcsgt")
+
+[node name="title" type="Label" parent="AboutGame"]
+z_index = 2
+offset_left = 488.0
+offset_top = 185.0
+offset_right = 690.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 26
+text = "Про гру
+"
+horizontal_alignment = 1
+
+[node name="description" type="Label" parent="AboutGame"]
+z_index = 2
+offset_left = 284.0
+offset_top = 238.0
+offset_right = 885.0
+offset_bottom = 414.0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 17
+text = "Ця гра була створена студенткою 45 групи Жаботинською Софією 
+у рамках дипломної роботи з спеціальності 
+121 Інженерія програмногозабезпечення ВСП \"ППФК НТУ \"ХПІ\"
+(науковий керівник - Бабич О.В.)
+
+Бажаю приємної та атмосферної гри"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="AboutGame"]
+z_index = 1
+offset_left = 483.0
+offset_top = 431.0
+offset_right = 699.0
+offset_bottom = 485.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_rarhs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_mwfav")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3p2gp")
+text = "Зрозуміло"

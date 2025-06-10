@@ -71,6 +71,7 @@ position = Vector2(47, 1063)
 script = ExtResource("5_jxhpe")
 target_scene = "res://scenes/main_street.tscn"
 target_door_name = "college-garden-enter"
+play_sound = false
 
 [node name="Sprite2D" type="Sprite2D" parent="main-from-college-enter"]
 

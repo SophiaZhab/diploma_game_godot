@@ -206,6 +206,7 @@ position = Vector2(-1378, 261)
 script = ExtResource("12_4pdbx")
 target_scene = "res://scenes/main_street.tscn"
 target_door_name = "library-street-enter"
+play_sound = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main-street-enter"]
 position = Vector2(-90, -6)

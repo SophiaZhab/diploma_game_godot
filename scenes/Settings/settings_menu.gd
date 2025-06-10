@@ -2,12 +2,15 @@ extends Control
 
 @onready var music_slider = $VBoxContainer/MusicSlider
 @onready var sfx_slider = $VBoxContainer/SFXSlider
+@onready var continue_button = $Button
 
 var isOpen: bool = false
 
 func _ready():
 	visible = false
 	isOpen = false
+	if Global.is_menu:
+		continue_button.visible = false
 
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
@@ -64,8 +67,10 @@ func _on_apply_button_pressed():
 	Global.is_dialog_active = false
 
 func _on_menu_button_pressed():
+	NarrationManager.hide_dialog()
 	close()
 	Global.is_dialog_active = false
+	Global.is_menu = true
 	get_tree().change_scene_to_file("res://scenes/Main.tscn")
 
 func _on_sfx_slider_value_changed(value: float) -> void:

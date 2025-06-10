@@ -47,6 +47,7 @@ position = Vector2(571, 936)
 script = ExtResource("3_wr734")
 target_scene = "res://scenes/main_street.tscn"
 target_door_name = "station-way-enter"
+play_sound = false
 
 [node name="Sprite2D" type="Sprite2D" parent="main-street-from-st"]
 
@@ -59,6 +60,7 @@ position = Vector2(539, -953)
 script = ExtResource("3_wr734")
 target_scene = "res://scenes/Station.tscn"
 target_door_name = "near-station-enter"
+play_sound = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="station-enter"]
 position = Vector2(46, -90)

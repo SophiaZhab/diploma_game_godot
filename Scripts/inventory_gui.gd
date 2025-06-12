@@ -37,14 +37,20 @@ func update_inventory_ui(icon: Texture = null):
 		
 
 		var icon_node = slot.find_child("TextureRect")
+		var name_label = slot.get_node("ItemNameLabel")
 	
 		print("Available children in slot: ", slot.get_children())
 		
-		if icon_node:
+		if icon_node and name_label:
 			var item_texture = get_item_texture(item_name)
 			icon_node.texture = item_texture
+			name_label.text = get_item_label(item_name)
+			name_label.visible = false  # спочатку приховано
+
+			icon_node.connect("mouse_entered", Callable(self, "_on_icon_mouse_entered").bind(name_label))
+			icon_node.connect("mouse_exited", Callable(self, "_on_icon_mouse_exited").bind(name_label))
 		else:
-			push_error("Could not find texture node in slot")
+			push_error("Could not find texture or label node in slot")
 			
 		#if count_label:
 			#count_label.text = str(Inventory.items[item_name])
@@ -75,4 +81,31 @@ func get_item_texture(item_name: String) -> Texture:
 		_:
 		
 			return null  
-			
+
+func get_item_label(item_name: String) -> String:
+	match item_name:
+		"flashlight":
+			return "Ліхтарик"
+		"shovel":
+			return "Лопата"
+		"stationKey":
+			return "Іржавий ключ"
+		"book1":
+			return "Сіра книга"
+		"book2":
+			return "Червона книга"
+		"book3":
+			return "Зелена книга"
+		"tables":
+			return "Документи"
+		"note-code":
+			return "Код від бібліотеки"
+		_:
+		
+			return "" 			
+
+func _on_icon_mouse_entered(label: Label):
+	label.visible = true
+
+func _on_icon_mouse_exited(label: Label):
+	label.visible = false

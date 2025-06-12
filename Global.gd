@@ -14,7 +14,7 @@ var is_table_solved = false
 var footstep_type = "outdoor"
 var is_new_game := false
 var is_menu := true
-
+var visited_note := false
 
 func _ready():
 	print("Global script initialized")
@@ -55,6 +55,7 @@ func save_game() -> void:
 	config.set_value("progress", "is_way_to_college_showed", is_way_to_college_showed)
 	config.set_value("progress", "is_table_solved", is_table_solved)
 	config.set_value("progress", "footstep_type", footstep_type)
+	config.set_value("progress", "visited_note", visited_note)
 
 	for key in picked_items.keys():
 		config.set_value("picked", key, true)
@@ -80,6 +81,7 @@ func load_game() -> void:
 	visited_library = config.get_value("progress", "visited_library", false)
 	is_way_to_college_showed = config.get_value("progress", "is_way_to_college_showed", false)
 	is_table_solved = config.get_value("progress", "is_table_solved", false)
+	visited_note = config.get_value("progress", "visited_note", false)
 	footstep_type = config.get_value("progress", "footstep_type", "outdoor")
 
 	if config.has_section("picked"):
@@ -118,6 +120,7 @@ func new_game():
 	is_table_solved = false
 	footstep_type = "outdoor"
 	is_new_game = true
+	visited_note = false
 	Inventory.items.clear()
 
 

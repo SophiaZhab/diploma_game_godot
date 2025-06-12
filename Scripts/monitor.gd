@@ -10,10 +10,25 @@ var correct_line2 = "345430454"
 var input1 := ""
 var input2 := ""
 
+var computer_sound = preload("res://assets/Music/computer.mp3")
+var audio_player: AudioStreamPlayer
+
 func _ready():
 	input_field.grab_focus()
 	input_field.editable = false
 	input_field.visible = false
+	
+	audio_player = AudioStreamPlayer.new()
+	audio_player.stream = computer_sound
+	audio_player.bus = "SFX"
+	add_child(audio_player)
+	var stream = computer_sound.duplicate()
+	if stream is AudioStream:
+		stream.loop = true 
+	
+	audio_player.stream = stream
+	
+	audio_player.play()
 	
 	if Global.is_way_to_college_showed:
 		way.visible = true

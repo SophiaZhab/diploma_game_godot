@@ -5,7 +5,7 @@ extends Area2D
 	"Навколо стало тихіше..."
 ]
 @export var one_shot: bool = true
-@export var trigger_id: String = "trigger_1" # унікальний ID для цього тригера
+@export var trigger_id: String = "trigger_1" 
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))

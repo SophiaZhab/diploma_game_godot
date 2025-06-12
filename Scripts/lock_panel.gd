@@ -5,16 +5,29 @@ extends Control
 var correct_code = [1, 2, 1]
 var current_code = [0, 0, 0]
 
+var digit_sound = preload("res://assets/Music/lock-sound.mp3")
+var audio_player: AudioStreamPlayer
+
 func _ready():
 	_update_display()
+	audio_player = AudioStreamPlayer.new()
+	audio_player.stream = digit_sound
+	audio_player.bus = "SFX"
+	add_child(audio_player)
 	
 	Global.visited_library = true
+	$Digit1.disabled = true
+	$Digit2.disabled = true
+	$Digit3.disabled = true
 	
 	$Digit1.connect("pressed", Callable(self, "_on_digit_pressed").bind(0))
 	$Digit2.connect("pressed", Callable(self, "_on_digit_pressed").bind(1))
 	$Digit3.connect("pressed", Callable(self, "_on_digit_pressed").bind(2))
 	
 	if Inventory.items.has("note-code") and Inventory.items["note-code"] > 0:
+		$Digit1.disabled = false
+		$Digit2.disabled = false
+		$Digit3.disabled = false
 		NarrationManager.show_lines([
 			"Ось код.",
 			"Це ж якась загадка. Чому не можна було просто написати число?",
@@ -33,6 +46,7 @@ func _ready():
 
 func _on_digit_pressed(index):
 	current_code[index] = (current_code[index] + 1) % 10
+	play_digit_sound()
 	_update_display()
 	_check_code()
 
@@ -59,3 +73,7 @@ func _unlock():
 	
 func _enter_library():
 	call_deferred("_change_scene", library_scene_path)
+
+func play_digit_sound():
+	if audio_player and digit_sound:
+		audio_player.play()

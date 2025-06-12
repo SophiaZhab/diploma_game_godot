@@ -10,10 +10,20 @@ var lines = []
 var is_typing = false
 var on_finished: Callable = Callable()
 var first_intro_shown: bool = false
+var computer_sound = preload("res://assets/Music/texting.mp3")
+var audio_player: AudioStreamPlayer
 
 func _ready():
 	hide()
 	text_label.bbcode_enabled = true
+	
+	audio_player = AudioStreamPlayer.new()
+	add_child(audio_player)
+	audio_player.bus = "SFX"
+	
+	if computer_sound:
+		audio_player.stream = computer_sound
+		audio_player.volume_db = -7
 
 func show_lines(new_lines: Array, finished_callback: Callable = Callable()):
 	lines = new_lines
@@ -28,6 +38,7 @@ func show_next_line():
 		if on_finished:
 			on_finished.call()
 		return
+	
 	full_text = lines[current_line]
 	text_label.text = ""
 	char_index = 0
@@ -36,11 +47,29 @@ func show_next_line():
 
 func _on_typing_timer_timeout() -> void:
 	if is_typing and char_index < full_text.length():
-		text_label.append_text(full_text[char_index])
+		var char = full_text[char_index]
+		text_label.append_text(char)
+
+		if char != " " and char != "\n" and char != "\t":
+			play_typing_sound()
+
 		char_index += 1
+
+		if char_index >= full_text.length():
+			is_typing = false
+			typing_timer.stop()
+			await get_tree().create_timer(0.1).timeout
+			if audio_player:
+				audio_player.stop()
 	else:
 		typing_timer.stop()
 		is_typing = false
+
+
+func play_typing_sound():
+	if audio_player and audio_player.stream:
+		audio_player.stop()
+		audio_player.play()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept") or (
@@ -50,6 +79,8 @@ func _unhandled_input(event):
 			typing_timer.stop()
 			text_label.text = full_text
 			is_typing = false
+			if audio_player:
+				audio_player.stop()
 		else:
 			current_line += 1
 			show_next_line()
@@ -62,3 +93,5 @@ func hide_dialog():
 	lines.clear()
 	current_line = 0
 	full_text = ""
+	if audio_player:
+		audio_player.stop()

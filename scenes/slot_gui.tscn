@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmgxje7dh2gxr"]
+[gd_scene load_steps=5 format=3 uid="uid://bmgxje7dh2gxr"]
 
 [ext_resource type="Texture2D" uid="uid://ctm1wgli8gfbi" path="res://assets/objects-for-inventory/InventorySlot.png" id="1_uwo2y"]
+[ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="2_inl3j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwo2y"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78og1"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 0.364706)
 
 [node name="Slot" type="Panel"]
 custom_minimum_size = Vector2(50, 50)
@@ -26,3 +30,24 @@ offset_left = 25.0
 offset_top = 22.0
 offset_right = 130.0
 offset_bottom = 127.0
+
+[node name="ItemNameLabel" type="Label" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 41.0
+offset_right = 157.0
+offset_bottom = 78.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.67451, 0.607843, 0.694118, 1)
+theme_override_fonts/font = ExtResource("2_inl3j")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_78og1")
+text = "hukjhk"
+horizontal_alignment = 1

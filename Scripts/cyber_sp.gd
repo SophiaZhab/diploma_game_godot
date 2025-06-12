@@ -6,7 +6,11 @@ var dialog_data_intro = [
 	{"speaker": "Кіберспеціалістка", "text": "О, тебе я раніше не бачила, ти хто?", "portrait": "res://assets/portraits/cyberSp.png"},
 	{"speaker": "Гравець", "text": "Я не бував у цьому місті раніше.", "portrait": "res://assets/portraits/mainP.png"},
 	{"speaker": "Кіберспеціалістка", "text": "Зрозуміла.", "portrait": "res://assets/portraits/cyberSp.png"},
-	{"speaker": "Гравець", "text": "Я спробую знайти інших. Ти не знаєш таке місце, як ВСП ППФК і щось там далі?", "portrait": "res://assets/portraits/mainP.png"},
+	{"speaker": "Гравець", "text": "Ого, в тебе працює комп'ютер?", "portrait": "res://assets/portraits/mainP.png"},
+	{"speaker": "Кіберспеціалістка", "text": "Так, на генераторі. Хоч один корисний елемент минувщини.", "portrait": "res://assets/portraits/cyberSp.png"},
+]
+var dialog_data_college = [
+	{"speaker": "Гравець", "text": "Я намагаюсь знайти інших. Ти не знаєш таке місце, як ВСП ППФК і щось там далі?", "portrait": "res://assets/portraits/mainP.png"},
 	{"speaker": "Кіберспеціалістка", "text": "Ні.", "portrait": "res://assets/portraits/cyberSp.png"}
 ]
 
@@ -35,23 +39,45 @@ var dialog_data_generator = [
 ]
 
 func _on_body_entered(body):
-	if body.name == "Player" and not Global.dialogs_played.has("cyber_specialist_intro"):
-		Global.dialogs_played["cyber_specialist_intro"] = true
-		var dialog_manager = get_node("/root/Station-building/DialogueManager")
-		dialog_data_intro += dialog_data_end
-		dialog_manager.start_dialog(dialog_data_intro)
-	elif body.name == "Player" and Global.visited_library and not Global.dialogs_played.has("cyber_specialist_library"):
+	if body.name != "Player":
+		return
+
+	var dialog_manager = get_node("/root/Station-building/DialogueManager")
+
+	if Global.dialogs_played.has("se_specialist_intro") and not Global.dialogs_played.has("cyber_specialist_generator"):
+		Global.dialogs_played["cyber_specialist_generator"] = true
+		dialog_manager.start_dialog(dialog_data_generator)
+		return
+
+	if Global.visited_library and not Global.dialogs_played.has("cyber_specialist_library"):
 		Global.dialogs_played["cyber_specialist_library"] = true
 		start_library_dialog()
-	elif body.name == "Player" and Global.dialogs_played.has("se_specialist_intro") and not Global.dialogs_played.has("cyber_specialist_generator"):
-		Global.dialogs_played["cyber_specialist_generator"] = true
-		var dialog_manager = get_node("/root/Station-building/DialogueManager")
-		dialog_manager.start_dialog(dialog_data_generator)
+		return
+
+	if Global.visited_note and not Global.dialogs_played.has("cyber_specialist_note") and Global.dialogs_played.has("cyber_specialist_intro"):
+		Global.dialogs_played["cyber_specialist_note"] = true
+		var college_dialog = dialog_data_college.duplicate()
+		college_dialog += dialog_data_end
+		dialog_manager.start_dialog(college_dialog)
+		return
+
+	if not Global.dialogs_played.has("cyber_specialist_intro"):
+		Global.dialogs_played["cyber_specialist_intro"] = true
+		var intro_dialog = dialog_data_intro.duplicate()
+		if Global.visited_note:
+			intro_dialog += dialog_data_college + dialog_data_end
+			Global.dialogs_played["cyber_specialist_note"] = true
+		else:
+			intro_dialog += dialog_data_end
+		dialog_manager.start_dialog(intro_dialog)
+
 
 func start_library_dialog():
 	var dialog_manager = get_node("/root/Station-building/DialogueManager")
-	dialog_data_library += dialog_data_end2
-	dialog_manager.start_dialog(dialog_data_library)
+	var full_library_dialog = dialog_data_library.duplicate()
+	full_library_dialog += dialog_data_end2
+	dialog_manager.start_dialog(full_library_dialog)
+
 
 
 func _on_ready() -> void:

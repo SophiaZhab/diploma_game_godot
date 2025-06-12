@@ -18,6 +18,7 @@ func _ready():
 	
 	audio_player = AudioStreamPlayer.new()
 	audio_player.stream = door_sound
+	audio_player.bus = "SFX"
 	add_child(audio_player)
 
 func _on_body_entered(body):
@@ -69,7 +70,6 @@ func enter_library():
 func play_door_sound():
 	if audio_player and door_sound:
 		audio_player.play()
-		print("Playing door sound")
 
 func _change_scene(scene_path):
 	print("Changing scene to: ", scene_path)

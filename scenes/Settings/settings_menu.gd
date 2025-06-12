@@ -3,6 +3,7 @@ extends Control
 @onready var music_slider = $VBoxContainer/MusicSlider
 @onready var sfx_slider = $VBoxContainer/SFXSlider
 @onready var continue_button = $Button
+@onready var exit_button = $ExitButton
 
 var isOpen: bool = false
 
@@ -11,6 +12,7 @@ func _ready():
 	isOpen = false
 	if Global.is_menu:
 		continue_button.visible = false
+		exit_button.visible = false
 
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
@@ -26,6 +28,7 @@ func _ready():
 	sfx_slider.value_changed.connect(_on_sfx_slider_value_changed)
 	$Button.pressed.connect(_on_apply_button_pressed)
 	$ButtonMenu.pressed.connect(_on_menu_button_pressed)
+	$ExitButton.pressed.connect(_on_exit_pressed)
 	
 	randomize()
 
@@ -80,3 +83,8 @@ func _update_sfx_volume(value: float) -> void:
 	var db = linear2db(value)
 	var bus_index = AudioServer.get_bus_index("SFX")
 	AudioServer.set_bus_volume_db(bus_index, db)
+
+func _on_exit_pressed():
+	Global.save_game()
+	Inventory.save_inventory()
+	get_tree().quit()

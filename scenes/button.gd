@@ -25,6 +25,7 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 		Global.generator_running = true
 		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://scenes/College.tscn")
+		
 
 func _on_plugged() -> void:
 	enabled = true

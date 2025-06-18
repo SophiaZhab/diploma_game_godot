@@ -1,5 +1,7 @@
 extends Node2D
 
+var audio_player: AudioStreamPlayer
+
 func _ready():
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:

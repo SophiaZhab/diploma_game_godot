@@ -132,3 +132,33 @@ func new_game():
 		Inventory.items.clear()
 
 	get_tree().change_scene_to_file("res://scenes/main_street.tscn") 
+
+func clear_progress_only():
+	var save_files = [
+		"user://save.cfg",
+		"user://inventory.cfg",
+		"user://picked_items.cfg"
+	]
+
+	for file_path in save_files:
+		if FileAccess.file_exists(file_path):
+			DirAccess.remove_absolute(file_path)
+
+	last_door_position = Vector2.ZERO
+	last_door_name = ""
+	puzzle_library_solved = false
+	dialogs_played.clear()
+	visited_library = false
+	is_dialog_active = false
+	is_way_to_college_showed = false
+	picked_items.clear()
+	triggered_dialogs.clear()
+	is_dragging = false
+	is_table_solved = false
+	footstep_type = "outdoor"
+	is_new_game = true
+	visited_note = false
+	generator_running = false
+
+	if Engine.has_singleton("Inventory"):
+		Inventory.items.clear()

@@ -102,7 +102,7 @@ size = Vector2(210, 158)
 size = Vector2(81, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bivvy"]
-size = Vector2(60, 374)
+size = Vector2(60, 444)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c7gq"]
 size = Vector2(176, 48.5)
@@ -123,7 +123,7 @@ size = Vector2(102, 149)
 size = Vector2(262, 204)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gc2j1"]
-size = Vector2(261, 159)
+size = Vector2(416.5, 207)
 
 [node name="Main_street" type="Node2D"]
 y_sort_enabled = true
@@ -261,7 +261,6 @@ texture = ExtResource("10_rkexx")
 [node name="Collegebarrier" type="CollisionShape2D" parent="pinkBuid2"]
 position = Vector2(-848.5, -499)
 shape = SubResource("RectangleShape2D_6u5q2")
-disabled = true
 
 [node name="yellow-building" type="StaticBody2D" parent="."]
 
@@ -292,7 +291,7 @@ shape = SubResource("RectangleShape2D_7rt0o")
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 1179.5)
+position = Vector2(-41, 1180)
 shape = SubResource("RectangleShape2D_53f7h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
@@ -361,7 +360,7 @@ play_sound = false
 [node name="Sprite2D" type="Sprite2D" parent="library-street-enter"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="library-street-enter"]
-position = Vector2(93, 3)
+position = Vector2(93, -32)
 shape = SubResource("RectangleShape2D_bivvy")
 
 [node name="station-way-enter" type="Area2D" parent="."]
@@ -510,12 +509,13 @@ offset_bottom = 1331.0
 metadata/_edit_lock_ = true
 
 [node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-1400, 314)
 script = ExtResource("18_le1d0")
 trigger_lines = Array[String](["Фух, нарешті дійшов.", "Ця жахлива негода застала мене у дорозі.", "О, і тут нікого. Схоже, це якась глобальна проблема."])
 trigger_id = "trigger_14"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-1314, 345)
+position = Vector2(-47.25, 34.5)
 shape = SubResource("RectangleShape2D_gc2j1")
 
 [connection signal="body_entered" from="ShopDoor" to="ShopDoor" method="_on_body_entered"]

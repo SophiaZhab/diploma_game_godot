@@ -1,39 +1,26 @@
 extends Panel
 
-var accepted_type := "row_block"
-var is_occupied := false
+func _can_drop_data(_position, data):
+	return data is VBoxContainer
 
-func _can_drop_data(position: Vector2, data: Variant) -> bool:
-	return typeof(data) == TYPE_DICTIONARY and data.has("type") and data["type"] == accepted_type
-
-func _drop_data(position: Vector2, data: Variant) -> void:
-	if not _can_drop_data(position, data):
+func _drop_data(_position, data):
+	if not (data is VBoxContainer):
 		return
-
-	var new_node := data["node"]
-	var old_parent := new_node.get_parent()
-
-	# Якщо слот вже зайнятий — обмінятися елементами
-	if is_occupied and get_child_count() > 0:
-		var existing_node := get_child(0)
-		
-		# Вилучити обидва з батьків
-		remove_child(existing_node)
-		if old_parent:
-			old_parent.remove_child(new_node)
-
-		# Обмін місцями
-		old_parent.add_child(existing_node)
-		existing_node.position = Vector2.ZERO
-		
-		add_child(new_node)
-		new_node.position = Vector2.ZERO
-
+	
+	var other = get_child(0) if get_child_count() > 0 else null
+	
+	if other == null:
+		if data.get_parent():
+			data.get_parent().remove_child(data)
+		add_child(data)
 	else:
-		# Просто перемістити
-		if old_parent:
-			old_parent.remove_child(new_node)
-
-		add_child(new_node)
-		new_node.position = Vector2.ZERO
-		is_occupied = true
+		var source_slot = data.get_parent()
+		var other_slot = other.get_parent()
+		if source_slot and other_slot:
+			source_slot.remove_child(data)
+			other_slot.remove_child(other)
+			source_slot.add_child(other)
+			other_slot.add_child(data)
+	
+	get_tree().call_group("checkers", "reconnect_all_signals")
+	get_tree().call_group("checkers", "check_solution")

@@ -44,6 +44,17 @@ func _on_body_entered(body):
 
 	var dialog_manager = get_node("/root/Station-building/DialogueManager")
 
+	if not Global.dialogs_played.has("cyber_specialist_intro"):
+		Global.dialogs_played["cyber_specialist_intro"] = true
+		var intro_dialog = dialog_data_intro.duplicate()
+		if Global.visited_note:
+			intro_dialog += dialog_data_college + dialog_data_end
+			Global.dialogs_played["cyber_specialist_note"] = true
+		else:
+			intro_dialog += dialog_data_end
+		dialog_manager.start_dialog(intro_dialog)
+		return
+
 	if Global.dialogs_played.has("se_specialist_intro") and not Global.dialogs_played.has("cyber_specialist_generator"):
 		Global.dialogs_played["cyber_specialist_generator"] = true
 		dialog_manager.start_dialog(dialog_data_generator)
@@ -54,22 +65,12 @@ func _on_body_entered(body):
 		start_library_dialog()
 		return
 
-	if Global.visited_note and not Global.dialogs_played.has("cyber_specialist_note") and Global.dialogs_played.has("cyber_specialist_intro"):
+	if Global.visited_note and not Global.dialogs_played.has("cyber_specialist_note"):
 		Global.dialogs_played["cyber_specialist_note"] = true
 		var college_dialog = dialog_data_college.duplicate()
 		college_dialog += dialog_data_end
 		dialog_manager.start_dialog(college_dialog)
 		return
-
-	if not Global.dialogs_played.has("cyber_specialist_intro"):
-		Global.dialogs_played["cyber_specialist_intro"] = true
-		var intro_dialog = dialog_data_intro.duplicate()
-		if Global.visited_note:
-			intro_dialog += dialog_data_college + dialog_data_end
-			Global.dialogs_played["cyber_specialist_note"] = true
-		else:
-			intro_dialog += dialog_data_end
-		dialog_manager.start_dialog(intro_dialog)
 
 
 func start_library_dialog():
@@ -78,14 +79,17 @@ func start_library_dialog():
 	full_library_dialog += dialog_data_end2
 	dialog_manager.start_dialog(full_library_dialog)
 
-
-
 func _on_ready() -> void:
+
+		
 	if Global.puzzle_library_solved:
 		$Sprite2D.visible = false
+		$CollisionShape2D.disabled = true
 		
 	if Global.is_way_to_college_showed and Global.dialogs_played.has("se_specialist_intro"):
 		$Sprite2D.visible = true
+		$CollisionShape2D.disabled = false
 	
 	if Global.is_table_solved:
 		$Sprite2D.visible = false
+		$CollisionShape2D.disabled = true

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://gqap1tgk71me" path="res://assets/engineering-class-objects/table3.png" id="9_6tahh"]
 [ext_resource type="Texture2D" uid="uid://tscwu4on7s3n" path="res://assets/engineering-class-objects/table2.png" id="10_udkkq"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="11_es5m7"]
-[ext_resource type="Script" uid="uid://dqg6wka5w06mq" path="res://scenes/db_sp.gd" id="12_emejd"]
+[ext_resource type="Script" uid="uid://dqg6wka5w06mq" path="res://Scripts/db_sp.gd" id="12_emejd"]
 [ext_resource type="Texture2D" uid="uid://bdrhgtxu3px1n" path="res://assets/characters/dbSp.png" id="13_t003c"]
 [ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="14_v2o7o"]
 [ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="15_hjts3"]

@@ -16,4 +16,9 @@ func _on_ready() -> void:
 	
 	if Global.is_table_solved:
 		$Sprite2D.visible = true
-		$CyberSp_col/CollisionShape2D.disabled = false
+		$CollisionShape2D.disabled = false
+		$StaticBody2D/CollisionShape2D2.disabled = false
+	else:
+		$Sprite2D.visible = false
+		$CollisionShape2D.disabled = true
+		$StaticBody2D/CollisionShape2D2.disabled = true

@@ -127,6 +127,7 @@ text = "Назад до меню"
 
 [node name="ExitButton" type="Button" parent="."]
 z_index = 1
+layout_mode = 0
 offset_left = 262.0
 offset_top = 464.0
 offset_right = 478.0

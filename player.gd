@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 1400.0
 
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var step_player = $StepPlayer
@@ -25,6 +25,7 @@ func _ready():
 	add_to_group("player")
 	print("Player initialized, checking for spawn position")
 	await get_tree().process_frame
+	await get_tree().process_frame 
 	_set_spawn_position()
 	randomize()
 

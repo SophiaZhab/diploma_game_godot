@@ -15,6 +15,7 @@ var footstep_type = "outdoor"
 var is_new_game := false
 var is_menu := true
 var visited_note := false
+var generator_running := false
 
 func _ready():
 	print("Global script initialized")
@@ -56,6 +57,7 @@ func save_game() -> void:
 	config.set_value("progress", "is_table_solved", is_table_solved)
 	config.set_value("progress", "footstep_type", footstep_type)
 	config.set_value("progress", "visited_note", visited_note)
+	config.set_value("progress", "generator_running", generator_running)
 
 	for key in picked_items.keys():
 		config.set_value("picked", key, true)
@@ -83,7 +85,8 @@ func load_game() -> void:
 	is_table_solved = config.get_value("progress", "is_table_solved", false)
 	visited_note = config.get_value("progress", "visited_note", false)
 	footstep_type = config.get_value("progress", "footstep_type", "outdoor")
-
+	generator_running = config.get_value("progress", "generator_running", false)
+	
 	if config.has_section("picked"):
 		for key in config.get_section_keys("picked"):
 			picked_items[key] = true
@@ -122,6 +125,7 @@ func new_game():
 	is_new_game = true
 	visited_note = false
 	Inventory.items.clear()
+	generator_running = false
 
 
 	if Engine.has_singleton("Inventory"):

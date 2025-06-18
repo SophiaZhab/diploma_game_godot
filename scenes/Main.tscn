@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dq72k5a428o6w" path="res://scenes/Settings/SettingsMenu.tscn" id="3_0bbpv"]
 [ext_resource type="FontFile" uid="uid://c2olj7almidhk" path="res://assets/fonts/TerminusTTF-4.49.3.ttf" id="3_nxtc6"]
 [ext_resource type="FontFile" uid="uid://cjuuvvlu8mwwf" path="res://assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf" id="3_rarhs"]
-[ext_resource type="Script" uid="uid://bqp8o0u0qfejb" path="res://scenes/about_game.gd" id="5_c01mt"]
+[ext_resource type="Script" uid="uid://bqp8o0u0qfejb" path="res://Scripts/about_game.gd" id="5_c01mt"]
 [ext_resource type="Texture2D" uid="uid://tdrnpklii7cj" path="res://assets/objects-for-inventory/InventoryRect.png" id="5_vcsgt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bbpv"]

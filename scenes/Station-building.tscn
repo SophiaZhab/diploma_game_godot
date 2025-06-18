@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qbewrt1qo2sa"]
+[gd_scene load_steps=28 format=3 uid="uid://qbewrt1qo2sa"]
 
 [ext_resource type="Texture2D" uid="uid://cs5wd6231kws6" path="res://assets/backgrounds/bgd-in-st.png" id="1_jedoh"]
 [ext_resource type="Script" uid="uid://mrn0k1twlgx1" path="res://Scripts/station_building.gd" id="1_xoy17"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://beurw8pd2tcjx" path="res://assets/inside-station-objects/table2.png" id="5_4mfnc"]
 [ext_resource type="Texture2D" uid="uid://brbenr6dio74u" path="res://assets/inside-station-objects/cabinet.png" id="7_0iakx"]
 [ext_resource type="Texture2D" uid="uid://nqsop3whqxax" path="res://assets/inside-station-objects/lights.png" id="8_7mwff"]
+[ext_resource type="Script" uid="uid://8n3h3d04krmg" path="res://Scripts/cabinet.gd" id="8_vbnrx"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="9_7mwff"]
 [ext_resource type="PackedScene" uid="uid://cml6p061tfgu" path="res://scenes/UIRoot.tscn" id="10_kb5dq"]
 [ext_resource type="Script" uid="uid://bfao5jtjmvofb" path="res://Scripts/cyber_sp.gd" id="11_qm4h5"]
@@ -112,6 +113,7 @@ shape = SubResource("RectangleShape2D_0fwel")
 [node name="cabinet" type="StaticBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+script = ExtResource("8_vbnrx")
 
 [node name="Sprite2D" type="Sprite2D" parent="cabinet"]
 position = Vector2(-88, 139)
@@ -245,6 +247,7 @@ z_index = 1
 position = Vector2(192.5, 400.25)
 shape = SubResource("RectangleShape2D_a5qgv")
 
+[connection signal="ready" from="cabinet" to="cabinet" method="_on_ready"]
 [connection signal="body_entered" from="station-exit" to="station-exit" method="_on_body_entered"]
 [connection signal="body_entered" from="CyberSp" to="CyberSp" method="_on_body_entered"]
 [connection signal="ready" from="CyberSp" to="CyberSp" method="_on_ready"]

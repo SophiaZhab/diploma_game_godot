@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ghj6lhxhu8gd" path="res://assets/class2-objects/chair.png" id="8_3ag2i"]
 [ext_resource type="Script" uid="uid://baddn342dmq27" path="res://Scripts/door.gd" id="9_smlmg"]
 [ext_resource type="Texture2D" uid="uid://dc2qimnco001u" path="res://assets/characters/mathSp.png" id="10_3ag2i"]
-[ext_resource type="Script" uid="uid://gnlnlswxta0n" path="res://scenes/math_sp.gd" id="10_5wiq6"]
+[ext_resource type="Script" uid="uid://gnlnlswxta0n" path="res://Scripts/math_sp.gd" id="10_5wiq6"]
 [ext_resource type="Script" uid="uid://hmrssuxngej0" path="res://Scripts/dialogs/dialogManager.gd" id="12_b4wbn"]
 [ext_resource type="Texture2D" uid="uid://gv6kuh7qm3cm" path="res://assets/portraits/cyberSp.png" id="13_e3g53"]
 [ext_resource type="Texture2D" uid="uid://c4mgbc5lna52g" path="res://assets/portraits/mainP.png" id="14_i18e8"]

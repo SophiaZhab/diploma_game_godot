@@ -14,3 +14,5 @@
   
 ## Опублікований продукт
 Інсталяційний пакет створеної гри можна завантажити з магазину [intch.io](http://itch.io) або з [розділу релізів](https://github.com/SophiaZhab/diploma_game_godot/releases/tag/v1.3)
+
+## Знімки екрану

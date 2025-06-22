@@ -11,7 +11,7 @@ func _change_to_generator_scene():
 	update_visibility() 
 
 
-func _on_ready() -> void:
+func _ready() -> void:
 	update_visibility()
 
 func update_visibility() -> void:

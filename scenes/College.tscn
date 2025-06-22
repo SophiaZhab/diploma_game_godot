@@ -413,7 +413,7 @@ theme_override_font_sizes/bold_font_size = 23
 wait_time = 0.03
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+layer = 2
 
 [node name="UIroot" parent="CanvasLayer" instance=ExtResource("23_qfknc")]
 
@@ -487,14 +487,10 @@ offset = Vector2(0, -300)
 [node name="monitor" type="Sprite2D" parent="generator_scene"]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(52, 217)
+position = Vector2(52, -471)
 scale = Vector2(0.688462, 0.688462)
 texture = ExtResource("31_xuo1u")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="UIroot" parent="CanvasLayer2" instance=ExtResource("23_qfknc")]
+offset = Vector2(0, 1000)
 
 [connection signal="body_entered" from="garden-enter" to="garden-enter" method="_on_body_entered"]
 [connection signal="body_entered" from="corridor-enter" to="corridor-enter" method="_on_body_entered"]

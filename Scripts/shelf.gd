@@ -64,7 +64,9 @@ func _check_win_condition():
 		if is_correct:
 			if is_correct:
 				_save_game_state()
-				NarrationManager.show_lines(["Хух, нарешті пройшов."])
+				NarrationManager.show_lines(["Хух, нарешті пройшов.",
+				"Тепер з цими числами потрібно щось робити. ",
+				"Напевно, слід запам'ятати"])
 				print("ddd")
 func _get_book_id_from_texture(texture):
 

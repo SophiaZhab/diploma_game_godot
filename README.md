@@ -13,5 +13,4 @@
 * **Godot Animation Player** – для анімації персонажів, об’єктів, інтерфейсу
   
 ## Опублікований продукт
-
-Інсталяційний пакет створеної гри можна знайти у розділі [релізу](https://github.com/SophiaZhab/diploma_game_godot/releases/tag/v1.3), а також завантажити з магазину [intch.io](https://sophiazhab.itch.io/empty-hive)
+Інсталяційний пакет створеної гри можна завантажити з магазину [intch.io](http://itch.io)

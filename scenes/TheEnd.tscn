@@ -7,30 +7,55 @@
 [node name="TheEnd" type="Node2D"]
 script = ExtResource("1_vg0w0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1157.0
 offset_bottom = 655.0
 color = Color(0.122522, 0.126764, 0.191639, 1)
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="CanvasLayer"]
 offset_left = 443.0
-offset_top = 238.0
+offset_top = 483.0
 offset_right = 724.0
-offset_bottom = 359.0
+offset_bottom = 604.0
 theme_override_fonts/font = ExtResource("2_8l3d5")
 theme_override_font_sizes/font_size = 78
 text = "Кінець"
 
-[node name="Text" type="Label" parent="."]
+[node name="Text" type="Label" parent="CanvasLayer"]
 offset_left = 464.0
-offset_top = 345.0
+offset_top = 590.0
 offset_right = 685.0
-offset_bottom = 466.0
+offset_bottom = 711.0
 theme_override_fonts/font = ExtResource("2_8l3d5")
 theme_override_font_sizes/font_size = 45
 text = "далі буде"
 
-[node name="Snowfall" type="ColorRect" parent="."]
+[node name="Text2" type="Label" parent="CanvasLayer"]
+offset_left = 586.0
+offset_top = 714.0
+offset_right = 816.0
+offset_bottom = 911.0
+theme_override_fonts/font = ExtResource("2_8l3d5")
+theme_override_font_sizes/font_size = 27
+text = "Автор сценарію, 
+художник,
+виконавець,
+композитор
+"
+
+[node name="Text3" type="Label" parent="CanvasLayer"]
+offset_left = 238.0
+offset_top = 721.0
+offset_right = 549.0
+offset_bottom = 918.0
+theme_override_fonts/font = ExtResource("2_8l3d5")
+theme_override_font_sizes/font_size = 31
+text = "Софія Жаботинська
+"
+
+[node name="Snowfall" type="ColorRect" parent="CanvasLayer"]
 z_index = 4
 material = ExtResource("3_rag7t")
 offset_left = -1521.0

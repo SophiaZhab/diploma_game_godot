@@ -245,12 +245,12 @@ auto_pickup = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Showel"]
 z_index = 1
-position = Vector2(-84.6652, 446.3)
+position = Vector2(-123, 445)
 scale = Vector2(0.488741, 0.488741)
 texture = ExtResource("16_vsso6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Showel"]
-position = Vector2(-88.4, 442.1)
+position = Vector2(-123, 439)
 polygon = PackedVector2Array(-23, 27, -20, 20, -9, 22, -3, 0, 8, -32, 4, -47, 5, -57, 39, -46, 16, -22, 3, 23, 14, 29, 8, 50)
 
 [node name="Book1" type="Area2D" parent="."]

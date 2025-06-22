@@ -22,6 +22,11 @@ Inventory="*res://Scripts/Inventory.gd"
 NarrationManager="*res://scenes/Narration.tscn"
 Music="*res://scenes/Music/MusicPlayer.tscn"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
